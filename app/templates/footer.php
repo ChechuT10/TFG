@@ -7,4 +7,4 @@
     </div> -->
 </div> 
 </body>
-<script src="templates/js.js"></script>
+<script src="../js/js.js"></script>

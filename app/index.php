@@ -1,4 +1,58 @@
-<?php require_once 'templates/header.php'?>
+<?php
+    session_start();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <!-- <script src="templates/js.js"></script> -->
+</head>
+<body>
+<div class="container lightmode">
+        <header>
+            <h2><a href="index.php">Inicio</a></h2>
+            <nav>
+                <div class="lines">
+                        <div class="line1"></div>
+                        <div class="line2"></div>
+                        <div class="line3"></div>
+                </div>
+                <ul class="nav-links">
+                    <?php
+                        if(isset($_SESSION['userUid'])){
+                            echo '<li><a href="account/perfil.php?id='.$_SESSION["userId"].'"><p>Perfil</p></a></li>
+                                  <li><a href="include/logout.php"><p>Cerrar Sesion</p></a></li>
+                                  <li><a class="night lightmode"><img src="http://localhost/Nueva%20carpeta/images/luna.png"></a></li>';
+                        }else{
+                            echo '<li><a href="account/inicioSesion.php"><p>Inicio de sesion</p></a></li>
+                                  <li><a href="account/registro.php"><p>Registrarse</p></a></li>
+                                  <li><a class="night lightmode"><img src="http://localhost/Nueva%20carpeta/images/luna.png"></a></li>';
+                        }
+                    
+                    ?>
+                    <!-- <li><a href=""><p>Inicio de sesion</p></a></li>
+                    <li><a href=""><p>Registrarse</p></a></li> -->
+                </ul>
+            </nav>
+        </header>
+        <div class="content">
+        <?php
+            if(isset($_SESSION['userUid'])){
+                echo '<div class="subheader"><ul>
+                      <li><a href="">Mi pagina de inicio</a></li>  
+                      <li><a href="subpages/alimentos.php">Alimento</a></li>  
+                      <li><a href="">Ejercicio</a></li>  
+                      <li><a href="">Informes</a></li>  
+                      </ul></div>';
+            }
+        ?>
 
 <?php
     $msj = "";
@@ -9,98 +63,18 @@
     }
 ?>
 
-<?php
-    if(isset($_SESSION['userUid'])){
-		echo '<div class="msg">';
-		echo '<p>¡Bienvenido '.$_SESSION['userUid'].'!</p>';
-        echo "</div>";
-        echo '<div class="redirect">';
-        echo '<p>Para gestionar archivos <a href="gestionArchivos/index.php">pulse aquí</a></p>';
-        echo "</div>";
-        require_once 'class/dbc.php';
-        require_once 'class/food.php';
-        $aux2 = new Food();
-        $food = $aux2->getFood();
-        echo '<div class="wrapper">
-             <div class="search-input">
-             <input type="text" name="alimento" id="alimento" placeholder="Busca un alimento...">
-             <ul id="palabras"></ul>
-             <div class="icon"></div>
-             </div></div>';
-	 }
-?>
-
     <div class="msg">
             <p class="bold white"><?php echo $msj?></p>
     </div>
 
-<?php require_once 'templates/footer.php'?>
-
-<script type="text/javascript">
-let val;
-const alimentos = <?php echo json_encode($food); ?>;
-console.log(alimentos.length)
-
-function damePalabras(raiz){
-    palabras=[]
-    if (raiz!=""){
-        alimentos.forEach(el=>{
-            if(el.name.toLowerCase().indexOf(raiz.toLowerCase())==0){
-                palabras.push(el)
-            }
-        })
-    }
-    return palabras
-}
-
-if(bus!=null && pal!=null){
-    bus.addEventListener('keyup',function(){
-        // val = null
-        let click = false;
-        var cont = this.value;
-        pal.textContent = "";
-        aux = damePalabras(cont)
-        // console.log(aux)
-        
-        aux.forEach(el=>{
-            let li = document.createElement('li')
-            li.textContent = el.name;
-            pal.appendChild(li)
-            li.addEventListener('click',function(){               
-                bus.value = this.textContent
-                pal.textContent = "";
-                click = true
-                console.log(click)
-            })
-            // console.log(click)
-            // if(bus.value.toLowerCase() == el.name.toLowerCase()){
-            //     click = true
-            // }
-            if(click == true){
-                console.log('s')
-                val = el;
-            }
-        })
-        console.log(click)
-        // console.log(pal)
-        // console.log(cont)
-    })
-}
-
-let icon = document.querySelector('.icon')
-icon.addEventListener('click',function(){
-    console.log('click')
-    console.log(val)
-    // if(val.name == bus.value){
-    //     console.log(val)
-    // }
-     if(bus.value.length>0){
-        console.log('no')
-    }
-     if(bus.value.length==0){
-        console.log('vacio')
-    }
-})
-
- </script>
+    <footer>
+            <p class="white">Demo</p>
+    </footer>
+    </div>
+    <!-- <div class="night">
+            <img src="http://localhost/Nueva%20carpeta/images/moon.png">
+    </div> -->
+</div> 
+</body>
+<script src="js/js.js"></script>
 </html>

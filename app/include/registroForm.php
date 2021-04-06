@@ -14,17 +14,17 @@ if(isset($_POST['enviar'])){
     require_once "functions.php";
 
     if(emptyInputSignup($name, $userName, $email, $pswd/*, $pswdRepeat*/) !== false){
-        header("location: ../registro.php?error=emptyinput");
+        header("location: ../account/registro.php?error=emptyinput");
         exit();
     }
     if(uidExists($userName, $email) != false){
-        header("location: ../registro.php?error=usernametaken");
+        header("location: ../account/registro.php?error=usernametaken");
         exit();
     }
     //Los errores de datos los manejamos con rejex   
     createUser($name, $userName, $email, $pswd);
 
 }else{
-    header("location: ../registro.php");
+    header("location: ../account/registro.php");
     exit();
 }

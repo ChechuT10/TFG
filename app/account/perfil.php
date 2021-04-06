@@ -1,8 +1,8 @@
 <?php 
-include('templates/header.php'); 
-require_once 'class/dbc.php';
-require_once 'class/user.php';
-require_once 'class/food.php';
+include('../templates/header.php'); 
+require_once '../class/dbc.php';
+require_once '../class/user.php';
+require_once '../class/food.php';
 
     //detalles de cada usuario
     if(isset($_GET['id']) && $_GET['id'] == $_SESSION['userId']){
@@ -41,10 +41,10 @@ require_once 'class/food.php';
     <?php endif ?>    
 
     <div class="redirect mgtop">
-        <a href="index.php">Volver a la página anterior</a>
+        <a href="../index.php">Volver a la página anterior</a>
     </div>
 
-    <?php include('templates/footer.php'); ?>
+    <?php include('../templates/footer.php'); ?>
     <script type="text/javascript">
     let al = [];
     var a = <?php echo json_encode($food); ?>;

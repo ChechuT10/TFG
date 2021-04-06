@@ -1,7 +1,7 @@
-<?php require_once 'templates/header.php' ?>
-
+<?php require_once '../templates/header.php' ?>
+<?php require_once '../templates/subheader.php' ?>
             <div class="contenido">
-                <form action="include/loginForm.php" method="POST">
+                <form action="../include/loginForm.php" method="POST">
                     <input type="text" name="usuario" placeholder="Nombre de Usuario o email...">
                     <input type="password" name="pswd" placeholder="Contraseña...">
                     <button type="submit" name="enviar">Enviar</button>
@@ -25,5 +25,5 @@
             <p><?php echo $error?></p>
         </div>
 
-	<?php require_once 'templates/footer.php' ?>
+	<?php require_once '../templates/footer.php' ?>
 </html>

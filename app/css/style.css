@@ -84,7 +84,7 @@ nav a{
 }
 
 nav a:hover{
- background-color: #F2C8C7;;
+ background-color: #4FB85F;
 }
 
 /* Boton modo noche */
@@ -95,7 +95,7 @@ nav a:hover{
 /* Modo noche y claro */
 
 .nightmode{
-    background-color: grey;
+    background-color: black;
     color: white;
 }
 .lightmode{
@@ -105,9 +105,9 @@ nav a:hover{
 
 /* Subheader */
 .subheader{
-    background-color: #00FF9D;
+    background-color: #4FB85F;
     display: flex;
-    height: 10%;
+    height: 2em;
     width: 100%;
     align-items: center;
     justify-content: center;

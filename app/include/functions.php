@@ -23,7 +23,7 @@ function createUser($name, $userName, $email, $pswd){
         header("location: ../index.php?msj=exito");
         exit();
     }else{
-        header("location: ../registro.php?error=stmtfailed");//?error=stmtfailed
+        header("location: ../account/registro.php?error=stmtfailed");//?error=stmtfailed
         exit();
     }
 }
@@ -45,7 +45,7 @@ function loginUser($userName, $pswd){
     $uidExist =  uidExists($userName , $userName);
 
     if($uidExist===false){
-        header("location: ../inicioSesion.php?error=wronglogin");
+        header("location: ../account/inicioSesion.php?error=wronglogin");
         exit();
     }
     //Aqui obtenemos la contraseña descodificada de la base de datos
@@ -54,7 +54,7 @@ function loginUser($userName, $pswd){
     $checkPwd = password_verify($pswd, $pswdHashed);
 
     if($checkPwd===false){
-        header("location: ../inicioSesion.php?error=wronglogin");
+        header("location: ../account/inicioSesion.php?error=wronglogin");
         exit();
     }else if($checkPwd===true){
 

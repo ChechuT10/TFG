@@ -10,7 +10,7 @@ if(isset($_POST['enviar'])){
     require_once "functions.php";
 
     if(emptyInputLogin($userName, $pswd) !== false){
-        header("location: ../inicioSesion.php?error=emptyinput");//?error=emptyinput
+        header("location: ../account/inicioSesion.php?error=emptyinput");//?error=emptyinput
         exit();
     }
 
@@ -18,6 +18,6 @@ if(isset($_POST['enviar'])){
 
 
 }else{
-    header("location: ../inicioSesion.php");
+    header("location: ../account/inicioSesion.php");
     exit();
 }

@@ -1,7 +1,7 @@
-<?php require_once 'templates/header.php'?>
+<?php require_once '../templates/header.php'?>
     
             <div>
-            <form action="include/registroForm.php" method="POST">
+            <form action="../include/registroForm.php" method="POST">
                 <input type="text" name="nombre" placeholder="Nombre y Apellidos...">
                 <p>Debe incluir solo letras y espacios</p>
                 <input type="text" name="usuario" placeholder="Nombre de Usuario...">
@@ -33,6 +33,6 @@
             <p><?php echo $error?></p>
         </div>
         
-    <?php require_once 'templates/footer.php'?>
-    <script src="templates/regex.js"></script>
+    <?php require_once '../templates/footer.php'?>
+    <script src="../js/regex.js"></script>
 </html>
