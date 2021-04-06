@@ -1,0 +1,449 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+}
+/* Contenedor general */
+
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Cabezera */
+
+header{
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, 1fr);
+    grid-template-areas: '. tit tit  . nav .';
+    justify-content: space-between;
+    align-items: center;                     
+    box-shadow: 0 0 0.4em rgba(0,0,0,0.2);
+    color:inherit;
+}
+
+header h2{
+    /* border: 1px solid white; */
+    width: auto;
+    grid-area: tit;
+}
+header h2 a{
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* Nav */
+nav{
+    /* border: 1px solid white; */
+    height: 100%;
+    grid-area: nav;
+    width: auto;
+    display: flex;
+    align-content: center;
+}
+
+.lines{
+    /* border: 1px solid white; */
+    display: none;
+}
+
+header ul{
+    /* border: 1px solid white; */
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+}
+header li{
+    height: 100%;
+    /* border: 1px solid white; */
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    
+}
+
+nav a{
+    /* border: 1px solid white; */
+    height: 100%;
+    width: 100%;
+    padding: 0 1em;
+    text-decoration: none;
+    color:inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav a:hover{
+ background-color: #F2C8C7;;
+}
+
+/* Boton modo noche */
+.night img{
+    max-width: 50px;
+}
+
+/* Modo noche y claro */
+
+.nightmode{
+    background-color: grey;
+    color: white;
+}
+.lightmode{
+    background-color:white;
+    color: black;
+}
+
+/* Subheader */
+.subheader{
+    background-color: #00FF9D;
+    display: flex;
+    height: 10%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.subheader ul{
+
+    width: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+}
+.subheader li{
+    height: 100%;
+    /* border: 1px solid white; */
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;    
+}
+.subheader  a{
+    /* border: 1px solid white; */
+    height: 100%;
+    width: 100%;
+    padding: 0 1em;
+    text-decoration: none;
+    color:inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Estilo del formulario */
+form{
+    padding: 5em 1em 0;
+    border-radius: 0.5em;
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+  }
+  
+  input {
+      display: block;
+      width: 80%;
+      padding: 0.8em 1em;
+      margin: 0.2em 0;
+      display: inline-block;
+      border: 2px solid #FF8B88;
+      outline: none !important;
+      border-radius: 2em;
+      box-sizing: border-box;
+      background-color: #DFDFDF;
+      font-weight: bold;
+  }
+  
+  label{
+      margin: 10px 0;
+      font-family: 'Trebuchet MS', sans-serif;
+      font-size: 0.9em;
+      font-weight: bold;
+      width: 60%;
+  }
+  
+  label input{
+      width: 5%;
+      margin: 1em 0.2em;
+  }
+
+  button{
+    margin: 0.4em auto;
+    width: auto;
+    display: block;
+    background-color: #C26865;
+    color: white;
+    padding: 0.6em 0.8em;
+    border: none;
+    border-radius: 0.6em;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0.1em 0.3em 0.3em rgba(0,0,0,0.2);
+} 
+
+/*Estilo de la tabla*/
+table{
+    height:15em;
+    width: 40em;
+    border-collapse: collapse;
+    padding: 0.8em 0.8em;
+    margin: 2em auto 0;
+    font-size: 0.9em;
+}
+
+table td{
+    border-bottom: 1px solid black;
+    margin: 5px;
+    padding: 8px;
+}
+
+/* Clases para el formulario */
+
+input + p{
+    font-family: arial;
+    font-size: 0.8em;
+    font-weight: bold;
+    margin: 0 2em;
+    color: #C26865;
+    opacity: 0;
+    height: 0;
+  }
+  input.invalid +p{
+    opacity: 1;
+    height: auto;
+  }
+  input.valid{
+    border-color: green;
+  }
+
+  input.invalid{
+    border-color: #EC1D18;
+  }
+
+/* footer */
+  footer{
+    width: 100%;
+    height: 3em;
+    position: absolute;
+    bottom: 0;
+    background-color: #C26865;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:white;
+}
+
+/* Clases genericas */
+
+.contenido{
+    width: 100%;
+}
+.redirect{
+    text-align: center;
+    font-size: 0.9em;
+}
+.redirect a{
+    text-decoration: none;
+    color: #C26865;
+    font-weight: bold;
+}
+.msg{
+    text-align: center;
+    color: #C26865;
+    font-weight: bold;
+}
+
+.tit{
+    text-align: center;
+}
+
+.mgtop{
+    margin: 2em 0 0 0;
+    padding: 0;
+}
+
+/* Buscar alimentos */
+
+.wrapper{
+    margin: 0 auto;
+    width: 30%;
+    margin: 150px auto;
+    /* background: #DFDFDF; */
+    border-radius: 5px;
+  }
+.wrapper .search-input{
+    background: #DFDFDF;
+    width: 100%;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0px 1px 5px 3px rgba(0,0,0,0.12);
+}
+
+.search-input input{
+    height: 2em;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 0 60px 0 20px;
+    font-size: 0.9em;
+    box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+  }
+
+input+ul{
+    margin: 0 auto;
+    padding: 0;
+    /* border: 1px solid white; */
+    /* background-color: #DFDFDF; */
+
+}
+input+ul li{
+    margin: 0;
+    list-style: none;
+    border-radius: 5px;
+    padding: 5px 60px 5px 20px;
+    /* color: white; */
+    /* background-color: #DFDFDF; */
+}
+
+.wrapper li:hover{
+    background: #efefef;
+}
+.search-input .icon{
+    /* border: 1px solid white; */
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background-image: url(http://localhost/Nueva%20carpeta/images/search2.png);
+    background-size: cover;
+    background-position: center;
+    height: 25px;
+    width: 25px;
+    text-align: center;
+    line-height: 55px;
+    font-size: 20px;
+    color: #644bff;
+    cursor: pointer;
+  }
+/* Ajustes para pantallas pequeñas */
+@media screen and (max-width: 500px){
+    
+    header ul{
+        position: fixed;
+        flex-direction: column;
+        width: 100%;
+        height: 90%;
+        top: 11vh;
+        right: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    header li{
+        width: 100%;
+        height: 6%;
+        padding: 0;
+        
+    }
+    
+    .lines{
+        width: auto;
+        /* border: 1px solid white; */
+        display: block;
+        align-self: center;
+        cursor: pointer;
+    } 
+    .lines div{
+        width: 25px;
+        height: 2px;
+        background: white;
+        display: block;
+        margin: 5px auto;
+    }
+
+    .night{
+        padding: 0.2em 0;
+    }
+
+    form{
+        width: 95%;
+      }
+    table{
+        width: 80%;
+    }
+
+    .wrapper{
+        width: 70%;
+      }
+
+    /* clases para las animaciones */
+
+    .animate{
+        animation: mostrar 0.5s linear forwards;
+    }
+    .animateout{
+        animation: ocultar 0.5s linear forwards;
+    }
+
+    .toggle .line1 {
+        animation: line1 0.3s linear forwards;
+    
+    }
+    
+    .toggle .line2 {
+        opacity: 0;
+    }
+    
+    .toggle .line3 {
+        animation: line3 0.3s linear forwards;
+    }
+
+    .ocultar{
+        display: none;
+      }
+}
+
+
+/* Animaciones */
+
+@keyframes line1{
+    from{
+        transform: 0;
+    }to{
+        transform: rotate(-45deg) translate(-5px, 5px);
+    }
+}
+@keyframes line3{
+    from{
+        transform: 0;
+    }to{
+        transform: rotate(45deg) translate(-5px, -5px);
+    }
+}
+
+@keyframes mostrar{
+    from{
+        transform: translateX(0);
+    }to{
+        transform: translateX(100%);
+    }
+}
+@keyframes ocultar{
+    from{
+        transform: translateX(100%);
+    }to{
+        transform: translateX(0);
+    }
+}
+
