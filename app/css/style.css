@@ -84,7 +84,7 @@ nav a{
 }
 
 nav a:hover{
- background-color: #4FB85F;
+ background-color: #94F486;
 }
 
 /* Boton modo noche */
@@ -100,12 +100,12 @@ nav a:hover{
 }
 .lightmode{
     background-color:white;
-    color: black;
+    color: grey;
 }
 
 /* Subheader */
 .subheader{
-    background-color: #4FB85F;
+    background-color: #94F486;
     display: flex;
     height: 2em;
     width: 100%;
@@ -237,12 +237,12 @@ input + p{
     height: 3em;
     position: absolute;
     bottom: 0;
-    background-color: #C26865;
+    background-color: #94F486;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    color:white;
+    color:inherit;
 }
 
 /* Clases genericas */
