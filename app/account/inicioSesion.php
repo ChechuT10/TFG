@@ -1,6 +1,6 @@
 <?php require_once '../templates/header.php' ?>
 <?php require_once '../templates/subheader.php' ?>
-            <div class="contenido">
+            <div class = "register">
                 <form action="../include/loginForm.php" method="POST">
                     <input type="text" name="usuario" placeholder="Nombre de Usuario o email...">
                     <input type="password" name="pswd" placeholder="Contraseña...">

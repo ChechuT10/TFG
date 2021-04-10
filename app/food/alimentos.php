@@ -1,19 +1,39 @@
 <?php require_once '../templates/header.php'?>
     <?php require_once '../templates/subheader.php'?>
-        <div>
-
+       
         <?php
             require_once '../class/dbc.php';
             require_once '../class/food.php';
             $aux2 = new Food();
             $food = $aux2->getFood();
         ?>
-             <div class="wrapper">
-             <div class="search-input">
-             <input type="text" name="alimento" id="alimento" placeholder="Busca un alimento...">
-             <ul id="palabras"></ul>
-             <div class="icon"></div>
-             </div></div>
+    <div class="content">
+        <div class="add">
+            <div class="desayuno">
+                <h3>Desayuno</h3>
+                <a href=""><p>Añadir alimento +</p></a>
+            </div>
+            <div class="comida">
+                <h3>Comida</h3>
+                <a href=""><p>Añadir alimento +</p></a>
+            </div>
+            <div class="cena">
+                <h3>Cena</h3>
+                <a href=""><p>Añadir alimento +</p></a>
+            </div>
+        </div>
+
+
+        <div class="wrapper">
+            <div class="search-input">
+                <input type="text" name="alimento" id="alimento" placeholder="Busca un alimento...">
+                <ul id="palabras"></ul>
+                <div class="icon"></div>
+            </div>
+        </div>
+
+        
+
 <?php require_once '../templates/footer.php'?>
 <script type="text/javascript">
 let val;

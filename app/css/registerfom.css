@@ -1,0 +1,72 @@
+/* Clases para el formulario */
+
+input + p{
+    font-family: arial;
+    font-size: 0.8em;
+    font-weight: bold;
+    margin: 0 2em;
+    color: #C26865;
+    opacity: 0;
+    height: 0;
+  }
+  input.invalid +p{
+    opacity: 1;
+    height: auto;
+  }
+  input.valid{
+    border-color: green;
+  }
+
+  input.invalid{
+    border-color: #EC1D18;
+  }
+
+  /* Estilo del formulario */
+.register form{
+    padding: 5em 1em 0;
+    border-radius: 0.5em;
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+  }
+  
+.register  input {
+      display: block;
+      width: 80%;
+      padding: 0.8em 1em;
+      margin: 0.2em 0;
+      display: inline-block;
+      border: 2px solid #777;
+      outline: none !important;
+      border-radius: 2em;
+      box-sizing: border-box;
+      background-color: #DFDFDF;
+      font-weight: bold;
+  }
+  
+.register  label{
+      margin: 10px 0;
+      font-family: 'Trebuchet MS', sans-serif;
+      font-size: 0.9em;
+      font-weight: bold;
+      width: 60%;
+  }
+  
+.register  label input{
+      width: 5%;
+      margin: 1em 0.2em;
+  }
+
+.register  button{
+    margin: 0.4em auto;
+    width: auto;
+    display: block;
+    background-color: #777;
+    color: white;
+    padding: 0.6em 0.8em;
+    border: none;
+    border-radius: 0.6em;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0.1em 0.3em 0.3em rgba(0,0,0,0.2);
+} 

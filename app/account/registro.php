@@ -1,6 +1,6 @@
 <?php require_once '../templates/header.php'?>
     
-            <div>
+            <div class = "register">
             <form action="../include/registroForm.php" method="POST">
                 <input type="text" name="nombre" placeholder="Nombre y Apellidos...">
                 <p>Debe incluir solo letras y espacios</p>
