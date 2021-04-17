@@ -1,7 +1,102 @@
-CREATE TABLE users (
-    userId int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    userName varchar(128) NOT NULL,
-    userEmail varchar(128) NOT NULL,
-    userUid varchar(128) NOT NULL,
-    userPswd varchar(128) NOT NULL
+CREATE SCHEMA `tfg` ;
+
+CREATE TABLE `tfg`.`user` (
+  `iduser` VARCHAR(128) NOT NULL,
+  `Nombre` VARCHAR(45) NOT NULL,
+  `Apellido` VARCHAR(45) NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `edad` INT NULL,
+  `peso` INT NOT NULL,
+  PRIMARY KEY (`iduser`),
+  UNIQUE INDEX `iduser_UNIQUE` (`iduser` ASC),
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC)
 );
+
+CREATE TABLE `tfg`.`comida` (
+  `alimento` VARCHAR(128) NOT NULL,
+  `Kcal` INT NOT NULL,
+  `hidratos` INT NOT NULL,
+  `grasas` INT NOT NULL,
+  `proteinas` INT NOT NULL,
+  PRIMARY KEY (`alimento`),
+  UNIQUE INDEX `alimento_UNIQUE` (`alimento` ASC)
+);
+
+
+CREATE TABLE `tfg`.`desalluno` (
+  `idDesalluno` INT NOT NULL AUTO_INCREMENT,
+  `relComida` VARCHAR(128) NOT NULL,
+  `relUsuario` VARCHAR(128) NOT NULL,
+  PRIMARY KEY (`idDesalluno`),
+  INDEX `comida_idx` (`relComida` ASC),
+  INDEX `relUsuario_idx` (`relUsuario` ASC),
+  CONSTRAINT `comida`
+    FOREIGN KEY (`relComida`)
+    REFERENCES `tfg`.`comida` (`alimento`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `relUsuario`
+    FOREIGN KEY (`relUsuario`)
+    REFERENCES `tfg`.`user` (`iduser`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+);
+
+
+CREATE TABLE `tfg`.`almuerzo` (
+  `idAlmuerzo` INT NOT NULL AUTO_INCREMENT,
+  `relComida` VARCHAR(128) NOT NULL,
+  `relUser` VARCHAR(128) NOT NULL,
+  PRIMARY KEY (`idAlmuerzo`),
+  INDEX `relComida_idx` (`relComida` ASC),
+  INDEX `reUser_idx` (`relUser` ASC),
+  CONSTRAINT `relComida`
+    FOREIGN KEY (`relComida`)
+    REFERENCES `tfg`.`comida` (`alimento`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `reUser`
+    FOREIGN KEY (`relUser`)
+    REFERENCES `tfg`.`user` (`iduser`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+);
+
+CREATE TABLE `tfg`.`cena` (
+  `idcena` INT NOT NULL AUTO_INCREMENT,
+  `relComida` VARCHAR(128) NOT NULL,
+  `relUser` VARCHAR(128) NOT NULL,
+  PRIMARY KEY (`idcena`),
+  INDEX `reComida_idx` (`relComida` ASC),
+  INDEX `relUser_idx` (`relUser` ASC),
+  CONSTRAINT `relComida`
+    FOREIGN KEY (`relComida`)
+    REFERENCES `tfg`.`comida` (`alimento`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `relUser`
+    FOREIGN KEY (`relUser`)
+    REFERENCES `tfg`.`user` (`iduser`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+);
+
+
+CREATE TABLE `tfg`.`cena` (
+  `idcena` INT NOT NULL AUTO_INCREMENT,
+  `relComida` VARCHAR(128) NOT NULL,
+  `relUsuario` VARCHAR(128) NOT NULL,
+  PRIMARY KEY (`idcena`),
+  INDEX `reComida_idx` (`relComida` ASC),
+  INDEX `relUsuario_idx` (`relUsuario` ASC),
+  CONSTRAINT `relComida1`
+    FOREIGN KEY (`relComida`)
+    REFERENCES `tfg`.`comida` (`alimento`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `relUsuario1`
+    FOREIGN KEY (`relUsuario`)
+    REFERENCES `tfg`.`user` (`iduser`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
