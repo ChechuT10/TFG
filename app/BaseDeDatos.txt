@@ -12,7 +12,7 @@ CREATE TABLE `tfg`.`user` (
   UNIQUE INDEX `email_UNIQUE` (`email` ASC)
 );
 
-CREATE TABLE `tfg`.`comida` (
+CREATE TABLE `tfg`.`alimento` (
   `alimento` VARCHAR(128) NOT NULL,
   `Kcal` INT NOT NULL,
   `hidratos` INT NOT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE `tfg`.`desalluno` (
 );
 
 
-CREATE TABLE `tfg`.`almuerzo` (
+CREATE TABLE `tfg`.`comida` (
   `idAlmuerzo` INT NOT NULL AUTO_INCREMENT,
   `relComida` VARCHAR(128) NOT NULL,
   `relUser` VARCHAR(128) NOT NULL,
@@ -56,25 +56,6 @@ CREATE TABLE `tfg`.`almuerzo` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `reUser`
-    FOREIGN KEY (`relUser`)
-    REFERENCES `tfg`.`user` (`iduser`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION
-);
-
-CREATE TABLE `tfg`.`cena` (
-  `idcena` INT NOT NULL AUTO_INCREMENT,
-  `relComida` VARCHAR(128) NOT NULL,
-  `relUser` VARCHAR(128) NOT NULL,
-  PRIMARY KEY (`idcena`),
-  INDEX `reComida_idx` (`relComida` ASC),
-  INDEX `relUser_idx` (`relUser` ASC),
-  CONSTRAINT `relComida`
-    FOREIGN KEY (`relComida`)
-    REFERENCES `tfg`.`comida` (`alimento`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `relUser`
     FOREIGN KEY (`relUser`)
     REFERENCES `tfg`.`user` (`iduser`)
     ON DELETE NO ACTION
