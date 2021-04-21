@@ -1,36 +1,15 @@
--- phpMyAdmin SQL Dump
--- version 5.0.4
--- https://www.phpmyadmin.net/
---
--- Servidor: 127.0.0.1
--- Tiempo de generación: 17-04-2021 a las 19:30:09
--- Versión del servidor: 10.4.17-MariaDB
--- Versión de PHP: 7.4.13
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `tfg`
+-- Estructura de tabla para la tabla `alimentos`
 --
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `almuerzo`
---
-
-CREATE TABLE `almuerzo` (
-  `idAlmuerzo` int(11) NOT NULL,
-  `relComida` varchar(125) NOT NULL,
-  `relUser` varchar(125) NOT NULL
+CREATE TABLE `alimentos` (
+  `idalimentos` int(11) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `calorias` int(11) NOT NULL,
+  `hidratos` int(11) NOT NULL,
+  `proteinas` int(11) NOT NULL,
+  `grasas` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -40,9 +19,9 @@ CREATE TABLE `almuerzo` (
 --
 
 CREATE TABLE `cena` (
-  `idcena` int(11) NOT NULL,
-  `relComida` varchar(128) NOT NULL,
-  `relUsuario` varchar(128) NOT NULL
+  `idCena` int(11) NOT NULL,
+  `idAlimento` int(11) NOT NULL,
+  `idUser` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -52,23 +31,21 @@ CREATE TABLE `cena` (
 --
 
 CREATE TABLE `comida` (
-  `alimento` varchar(128) NOT NULL,
-  `Kcal` int(11) NOT NULL,
-  `hidratos` int(11) NOT NULL,
-  `grasas` int(11) NOT NULL,
-  `proteinas` int(11) NOT NULL
+  `idComida` int(11) NOT NULL,
+  `idAlimento` int(11) NOT NULL,
+  `idUser` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `desalluno`
+-- Estructura de tabla para la tabla `desayuno`
 --
 
-CREATE TABLE `desalluno` (
-  `idDesalluno` int(11) NOT NULL,
-  `relComida` varchar(125) NOT NULL,
-  `relUsuario` varchar(125) NOT NULL
+CREATE TABLE `desayuno` (
+  `idDesayuno` int(11) NOT NULL,
+  `idAlimento` int(11) NOT NULL,
+  `idUser` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -78,12 +55,14 @@ CREATE TABLE `desalluno` (
 --
 
 CREATE TABLE `user` (
-  `iduser` varchar(128) NOT NULL,
-  `Nombre` varchar(45) NOT NULL,
-  `Apellido` varchar(45) DEFAULT NULL,
-  `email` varchar(45) NOT NULL,
-  `edad` int(11) DEFAULT NULL,
-  `peso` int(11) NOT NULL
+  `iduser` int(11) NOT NULL,
+  `nombreUser` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `apellidos` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `peso` int(11) NOT NULL,
+  `edad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -91,35 +70,35 @@ CREATE TABLE `user` (
 --
 
 --
--- Indices de la tabla `almuerzo`
+-- Indices de la tabla `alimentos`
 --
-ALTER TABLE `almuerzo`
-  ADD PRIMARY KEY (`idAlmuerzo`),
-  ADD KEY `relComida_idx` (`relComida`),
-  ADD KEY `reUser_idx` (`relUser`);
+ALTER TABLE `alimentos`
+  ADD PRIMARY KEY (`idalimentos`),
+  ADD UNIQUE KEY `idalimentos_UNIQUE` (`idalimentos`);
 
 --
 -- Indices de la tabla `cena`
 --
 ALTER TABLE `cena`
-  ADD PRIMARY KEY (`idcena`),
-  ADD KEY `reComida_idx` (`relComida`),
-  ADD KEY `relUsuario_idx` (`relUsuario`);
+  ADD PRIMARY KEY (`idCena`),
+  ADD KEY `alimento_idx` (`idAlimento`),
+  ADD KEY `userCn_idx` (`idUser`);
 
 --
 -- Indices de la tabla `comida`
 --
 ALTER TABLE `comida`
-  ADD PRIMARY KEY (`alimento`),
-  ADD UNIQUE KEY `alimento_UNIQUE` (`alimento`);
+  ADD PRIMARY KEY (`idComida`),
+  ADD KEY `alimentos_idx` (`idAlimento`),
+  ADD KEY `user_idx` (`idUser`);
 
 --
--- Indices de la tabla `desalluno`
+-- Indices de la tabla `desayuno`
 --
-ALTER TABLE `desalluno`
-  ADD PRIMARY KEY (`idDesalluno`),
-  ADD KEY `comida_idx` (`relComida`),
-  ADD KEY `relUsuario_idx` (`relUsuario`);
+ALTER TABLE `desayuno`
+  ADD PRIMARY KEY (`idDesayuno`),
+  ADD KEY `comida_idx` (`idAlimento`),
+  ADD KEY `user_idx` (`idUser`);
 
 --
 -- Indices de la tabla `user`
@@ -127,6 +106,7 @@ ALTER TABLE `desalluno`
 ALTER TABLE `user`
   ADD PRIMARY KEY (`iduser`),
   ADD UNIQUE KEY `iduser_UNIQUE` (`iduser`),
+  ADD UNIQUE KEY `nombreUser_UNIQUE` (`nombreUser`),
   ADD UNIQUE KEY `email_UNIQUE` (`email`);
 
 --
@@ -134,47 +114,59 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT de la tabla `almuerzo`
+-- AUTO_INCREMENT de la tabla `alimentos`
 --
-ALTER TABLE `almuerzo`
-  MODIFY `idAlmuerzo` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `alimentos`
+  MODIFY `idalimentos` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `cena`
 --
 ALTER TABLE `cena`
-  MODIFY `idcena` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idCena` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `desalluno`
+-- AUTO_INCREMENT de la tabla `comida`
 --
-ALTER TABLE `desalluno`
-  MODIFY `idDesalluno` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `comida`
+  MODIFY `idComida` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `desayuno`
+--
+ALTER TABLE `desayuno`
+  MODIFY `idDesayuno` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `user`
+--
+ALTER TABLE `user`
+  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `almuerzo`
---
-ALTER TABLE `almuerzo`
-  ADD CONSTRAINT `reUser` FOREIGN KEY (`relUser`) REFERENCES `user` (`iduser`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `relComida` FOREIGN KEY (`relComida`) REFERENCES `comida` (`alimento`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
 -- Filtros para la tabla `cena`
 --
 ALTER TABLE `cena`
-  ADD CONSTRAINT `relComida1` FOREIGN KEY (`relComida`) REFERENCES `comida` (`alimento`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `relUsuario1` FOREIGN KEY (`relUsuario`) REFERENCES `user` (`iduser`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `alimentoCn` FOREIGN KEY (`idAlimento`) REFERENCES `alimentos` (`idalimentos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `userCn` FOREIGN KEY (`idUser`) REFERENCES `user` (`iduser`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Filtros para la tabla `desalluno`
+-- Filtros para la tabla `comida`
 --
-ALTER TABLE `desalluno`
-  ADD CONSTRAINT `comida` FOREIGN KEY (`relComida`) REFERENCES `comida` (`alimento`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `relUsuario` FOREIGN KEY (`relUsuario`) REFERENCES `user` (`iduser`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `comida`
+  ADD CONSTRAINT `aliemntoC` FOREIGN KEY (`idAlimento`) REFERENCES `alimentos` (`idalimentos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `userC` FOREIGN KEY (`idUser`) REFERENCES `user` (`iduser`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `desayuno`
+--
+ALTER TABLE `desayuno`
+  ADD CONSTRAINT `alimentoD` FOREIGN KEY (`idAlimento`) REFERENCES `alimentos` (`idalimentos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `userD` FOREIGN KEY (`idUser`) REFERENCES `user` (`iduser`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
