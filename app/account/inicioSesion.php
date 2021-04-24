@@ -1,5 +1,6 @@
 <?php require_once '../templates/header.php' ?>
 <?php require_once '../templates/subheader.php' ?>
+        <div class="content">
             <div class = "register">
                 <form action="../include/loginForm.php" method="POST">
                     <input type="text" name="usuario" placeholder="Nombre de Usuario o email...">
@@ -10,20 +11,20 @@
                 <p>Todavía no eres miembro? <a href="registro.php">Pincha aquí</a></p>
                 </div> 
             </div>            
-        <?php
-        $error = "";
-        if(isset($_GET['error'])){
-            if($_GET['error']=="emptyinput"){
-                $error = '¡Debes rellenar todos los datos!';
+            <?php
+            $error = "";
+            if(isset($_GET['error'])){
+                if($_GET['error']=="emptyinput"){
+                    $error = '¡Debes rellenar todos los datos!';
+                }
+                if($_GET['error']=="wronglogin"){
+                    $error = '¡Usuario o contraseña inválidas!';
+                }
             }
-            if($_GET['error']=="wronglogin"){
-                $error = '¡Usuario o contraseña inválidas o no existen!';
-            }
-        }
-        ?>
-        <div class="msg">
-            <p><?php echo $error?></p>
+            ?>
+            <div class="msg">
+                <p><?php echo $error?></p>
+            </div>
         </div>
-
 	<?php require_once '../templates/footer.php' ?>
 </html>

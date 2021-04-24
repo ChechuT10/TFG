@@ -12,7 +12,8 @@
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <!-- <script src="templates/js.js"></script> -->
+    <script src="js/jquery.js"></script>
+    <script src="js/jquerytest.js"></script>
 </head>
 <body>
 <div class="container lightmode">
@@ -44,8 +45,6 @@
                         }
                     
                     ?>
-                    <!-- <li><a href=""><p>Inicio de sesion</p></a></li>
-                    <li><a href=""><p>Registrarse</p></a></li> -->
                 </ul>
             </nav>
         </header>
@@ -83,33 +82,29 @@
                 <img src="images/graphic.png">
             </div>
         </div>
-        <footer>
-            <div class="contacto">
-                    <div class="redes">
-                        <h3>Síguenos en</h3>
-                        <a href=""><img src="images/tw.png">Twitter</a>
-                        <a href=""><img src="images/insta.png">Instagram</a>
-                        <a href=""><img src="images/facebook.png">Facebook</a>
-                    </div>
-                    <div class="preguntas">
-                        <h3>Conócenos</h3>
-                        <a href="">¿Quiénes somos?</a>
-                        <a href="">Ayuda</a>
-                        <a href="">Preguntas Frecuentes</a>
-                    </div>
-                    <div class="legal">
-                        <h3>Legal</h3>
-                        <a href="">Condiciones de uso</a>
-                        <a href="">Politica de Privacidad</a>
-                        <a href="">Cookies</a>
-                    </div>
-            </div>
-        <p>Copyright &copy; MMN | Todos los dereechos reservados</p>
-        </footer>
-        </div>
-            <!-- <div class="night">
-                    <img src="http://localhost/Nueva%20carpeta/images/moon.png">
-            </div> -->
+            <footer>
+                <div class="contacto">
+                        <div class="redes">
+                            <h3>Síguenos en</h3>
+                            <a href=""><img src="images/tw.png">Twitter</a>
+                            <a href=""><img src="images/insta.png">Instagram</a>
+                            <a href=""><img src="images/facebook.png">Facebook</a>
+                        </div>
+                        <div class="preguntas">
+                            <h3>Conócenos</h3>
+                            <a href="">¿Quiénes somos?</a>
+                            <a href="">Ayuda</a>
+                            <a href="">Preguntas Frecuentes</a>
+                        </div>
+                        <div class="legal">
+                            <h3>Legal</h3>
+                            <a href="">Condiciones de uso</a>
+                            <a href="">Politica de Privacidad</a>
+                            <a href="">Cookies</a>
+                        </div>
+                </div>
+            <p>Copyright &copy; MMN | Todos los dereechos reservados</p>
+            </footer>
 </div> 
 </body>
 <script src="js/js.js"></script>

@@ -11,7 +11,7 @@
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css"/>
     <link rel="stylesheet" type="text/css" href="../css/alimentos.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/registerform.css"/>
+    <!-- <link rel="stylesheet" type="text/css" href="../css/registerform.css"/> -->
     <link rel="stylesheet" type="text/css" href="../css/ejercicio.css"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
@@ -23,7 +23,8 @@
       rel="stylesheet"
     />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <!-- <script src="templates/js.js"></script> -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/jquerytest.js"></script>
 </head>
 <body>
 <div class="container lightmode">
@@ -55,8 +56,6 @@
                         }
                     
                     ?>
-                    <!-- <li><a href=""><p>Inicio de sesion</p></a></li>
-                    <li><a href=""><p>Registrarse</p></a></li> -->
                 </ul>
             </nav>
         </header>

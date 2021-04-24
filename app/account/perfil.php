@@ -22,15 +22,15 @@ require_once '../class/food.php';
                 </tr>
                 <tr>
                     <td><h4>NOMBRE</h4></td>
-                    <td><p><?php echo $user['userName'];?></p></td>
+                    <td><p><?php echo $user['nombre'];?></p></td>
                 </tr>
                 <tr>
                     <td><h4>NOMBRE DE USUARIO</h4></td>
-                    <td><p><?php echo $user['userUid']; ?></p></td>
+                    <td><p><?php echo $user['nombreUser']; ?></p></td>
                 </tr>
                 <tr>
                     <td><h4>CORREO ELECTRÓNICO<h4></td>
-                    <td><p><?php echo $user['userEmail']; ?></p></td>
+                    <td><p><?php echo $user['email']; ?></p></td>
                 </tr>        
             </table>
         </div>
