@@ -3,14 +3,14 @@
 class User extends Db{
 
     // Creamos una funcion para crear usuarios
-    public function createUsers($name, $lastName, $userName, $email, $pswd, $age, $weight){
+    public function createUsers($name, $lastName, $userName, $email, $pswd, $age, $weight, $height){
         // Declaramos la sentencia sql
-        $sql = "INSERT INTO user (nombre,apellidos,nombreUser,email,pswdUser,edad,peso) VALUES (?, ?, ?, ?, ?, ?, ?);";//users
+        $sql = "INSERT INTO user (nombre,apellidos,nombreUser,email,pswdUser,edad,peso, altura) VALUES (?, ?, ?, ?, ?, ?, ?);";//users
        // Ejecutamos la sentencia sql
         $query = $this->connect()->prepare($sql);
         $hashedPswd = password_hash($pswd, PASSWORD_DEFAULT);
         // $query->bind_param('ssss', $name, $email, $userName, $hashedPswd);
-        if ($query->execute([$name, $lastName, $userName, $email, $hashedPswd, $age, $weight])) {
+        if ($query->execute([$name, $lastName, $userName, $email, $hashedPswd, $age, $weight, $height])) {
             // Si se ejecuta correctamente se retorna un boolean con valor true
             return true;
         }else{

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-04-2021 a las 12:14:52
+-- Tiempo de generación: 26-04-2021 a las 16:21:10
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 7.4.15
 
@@ -24,105 +24,31 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `alimentos`
---
-
-CREATE TABLE `alimentos` (
-  `idalimentos` int(11) NOT NULL,
-  `nombre` varchar(255) NOT NULL,
-  `calorias` int(11) NOT NULL,
-  `hidratos` int(11) NOT NULL,
-  `proteinas` int(11) NOT NULL,
-  `grasas` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `cena`
---
-
-CREATE TABLE `cena` (
-  `idCena` int(11) NOT NULL,
-  `idAlimento` int(11) NOT NULL,
-  `idUser` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `comida`
---
-
-CREATE TABLE `comida` (
-  `idComida` int(11) NOT NULL,
-  `idAlimento` int(11) NOT NULL,
-  `idUser` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `desayuno`
---
-
-CREATE TABLE `desayuno` (
-  `idDesayuno` int(11) NOT NULL,
-  `idAlimento` int(11) NOT NULL,
-  `idUser` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `user`
 --
 
 CREATE TABLE `user` (
   `iduser` int(11) NOT NULL,
   `nombreUser` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
+  `pswdUser` varchar(100) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `apellidos` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `peso` int(11) NOT NULL,
-  `edad` int(11) NOT NULL
+  `edad` int(11) NOT NULL,
+  `altura` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `user`
+--
+
+INSERT INTO `user` (`iduser`, `nombreUser`, `pswdUser`, `nombre`, `apellidos`, `email`, `peso`, `edad`, `altura`) VALUES
+(1, 'jorge', 'jorge', 'jorge', 'tarpero pinero', 'jorgetrapero@gmail.com', 75, 21, 0);
 
 --
 -- Índices para tablas volcadas
 --
-
---
--- Indices de la tabla `alimentos`
---
-ALTER TABLE `alimentos`
-  ADD PRIMARY KEY (`idalimentos`),
-  ADD UNIQUE KEY `idalimentos_UNIQUE` (`idalimentos`);
-
---
--- Indices de la tabla `cena`
---
-ALTER TABLE `cena`
-  ADD PRIMARY KEY (`idCena`),
-  ADD KEY `alimento_idx` (`idAlimento`),
-  ADD KEY `userCn_idx` (`idUser`);
-
---
--- Indices de la tabla `comida`
---
-ALTER TABLE `comida`
-  ADD PRIMARY KEY (`idComida`),
-  ADD KEY `alimentos_idx` (`idAlimento`),
-  ADD KEY `user_idx` (`idUser`);
-
---
--- Indices de la tabla `desayuno`
---
-ALTER TABLE `desayuno`
-  ADD PRIMARY KEY (`idDesayuno`),
-  ADD KEY `comida_idx` (`idAlimento`),
-  ADD KEY `user_idx` (`idUser`);
 
 --
 -- Indices de la tabla `user`
@@ -138,59 +64,10 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT de la tabla `alimentos`
---
-ALTER TABLE `alimentos`
-  MODIFY `idalimentos` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `cena`
---
-ALTER TABLE `cena`
-  MODIFY `idCena` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `comida`
---
-ALTER TABLE `comida`
-  MODIFY `idComida` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `desayuno`
---
-ALTER TABLE `desayuno`
-  MODIFY `idDesayuno` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `cena`
---
-ALTER TABLE `cena`
-  ADD CONSTRAINT `alimentoCn` FOREIGN KEY (`idAlimento`) REFERENCES `alimentos` (`idalimentos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `userCn` FOREIGN KEY (`idUser`) REFERENCES `user` (`iduser`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Filtros para la tabla `comida`
---
-ALTER TABLE `comida`
-  ADD CONSTRAINT `aliemntoC` FOREIGN KEY (`idAlimento`) REFERENCES `alimentos` (`idalimentos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `userC` FOREIGN KEY (`idUser`) REFERENCES `user` (`iduser`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Filtros para la tabla `desayuno`
---
-ALTER TABLE `desayuno`
-  ADD CONSTRAINT `alimentoD` FOREIGN KEY (`idAlimento`) REFERENCES `alimentos` (`idalimentos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `userD` FOREIGN KEY (`idUser`) REFERENCES `user` (`iduser`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

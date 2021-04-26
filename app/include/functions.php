@@ -2,9 +2,9 @@
 require_once "../class/dbc.php";
 require_once "../class/user.php";
 //REGISTER
-function emptyInputSignup($name,$lastName, $userName, $email, $pswd, $age, $weight/*, $pswdRepeat*/){
-    $result;
-    if(empty($name)  || empty($lastName)  || empty($userName) || empty($email) || empty($pswd) || empty($age) || empty($weight)/* || empty($pswdRepeat)*/)  {
+function emptyInputSignup($name, $lastName, $userName, $email, $pswd, $age, $weight, $height/*, $pswdRepeat*/){
+    $result=false;
+    if(empty($name)  || empty($lastName)  || empty($userName) || empty($email) || empty($pswd) || empty($age) || empty($weight) || empty($height)/* || empty($pswdRepeat)*/)  {
         $result = true;
     }else{
        $result = false;
@@ -17,9 +17,9 @@ function uidExists($userName , $email){
      return $user->getUser($userName , $email);
 }
 
-function createUser($name, $lastName, $userName, $email, $pswd, $age, $weight){
+function createUser($name, $lastName, $userName, $email, $pswd, $age, $weight, $height){
     $user = new User();
-    if($user->createUsers($name, $lastName, $userName, $email, $pswd, $age, $weight)){
+    if($user->createUsers($name, $lastName, $userName, $email, $pswd, $age, $weight, $height)){
         header("location: ../index.php?msj=exito");
         exit();
     }else{
@@ -32,7 +32,7 @@ function createUser($name, $lastName, $userName, $email, $pswd, $age, $weight){
 //LOGIN
 
 function emptyInputLogin($userName, $pswd){
-    $result;
+    $result=false;
     if(empty($userName) || empty($pswd))  {
         $result = true;
     }else{
