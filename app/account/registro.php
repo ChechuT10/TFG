@@ -12,10 +12,10 @@
                 <p>Comprueba que es correcto</p>
                 <input type="password" name="pswd" placeholder="Contraseña...">         
                 <p>Entre 8 y 20 caracteres</p>  
-                <input type="number" name="edad" placeholder="Introduce tu edad...">         
+                <!-- <input type="number" name="edad" placeholder="Introduce tu edad...">         
                 <p>Entre 8 y 20 caracteres</p>  
                 <input type="number" name="peso" placeholder="Peso actual...">         
-                <p>Entre 8 y 20 caracteres</p>  
+                <p>Entre 8 y 20 caracteres</p>   -->
                 <button type="submit" name="enviar">Enviar</button>
             </form>
             </div>

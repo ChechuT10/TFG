@@ -8,15 +8,15 @@ if(isset($_POST['enviar'])){
     $userName = $_POST['usuario'];
     $email = $_POST['email'];
     $pswd = $_POST['pswd'];
-    $age = $_POST['edad'];
-    $weight = $_POST['peso'];
+    // $age = $_POST['edad'];
+    // $weight = $_POST['peso'];
     //$pswdRepeat = $_POST['confirmacion'];
 
     require_once "../class/dbc.php";
     require_once "../class/user.php";
     require_once "functions.php";
 
-    if(emptyInputSignup($name, $lastName, $userName, $email, $pswd, $age, $weight/*, $pswdRepeat*/) !== false){
+    if(emptyInputSignup($name, $lastName, $userName, $email, $pswd/*, $pswdRepeat*/) !== false){
         header("location: ../account/registro.php?error=emptyinput");
         exit();
     }
@@ -25,7 +25,7 @@ if(isset($_POST['enviar'])){
         exit();
     }
     //Los errores de datos los manejamos con rejex   
-    createUser($name, $lastName, $userName, $email, $pswd, $age, $weight);
+    createUser($name, $lastName, $userName, $email, $pswd);
 
 }else{
     header("location: ../account/registro.php");

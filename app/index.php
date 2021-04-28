@@ -1,5 +1,7 @@
 <?php
     session_start();
+    require_once "class/dbc.php";
+    require_once "class/user.php";
 ?>
 
 <!DOCTYPE html>
@@ -58,19 +60,25 @@
                       </ul></div>';
             }
         ?>
-        <div class="content">
-            <?php
-                $msj = "";
-                if(isset($_GET['msj'])){
-                    if($_GET['msj']=="exito"){
-                        $msj = '¡Registrado con éxito!';
-                    }
+        <!-- Hacerlo con una variable de user s/n y cuando el usuario rellene estos datos que se marque como completa -->
+        <?php
+            if(isset($_SESSION['userUid'])){
+                $aux = new User();
+                $user = $aux->getUserById($_SESSION['userId']);
+                if($user['auxForm'] == 'N'){
+                    echo '<div class="other-form">
+                            <form action="include/auxForm.php" method="POST">
+                            <input type="number" name="edad" placeholder="Introduce tu edad..."> 
+                            <input type="number" name="altura" placeholder="Altura actual...">  
+                            <input type="number" name="peso" placeholder="Peso actual...">  
+                            <input type="number" name="pesoideal" placeholder="Peso ideal...">  
+                            <button type="submit" name="enviar">Enviar</button>
+                        </form>
+                      </div>';
                 }
-            ?>
-
-            <div class="msg">
-                    <p class="bold white"><?php echo $msj?></p>
-            </div>
+            }
+        ?>
+        <div class="content">
             <div class="resumen">
                 <h3>Resumen</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
