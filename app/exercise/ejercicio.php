@@ -1,6 +1,4 @@
-<?php require_once '../templates/header.php'?>
-    <?php require_once '../templates/subheader.php'?>
-       
+<?php require_once '../templates/header.php'?>       
     <div class="content">
             <div class="registro">
                 <p>Tu registro de ejercicios para</p>

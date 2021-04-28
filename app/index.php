@@ -17,8 +17,9 @@
     <script src="js/jquery.js"></script>
     <script src="js/jquerytest.js"></script>
 </head>
-<body>
+<body class="lightmode">
 <div class="container lightmode">
+    <div class="back-image">
         <header>
             <h2><a href="index.php">Inicio</a></h2>
             <?php
@@ -37,36 +38,30 @@
                 <ul class="nav-links">
                     <?php
                         if(isset($_SESSION['userUid'])){
-                            echo '<li><a href="account/perfil.php?id='.$_SESSION["userId"].'"><p>Perfil</p></a></li>
-                                  <li><a href="include/logout.php"><p>Cerrar Sesion</p></a></li>
-                                  <li><a class="night lightmode"><img src="images/luna.png"></a></li>';
+                            echo '<li><a href="food/alimentos.php"><p>Alimentos</p><div></div></a></li>  
+                                  <li><a href="exercise/ejercicio.php"><p>Ejercicio</p><div></div></a></li>  
+                                  <li><a href=""><p>Informes</p><div></div></a></li> 
+                                  <li><a href="account/perfil.php?id='.$_SESSION["userId"].'"><p>Perfil</p></a></li>
+                                  <li><a href="include/logout.php"><p>Cerrar Sesion</p><div></div></a></li>
+                                  <li><a class="night"><img src="images/luna.png"></a></li>';
                         }else{
                             echo '<li><a href="account/inicioSesion.php"><p>Inicio de sesion</p></a></li>
                                   <li><a href="account/registro.php"><p>Registrarse</p></a></li>
-                                  <li><a class="night lightmode"><img src="images/luna.png"></a></li>';
+                                  <li><a class="night"><img src="images/luna.png"></a></li>';
                         }
                     
                     ?>
                 </ul>
             </nav>
         </header>
-        <?php
-            if(isset($_SESSION['userUid'])){
-                echo '<div class="subheader"><ul>
-                      <li><a href="">Mi pagina de inicio</a></li>  
-                      <li><a href="food/alimentos.php">Alimento</a></li>  
-                      <li><a href="exercise/ejercicio.php">Ejercicio</a></li>  
-                      <li><a href="">Informes</a></li>  
-                      </ul></div>';
-            }
-        ?>
         <!-- Hacerlo con una variable de user s/n y cuando el usuario rellene estos datos que se marque como completa -->
         <?php
             if(isset($_SESSION['userUid'])){
                 $aux = new User();
                 $user = $aux->getUserById($_SESSION['userId']);
                 if($user['auxForm'] == 'N'){
-                    echo '<div class="other-form">
+                    echo '<div class="fullscreen-container">
+                            <div class="other-form">
                             <form action="include/auxForm.php" method="POST">
                             <input type="number" name="edad" placeholder="Introduce tu edad..."> 
                             <input type="number" name="altura" placeholder="Altura actual...">  
@@ -74,21 +69,30 @@
                             <input type="number" name="pesoideal" placeholder="Peso ideal...">  
                             <button type="submit" name="enviar">Enviar</button>
                         </form>
-                      </div>';
+                      </div></div>';
                 }
             }
         ?>
+        <div class="small-back-image">
+            <div class="mensaje">
+                <div>
+                    <h1 id="primero">Binevenido</h2>
+                    <h1 id="segundo">a</h2>
+                    <h1 id="tercero">NutriApp</h2>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur 
+                    adipisicing elit. Ut, minus, id magni veniam
+                     sapiente non exercitationem ex ad aliquid rem 
+                     deserunt harum voluptatum aut excepturi. Doloribus
+                      ab cum a delectus.</p>
+                <a href="">Comencemos</a>
+            </div>
+            <div class="info">
+            </div>
+        </div>
+    </div>
         <div class="content">
-            <div class="resumen">
-                <h3>Resumen</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Dolorum molestias, accusantium ab saepe necessitatibus laborum facilis 
-                    quod numquam ipsa quae magni eaque dicta perferendis repellat harum officia 
-                    blanditiis vero dolores?</p>
-            </div>
-            <div class="grafica">
-                <img src="images/graphic.png">
-            </div>
+
         </div>
             <footer>
                 <div class="contacto">

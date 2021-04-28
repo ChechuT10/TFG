@@ -1,5 +1,4 @@
 <?php require_once '../templates/header.php' ?>
-<?php require_once '../templates/subheader.php' ?>
         <div class="content">
             <div class = "register">
                 <form action="../include/loginForm.php" method="POST">

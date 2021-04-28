@@ -3,9 +3,9 @@ session_start();
 require_once "../class/dbc.php";
 require_once "../class/user.php";
 //REGISTER
-function emptyInputSignup($name,$lastName, $userName, $email, $pswd/*, $pswdRepeat*/){
+function emptyInputSignup($name,$lastName, $userName, $email, $pswd){
     $result;
-    if(empty($name)  || empty($lastName)  || empty($userName) || empty($email) || empty($pswd)/* || empty($pswdRepeat)*/)  {
+    if(empty($name) || empty($lastName) || empty($userName) || empty($email) || empty($pswd)){
         $result = true;
     }else{
        $result = false;
@@ -82,16 +82,16 @@ function emptyInputAuxForm($age, $height, $weight, $idealw){
 
 function validateAuxForm($age, $height, $weight, $idealw){
     $result = true;
-    if($age < 15 && $age > 80){
+    if($age < 15 || $age > 80){
         $result = false;
     }
-    if($height < 100 && $height > 250){
+    if($height < 100 || $height > 250){
         $result = false;
     }
-    if($height < 30 && $height > 300){
+    if($height < 30 || $height > 300){
         $result = false;
     }
-    if($idealw < 30 && $idealw > 300){
+    if($idealw < 30 || $idealw > 300){
         if($idealw == $weight){
             $result = false;
         }

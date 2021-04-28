@@ -6,9 +6,21 @@ html,body{
 }
 /* Contenedor general */
 
+.back-image{
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/food2.jpg);
+    background-size: cover;
+    background-position: center;
+    background-origin: content-box;
+    background-repeat: none;
+    width: 100%;
+    height: auto;
+    color: inherit;
+    box-shadow: 0.1em 0.3em 0.3em rgba(0,0,0,0.5);
+}
+
+
 .container{
     width: 100%;
-    /* height: 100%; */
     display: flex;
     color: inherit;
     flex-direction: column;
@@ -18,6 +30,7 @@ html,body{
 /* Cabezera */
 
 header{
+    width: 100%;
     display: grid;
     grid-gap: 10px;
     grid-template-columns: repeat(auto-fill, 1fr);
@@ -42,9 +55,9 @@ header h2 a{
 
 header .msg{
     grid-area: user;
-    margin-right: -15em;
+    /* margin-right: -15em; */
     /* border: 1px solid black; */
-    font-size: 0.8em;
+    font-size: 0.7em;
 }
 
 /* Nav */
@@ -78,6 +91,7 @@ header li{
     list-style: none;
     padding: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
     
 }
@@ -86,21 +100,42 @@ nav a{
     /* border: 1px solid white; */
     height: 100%;
     width: 100%;
-    padding: 0 1em;
+    padding: 0 0.8em;
     text-decoration: none;
     color:inherit;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-size: 0.9em;
 }
 
-/* nav a:hover{
- background-color: #94F486;
-} */
+a p+div{
+    width: 2%;
+    position: relative;
+    top: -5px;
+    background-color: grey;
+    transition: width 0.7s, height 4s;
+}
+
+a .active{
+    width: 80%;
+    height: 2px;
+}
+
+nav a:hover div{
+    width: 80%;
+    height: 2px;
+}
 
 /* Boton modo noche */
+.night{
+    padding: 0;
+}
 .night img{
     max-width: 50px;
+    padding: 0;
+    /* background-color: inherit; */
 }
 
 /* Modo noche y claro */
@@ -114,53 +149,58 @@ nav a{
     color: grey;
 }
 
-/* Subheader */
-.subheader{
-    /* background-color: #94F486; */
-    margin: 0;
-    display: flex;
-    height: 3em;
-    /* padding: 1em 0; */
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    /* box-shadow: 0 0 0.4em rgba(0,0,0,0.3); */
-}
-.subheader ul{
-
-    width: auto;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    margin: 0;
-    padding: 0;
-}
-.subheader li{
-    height: 100%;
-    /* border: 1px solid white; */
-    list-style: none;
-    padding: 0;
-    display: flex;
-    align-items: center;    
-}
-.subheader  a{
-    /* border: 1px solid white; */
-    height: 100%;
-    width: 100%;
-    padding: 0 1em;
-    text-decoration: none;
-    color:inherit;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.subheader a:hover{
-    background-color: #E3E3E3;
-   }
-
-
 /* Estilo index.php */
+
+.small-back-image{
+    padding: 2em 0;
+    display: flex;
+}
+
+.mensaje{
+    margin: 0 10%;
+    width: 80%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.mensaje h1{
+    display: inline-block;
+    margin: 0 0.2em;
+    color: black;
+    animation: pop;
+    animation-duration:2s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards;  
+}
+
+.mensaje p{
+    width: 80%;
+    margin: 1em auto;
+    color: white;
+}
+
+.mensaje a{
+    width: 30%;
+    margin:0 auto;
+    border: 1px solid white;
+    padding: 0.5em;
+    text-decoration: none;
+    color: white;
+    border-radius: 2em;
+}
+
+.small-back-image .info{
+    margin: 0 auto;
+    width: 80%;
+}
+
+#segundo{animation-delay:1s;}
+#tercero{animation-delay:2s;}
+#ultimo{animation-delay:3s;}
+
 
 .resumen{
     position: relative;
@@ -267,18 +307,6 @@ footer p{
     margin: 0 auto;
 }
 
-/* .preguntas, .legal{
-        margin: 0 1em;
-} */
-
-/* .preguntas, .legal  a{
-    margin: 1em 0;
-    color: inherit;
-    text-decoration: none;
-    display: block;
-    width: 100%;
- } */
-
 /* Clases para el formulario */
 
 input + p{
@@ -342,27 +370,57 @@ input + p{
 
 /* other form */
 
+.fullscreen-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(90, 90, 90, 0.5);
+    /* z-index: 9999; */
+  }
+
 .other-form{
-    width: 60%;
+    width: 40%;
+    height: 40vh;
     margin: 0 auto;
+    background-color: inherit;
+    border-radius: 5px;
 }
 
 .other-form form{
-    width: 90%;
-    margin: 0 auto;
+    width: 100%;
+    margin: 30vh auto;
+    padding: 2em 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .other-form form input{
-    width: 40%;
+    width: 80%;
     margin: 0.5em auto;
+    border: 2px solid #777;
+    outline: none !important;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #DFDFDF;
+    font-weight: bold;
+    padding: 0.4em 1em;
 }
 
 .other-form form button{
     width: 20%;
     margin: 0 auto;
+    background-color: gainsboro;
+    color: white;
+    padding: 0.6em 0.8em;
+    border: none;
+    border-radius: 0.6em;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0.1em 0.3em 0.3em rgba(0,0,0,0.2);
 }
 
 
@@ -401,9 +459,38 @@ input + p{
     color: inherit;
 }
 
+
+
+/* Ajuste para pantallas medianas */
+
+@media screen and (max-width: 800px){
+.back-image{
+    background-image: none;
+    box-shadow: none;
+}
+.small-back-image{
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/food2.jpg);
+    background-size: cover;
+    background-position: center;
+    background-origin: content-box;
+    background-repeat: none;
+    width: 100%;
+    /* height: auto; */
+    color: white;
+    box-shadow: 0.3em 0.3em 0.6em rgba(1,1,1,1);
+}
+
+.mensaje a{
+    width: 90%;
+}
+
+}
+
+
+
 /* Ajustes para pantallas pequeñas */
-@media screen and (max-width: 500px){
-    
+@media screen and (max-width: 600px){
+
     header ul{
         position: fixed;
         flex-direction: column;
@@ -416,10 +503,20 @@ input + p{
     }
     header li{
         width: 100%;
-        height: 6%;
-        padding: 0;
-        
+        height: 50px;
+        /* padding: 0; */ 
     }
+
+    a .active{
+        width: 20%;
+        height: 2px;
+    }
+    
+    nav a:hover div{
+        width: 20%;
+        height: 2px;
+    }
+    
     
     .lines{
         width: auto;
@@ -512,3 +609,11 @@ input + p{
     }
 }
 
+
+@keyframes pop{
+    from{
+        color: black;
+    }to{
+        color: white;
+    }
+}

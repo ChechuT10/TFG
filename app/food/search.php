@@ -1,6 +1,4 @@
 <?php require_once '../templates/header.php'?>
-    <?php require_once '../templates/subheader.php'?>
-
     <div class="content">
         <?php
         require_once "../class/dbc.php";
