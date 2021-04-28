@@ -15,13 +15,7 @@
                 <!-- <input type="number" name="edad" placeholder="Introduce tu edad...">         
                 <p>Entre 8 y 20 caracteres</p>  
                 <input type="number" name="peso" placeholder="Peso actual...">         
-<<<<<<< HEAD
                 <p>Entre 8 y 20 caracteres</p>   -->
-=======
-                <p>Entre 8 y 20 caracteres</p>
-                <input type="number" name="altura" placeholder="Altura actual...">         
-                <p>Entre 8 y 20 caracteres</p>
->>>>>>> 07332963087269dc283a479aecbf7d5ff7652dda
                 <button type="submit" name="enviar">Enviar</button>
             </form>
             </div>
