@@ -3,9 +3,15 @@ session_start();
 require_once "../class/dbc.php";
 require_once "../class/user.php";
 //REGISTER
+<<<<<<< HEAD
 function emptyInputSignup($name,$lastName, $userName, $email, $pswd/*, $pswdRepeat*/){
     $result;
     if(empty($name)  || empty($lastName)  || empty($userName) || empty($email) || empty($pswd)/* || empty($pswdRepeat)*/)  {
+=======
+function emptyInputSignup($name, $lastName, $userName, $email, $pswd, $age, $weight, $height/*, $pswdRepeat*/){
+    $result=false;
+    if(empty($name)  || empty($lastName)  || empty($userName) || empty($email) || empty($pswd) || empty($age) || empty($weight) || empty($height)/* || empty($pswdRepeat)*/)  {
+>>>>>>> 07332963087269dc283a479aecbf7d5ff7652dda
         $result = true;
     }else{
        $result = false;
@@ -18,12 +24,20 @@ function uidExists($userName , $email){
      return $user->getUser($userName , $email);
 }
 
+<<<<<<< HEAD
 function createUser($name, $lastName, $userName, $email, $pswd){
     $user = new User();
     if($user->createUsers($name, $lastName, $userName, $email, $pswd)){
         loginUser($userName, $pswd);
         // header("location: ../index.php?msj=exito");
         // exit();
+=======
+function createUser($name, $lastName, $userName, $email, $pswd, $age, $weight, $height){
+    $user = new User();
+    if($user->createUsers($name, $lastName, $userName, $email, $pswd, $age, $weight, $height)){
+        header("location: ../index.php?msj=exito");
+        exit();
+>>>>>>> 07332963087269dc283a479aecbf7d5ff7652dda
     }else{
         header("location: ../account/registro.php?error=stmtfailed");//?error=stmtfailed
         exit();
@@ -34,7 +48,7 @@ function createUser($name, $lastName, $userName, $email, $pswd){
 //LOGIN
 
 function emptyInputLogin($userName, $pswd){
-    $result;
+    $result=false;
     if(empty($userName) || empty($pswd))  {
         $result = true;
     }else{
