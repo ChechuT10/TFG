@@ -1,24 +1,32 @@
 <?php require_once '../templates/header.php'?>
     <div class="content">
-            <div class = "register">
-            <form action="../include/registroForm.php" method="POST">
-                <input type="text" name="nombre" placeholder="Nombre y Apellidos...">
-                <p>Debe incluir solo letras y espacios</p>
-                <input type="text" name="apellidos" placeholder="Apellidos...">
-                <p>Entre 5 y 12 caracteres</p>
-                <input type="text" name="usuario" placeholder="Nombre de Usuario...">
-                <p>Entre 5 y 12 caracteres</p>
-                <input type="email" name="email" placeholder="Email...">
-                <p>Comprueba que es correcto</p>
-                <input type="password" name="pswd" placeholder="Contraseña...">         
-                <p>Entre 8 y 20 caracteres</p>  
-                <!-- <input type="number" name="edad" placeholder="Introduce tu edad...">         
-                <p>Entre 8 y 20 caracteres</p>  
-                <input type="number" name="peso" placeholder="Peso actual...">         
-                <p>Entre 8 y 20 caracteres</p>   -->
-                <button type="submit" name="enviar">Enviar</button>
-            </form>
+        <div class="main-forms">
+            <div class="card">
+                <div>
+                    <h2>Bienvenido</h2>
+                    <p>Por favor introduce los datos necesarios</p>
+                    <a>Iniciar sesion</a>
+                </div>
             </div>
+            <div class = "register">
+                <h2>Crear una cuenta</h2>
+                <form action="../include/registroForm.php" method="POST">
+                    <input type="text" name="nombre" placeholder="Nombre...">
+                    <p>Debe incluir solo letras y espacios</p>
+                    <input type="text" name="apellidos" placeholder="Apellidos...">
+                    <p>Entre 5 y 12 caracteres</p>
+                    <input type="text" name="usuario" placeholder="Nombre de Usuario...">
+                    <p>Entre 5 y 12 caracteres</p>
+                    <input type="email" name="email" placeholder="Email...">
+                    <p>Comprueba que es correcto</p>
+                    <input type="password" name="pswd" placeholder="Contraseña...">         
+                    <p>Entre 8 y 20 caracteres</p>  
+                    <button type="submit" name="enviar">Crear cuenta</button>
+                </form>
+            </div>
+        </div>             
+    </div>
+    <div>
             <?php
             $error = "";
             if(isset($_GET['error'])){

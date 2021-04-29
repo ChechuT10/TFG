@@ -43,11 +43,11 @@
                                   <li><a href=""><p>Informes</p><div></div></a></li> 
                                   <li><a href="account/perfil.php?id='.$_SESSION["userId"].'"><p>Perfil</p></a></li>
                                   <li><a href="include/logout.php"><p>Cerrar Sesion</p><div></div></a></li>
-                                  <li><a class="night"><img src="images/luna.png"></a></li>';
+                                  <li><a class="night"><img src="images/luna2.png"></a></li>';
                         }else{
-                            echo '<li><a href="account/inicioSesion.php"><p>Inicio de sesion</p></a></li>
-                                  <li><a href="account/registro.php"><p>Registrarse</p></a></li>
-                                  <li><a class="night"><img src="images/luna.png"></a></li>';
+                            echo '<li><a href="account/inicioSesion.php"><p>Inicio de sesion</p><div></div></a></li>
+                                  <li><a href="account/registro.php"><p>Registrarse</p><div></div></a></li>
+                                  <li><a class="night"><img src="images/luna2.png"></a></li>';
                         }
                     
                     ?>

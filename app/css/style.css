@@ -102,7 +102,8 @@ nav a{
     width: 100%;
     padding: 0 0.8em;
     text-decoration: none;
-    color:inherit;
+    color:#58AF9B;
+    /* color: #148653; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -114,7 +115,7 @@ a p+div{
     width: 2%;
     position: relative;
     top: -5px;
-    background-color: grey;
+    background-color: #58AF9B;
     transition: width 0.7s, height 4s;
 }
 
@@ -183,10 +184,10 @@ nav a:hover div{
 }
 
 .mensaje a{
-    width: 30%;
-    margin:0 auto;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 0.5em 1em;
     border: 1px solid white;
-    padding: 0.5em;
     text-decoration: none;
     color: white;
     border-radius: 2em;
@@ -331,37 +332,97 @@ input + p{
   }
 
   /* Estilo del formulario */
-.register form{
-    padding:0 1em 0;
-    border-radius: 0.5em;
-    margin: 0 auto;
-    width: 50%;
+
+.main-forms{
+    width: 80%;
+    margin: 2em auto;
+    display: flex;
+    border-radius: 1em;
+    height: 70vh;
+    box-shadow: 5px 10px 20px 10px rgba(0, 0, 0, 0.15);
+}
+
+.card{
+    flex-basis: 40%;
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+    background: rgb(88,175,155);
+    background: linear-gradient(90deg, rgba(88,175,155,1) 0%, rgba(60,187,149,1) 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 5px 0px 20px 10px rgba(0, 0, 0, 0.15);
+}
+
+.back{
+    border-top-left-radius: 0em;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+    box-shadow: -5px 0px 25px 8px rgba(0, 0, 0, 0.15);
+}
+
+.card div{
+    width: 70%;
+    height: 50%;
+    margin: -30px auto 0;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.card a{
+    width: fit-content;
+    margin: 0 auto;
+    padding: 0.5em;
+    border: 1px solid white;
+    text-decoration: none;
+    color: white;
+    border-radius: 2em;
+}
+
+.register{
+    flex-basis: 60%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.register form{
+    /* width: 100%; */
+    flex-basis: 50%;
+    text-align: center;
+    height: 100%;
+    width: 100%;
   }
   
 .register  input {
-      width: 80%;
+    border: none;
+      width: 60%;
       padding: 0.8em 1em;
-      margin: 0.2em 0;
+      margin: 0.4em 0;
       display: inline-block;
-      border: 2px solid #777;
+      border-bottom: 1px solid #58AF9B;
       outline: none !important;
-      border-radius: 2em;
-      box-sizing: border-box;
-      background-color: #DFDFDF;
-      font-weight: bold;
+      background-color: inherit;
+      font-family: 'Montserrat', sans-serif;
+      color: inherit;
+      /* font-weight: bold; */
   }
 
 .register  button{
-    clear: both;
-    margin: 0.4em auto;
+    font-family: 'Montserrat', sans-serif;
+    margin: 2em auto;
     width: auto;
     display: block;
-    background-color: #777;
+    background-color: #58AF9B;
     color: white;
-    padding: 0.6em 0.8em;
+    padding: 0.7em 1em;
     border: none;
-    border-radius: 0.6em;
+    border-radius: 2em;
     cursor: pointer;
     font-weight: bold;
     box-shadow: 0.1em 0.3em 0.3em rgba(0,0,0,0.2);
@@ -454,8 +515,8 @@ input + p{
 }
 
 .content{
-    width: 80%;
-    margin: 4em auto 0;
+    /* width: 80%;
+    margin: 4em auto 0; */
     color: inherit;
 }
 
@@ -480,9 +541,6 @@ input + p{
     box-shadow: 0.3em 0.3em 0.6em rgba(1,1,1,1);
 }
 
-.mensaje a{
-    width: 90%;
-}
 
 }
 
@@ -490,7 +548,16 @@ input + p{
 
 /* Ajustes para pantallas pequeñas */
 @media screen and (max-width: 600px){
-
+    .main-forms{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .card{
+        display: none;
+    }
+    .login{
+        margin-top: -50px;
+    }
     header ul{
         position: fixed;
         flex-direction: column;

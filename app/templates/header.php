@@ -45,8 +45,9 @@
                 </div>
                 <ul class="nav-links">
                     <?php
+                    // Obtenemos el nombre de la pagina actual
+                    $curPageName = substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1);
                         if(isset($_SESSION['userUid'])){
-                            $curPageName = substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1);
                             // echo $curPageName;
                             if($curPageName == 'alimentos.php'){
                                 echo '<li><a href="../food/alimentos.php"><p>Alimentos</p><div class="active"></div></a></li>  
@@ -54,14 +55,14 @@
                                   <li><a href=""><p>Informes</p><div></div></a></li> 
                                   <li><a href="../account/perfil.php?id='.$_SESSION["userId"].'"><p>Perfil</p></a></li>
                                   <li><a href="../include/logout.php"><p>Cerrar Sesion</p><div></div></a></li>
-                                  <li><a class="night lightmode"><img src="../images/luna.png"></a></li>';
+                                  <li><a class="night lightmode"><img src="../images/luna2.png"></a></li>';
                             }else if($curPageName == 'ejercicio.php'){
                                 echo '<li><a href="../food/alimentos.php"><p>Alimentos</p><div></div></a></li>  
                                   <li><a href="../exercise/ejercicio.php"><p>Ejercicio</p><div class="active"></div></a></li>  
                                   <li><a href=""><p>Informes</p><div></div></a></li> 
                                   <li><a href="../account/perfil.php?id='.$_SESSION["userId"].'"><p>Perfil</p></a></li>
                                   <li><a href="../include/logout.php"><p>Cerrar Sesion</p><div></div></a></li>
-                                  <li><a class="night lightmode"><img src="../images/luna.png"></a></li>';
+                                  <li><a class="night lightmode"><img src="../images/luna2.png"></a></li>';
                             }else{
 
                             echo '<li><a href="../food/alimentos.php"><p>Alimentos</p><div></div></a></li>  
@@ -69,12 +70,22 @@
                                   <li><a href=""><p>Informes</p><div></div></a></li> 
                                   <li><a href="../account/perfil.php?id='.$_SESSION["userId"].'"><p>Perfil</p></a></li>
                                   <li><a href="../include/logout.php"><p>Cerrar Sesion</p><div></div></a></li>
-                                  <li><a class="night lightmode"><img src="../images/luna.png"></a></li>';
+                                  <li><a class="night lightmode"><img src="../images/luna2.png"></a></li>';
                             }
                         }else{
-                            echo '<li><a href="inicioSesion.php"><p>Inicio de sesion</p></a></li>
-                                  <li><a href="registro.php"><p>Registrarse</p></a></li>
-                                  <li><a class="night lightmode"><img src="../images/luna.png"></a></li>';
+                            if($curPageName == 'inicioSesion.php'){
+                                echo '<li><a href="inicioSesion.php"><p>Inicio de sesion</p><div class="active"></div></a></li>
+                                      <li><a href="registro.php"><p>Registrarse</p><div></div></a></li>
+                                      <li><a class="night lightmode"><img src="../images/luna2.png"></a></li>';
+                            }else if($curPageName == 'registro.php'){
+                                echo '<li><a href="inicioSesion.php"><p>Inicio de sesion</p><div></div></a></li>
+                                      <li><a href="registro.php"><p>Registrarse</p><div class="active"></div></a></li>
+                                      <li><a class="night lightmode"><img src="../images/luna2.png"></a></li>';
+                            }else{
+                                echo '<li><a href="inicioSesion.php"><p>Inicio de sesion</p><div></div></a></li>
+                                      <li><a href="registro.php"><p>Registrarse</p><div></div></a></li>
+                                      <li><a class="night lightmode"><img src="../images/luna2.png"></a></li>';
+                            }
                         }
                     
                     ?>
