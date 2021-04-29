@@ -53,6 +53,7 @@
                                 echo '<li><a href="../food/alimentos.php"><p>Alimentos</p><div class="active"></div></a></li>  
                                   <li><a href="../exercise/ejercicio.php"><p>Ejercicio</p><div></div></a></li>  
                                   <li><a href=""><p>Informes</p><div></div></a></li> 
+                                  <li><a href=""><p>Ajustes</p><div></div></a></li>
                                   <li><a href="../account/perfil.php?id='.$_SESSION["userId"].'"><p>Perfil</p></a></li>
                                   <li><a href="../include/logout.php"><p>Cerrar Sesion</p><div></div></a></li>
                                   <li><a class="night lightmode"><img src="../images/luna2.png"></a></li>';
@@ -60,6 +61,7 @@
                                 echo '<li><a href="../food/alimentos.php"><p>Alimentos</p><div></div></a></li>  
                                   <li><a href="../exercise/ejercicio.php"><p>Ejercicio</p><div class="active"></div></a></li>  
                                   <li><a href=""><p>Informes</p><div></div></a></li> 
+                                  <li><a href=""><p>Ajustes</p><div></div></a></li>
                                   <li><a href="../account/perfil.php?id='.$_SESSION["userId"].'"><p>Perfil</p></a></li>
                                   <li><a href="../include/logout.php"><p>Cerrar Sesion</p><div></div></a></li>
                                   <li><a class="night lightmode"><img src="../images/luna2.png"></a></li>';
@@ -68,6 +70,7 @@
                             echo '<li><a href="../food/alimentos.php"><p>Alimentos</p><div></div></a></li>  
                                   <li><a href="../exercise/ejercicio.php"><p>Ejercicio</p><div></div></a></li>  
                                   <li><a href=""><p>Informes</p><div></div></a></li> 
+                                  <li><a href=""><p>Ajustes</p><div></div></a></li>
                                   <li><a href="../account/perfil.php?id='.$_SESSION["userId"].'"><p>Perfil</p></a></li>
                                   <li><a href="../include/logout.php"><p>Cerrar Sesion</p><div></div></a></li>
                                   <li><a class="night lightmode"><img src="../images/luna2.png"></a></li>';

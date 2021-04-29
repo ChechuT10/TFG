@@ -4,7 +4,8 @@ $(document).ready(function () {
     const footer = $('footer')
     const backImage = $('.small-back-image')
     const pop = $('.fullscreen-container')
-
+    const cicon = $(".calendar-icon")
+    console.log(cicon)
 
     if (lineas != null) {
 
@@ -46,6 +47,13 @@ $(document).ready(function () {
         pop.fadeTo(1000, 1);
         $('.content').hide()
         $('footer').hide()
+    }
+
+    if(cicon.length >0){
+        let cal = $('.calendar')
+        cicon.on("click",function(){
+            cal.toggle(400)
+        })
     }
 
 })

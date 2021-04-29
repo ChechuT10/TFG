@@ -1,15 +1,15 @@
-icon = document.querySelector(".calendar-icon")
-console.log(icon)
-icon.addEventListener("click", () => {
-    let calendario = document.querySelector(".calendar")
-    // this.classList.toggle("ocultar");
-    // console.log(this)
-    if (calendario.classList.contains('ocultar-calendario')) {
-        calendario.classList.remove('ocultar-calendario')
-    } else {
-        calendario.classList.add('ocultar-calendario')
-    }
-});
+// icon = document.querySelector(".calendar-icon")
+// console.log(icon)
+// icon.addEventListener("click", () => {
+//     let calendario = document.querySelector(".calendar")
+//     // this.classList.toggle("ocultar");
+//     // console.log(this)
+//     if (calendario.classList.contains('ocultar-calendario')) {
+//         calendario.classList.remove('ocultar-calendario')
+//     } else {
+//         calendario.classList.add('ocultar-calendario')
+//     }
+// });
 
 const date = new Date();
 
@@ -57,7 +57,7 @@ const renderCalendar = () => {
 
   document.querySelector(".date h1").innerHTML = months[date.getMonth()];
 
-  document.querySelector(".date p").innerHTML = new Date().getUTCDate() + " " + new Date().getMonth() +" "+new Date().getUTCFullYear() ;
+  document.querySelector(".date p").innerHTML = `${date.getDay()}-${date.getMonth()+1}-${date.getFullYear()}`;
 
   let days = "";
 
@@ -97,14 +97,16 @@ document.querySelector(".next").addEventListener("click", () => {
 renderCalendar();
 exerciseDate();
 
+
+// Hacer un split para conseguir la fecha actual
 function exerciseDate(){
   let alldays = document.querySelectorAll('.days div')
-  let month = document.querySelector('.month h1')
-  // let year = document.querySelector('.month h1')
+  let auxDate = document.querySelector('.date p').textContent
+  console.log(auxDate)
   Array.from(alldays).forEach(el=>{
     el.addEventListener("click",function(){
       console.log(this.textContent)
-      location.replace('ejercicio.php?date='+this.textContent+'-'+month.textContent)
+      location.replace('ejercicio.php?date='+auxDate)
   })
 })
 }
@@ -116,7 +118,8 @@ var b = a.split("=");
 c = b[1]
 
 if (b != ""){
-  reg.textContent = c +"/" +date.getUTCMonth() + "/" + date.getFullYear() ;
+  document.querySelector(".date p").innerHTML = `${date.getUTCDay()}-${date.getMonth()+1}-${date.getFullYear()}`;
+  reg.textContent = c;
 }else{
   reg.textContent = new Date().toDateString();
 }

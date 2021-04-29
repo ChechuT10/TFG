@@ -1,13 +1,13 @@
 <?php require_once '../templates/header.php'?>       
     <div class="content">
             <div class="registro">
-                <p>Tu registro de ejercicios para</p>
+                <p>Tu registro de ejercicios para:</p>
                 <div class="fecha">
-                    <div class="left-arrow"></div>
+                    <div><i class="arrow left"></i></div>
                     <div class="registro-dia"></div>
-                    <div class="right-arrow"></div>
+                    <div><i class="arrow right"></i></div>
                 </div>
-                <div class="calendar-icon"></div>
+                <div class="calendar-icon"><img src="../images/calendar.png"></div>
                 <div class="calendar">
                     <div class="month">
                         <i class="fas fa-angle-left prev"></i>

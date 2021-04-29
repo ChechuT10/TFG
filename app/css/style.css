@@ -96,6 +96,10 @@ header li{
     
 }
 
+nav .sett{
+    max-width: 25px;
+}
+
 nav a{
     /* border: 1px solid white; */
     height: 100%;
