@@ -19,7 +19,7 @@
                     <a href="">Cookies</a>
                 </div>
         </div>
-        <p>Copyright &copy; MMN | Todos los dereechos reservados</p>
+        <p>Copyright &copy; MMN | Todos los derechos reservados</p>
     </footer>
 </div> 
 </body>

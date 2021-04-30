@@ -2,8 +2,9 @@ html,body{
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    /* height: 100%; */
 }
+
+
 /* Contenedor general */
 
 .back-image{
@@ -27,6 +28,8 @@ html,body{
     font-family: 'Montserrat', sans-serif;
 }
 
+
+
 /* Cabezera */
 
 header{
@@ -37,7 +40,6 @@ header{
     grid-template-areas: '. tit tit user nav .';
     justify-content: space-between;
     align-items: center;
-    /* border-bottom: 1px solid #E3E3E3;                      */
     box-shadow: 0 0 0.4em rgba(0,0,0,0.2);
     color:inherit;
 }
@@ -55,8 +57,6 @@ header h2 a{
 
 header .msg{
     grid-area: user;
-    /* margin-right: -15em; */
-    /* border: 1px solid black; */
     font-size: 0.7em;
 }
 
@@ -87,7 +87,6 @@ header ul{
 }
 header li{
     height: 100%;
-    /* border: 1px solid white; */
     list-style: none;
     padding: 0;
     display: flex;
@@ -101,13 +100,11 @@ nav .sett{
 }
 
 nav a{
-    /* border: 1px solid white; */
     height: 100%;
     width: 100%;
     padding: 0 0.8em;
     text-decoration: none;
     color:#58AF9B;
-    /* color: #148653; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -133,6 +130,7 @@ nav a:hover div{
     height: 2px;
 }
 
+
 /* Boton modo noche */
 .night{
     padding: 0;
@@ -140,8 +138,9 @@ nav a:hover div{
 .night img{
     max-width: 50px;
     padding: 0;
-    /* background-color: inherit; */
+    background-color: inherit;
 }
+
 
 /* Modo noche y claro */
 
@@ -153,6 +152,7 @@ nav a:hover div{
     background-color:white;
     color: grey;
 }
+
 
 /* Estilo index.php */
 
@@ -207,28 +207,6 @@ nav a:hover div{
 #ultimo{animation-delay:3s;}
 
 
-.resumen{
-    position: relative;
-    bottom: 60px;
-    margin-left: 20%;
-    width: 40%;
-    display: inline-block;
-    /* border:1px solid black; */
-}
-.grafica{
-    position: relative;
-    right: -50px;
-    margin-right: 5%;
-    /* border:1px solid black; */
-    display: inline-block;
-    /* width: 40%; */
-}
-.grafica img{
-    margin: 0;
-    height: 250px;
-    width:250px;
-}
-
 /*Estilo de la tabla*/
 table{
     height:15em;
@@ -247,6 +225,8 @@ table td{
 
 
 /* footer */
+
+
   footer{
     width: 100%;
     margin: 4em 0 0;
@@ -312,125 +292,6 @@ footer p{
     margin: 0 auto;
 }
 
-/* Clases para el formulario */
-
-input + p{
-    font-family: arial;
-    font-size: 0.8em;
-    font-weight: bold;
-    margin: 0 2em;
-    color: #C26865;
-    opacity: 0;
-    height: 0;
-  }
-  input.invalid +p{
-    opacity: 1;
-    height: auto;
-  }
-.register  input.valid{
-    border-color: green;
-  }
-
-.register  input.invalid{
-    border-color: #EC1D18;
-  }
-
-  /* Estilo del formulario */
-
-.main-forms{
-    width: 80%;
-    margin: 2em auto;
-    display: flex;
-    border-radius: 1em;
-    height: 70vh;
-    box-shadow: 5px 10px 20px 10px rgba(0, 0, 0, 0.15);
-}
-
-.card{
-    flex-basis: 40%;
-    border-top-left-radius: 1em;
-    border-bottom-left-radius: 1em;
-    background: rgb(88,175,155);
-    background: linear-gradient(90deg, rgba(88,175,155,1) 0%, rgba(60,187,149,1) 100%);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    box-shadow: 5px 0px 20px 10px rgba(0, 0, 0, 0.15);
-}
-
-.back{
-    border-top-left-radius: 0em;
-    border-bottom-left-radius: 0;
-    border-top-right-radius: 1em;
-    border-bottom-right-radius: 1em;
-    box-shadow: -5px 0px 25px 8px rgba(0, 0, 0, 0.15);
-}
-
-.card div{
-    width: 70%;
-    height: 50%;
-    margin: -30px auto 0;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-
-.card a{
-    width: fit-content;
-    margin: 0 auto;
-    padding: 0.5em;
-    border: 1px solid white;
-    text-decoration: none;
-    color: white;
-    border-radius: 2em;
-}
-
-.register{
-    flex-basis: 60%;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.register form{
-    /* width: 100%; */
-    flex-basis: 50%;
-    text-align: center;
-    height: 100%;
-    width: 100%;
-  }
-  
-.register  input {
-    border: none;
-      width: 60%;
-      padding: 0.8em 1em;
-      margin: 0.4em 0;
-      display: inline-block;
-      border-bottom: 1px solid #58AF9B;
-      outline: none !important;
-      background-color: inherit;
-      font-family: 'Montserrat', sans-serif;
-      color: inherit;
-      /* font-weight: bold; */
-  }
-
-.register  button{
-    font-family: 'Montserrat', sans-serif;
-    margin: 2em auto;
-    width: auto;
-    display: block;
-    background-color: #58AF9B;
-    color: white;
-    padding: 0.7em 1em;
-    border: none;
-    border-radius: 2em;
-    cursor: pointer;
-    font-weight: bold;
-    box-shadow: 0.1em 0.3em 0.3em rgba(0,0,0,0.2);
-} 
 
 
 /* other form */
@@ -442,58 +303,64 @@ input + p{
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(90, 90, 90, 0.5);
+    background: rgba(20, 20, 20, 0.5);
     /* z-index: 9999; */
   }
 
 .other-form{
-    width: 40%;
-    height: 40vh;
-    margin: 0 auto;
-    background-color: inherit;
+    width: 35%;
+    margin: 20vh auto;
+    height: fit-content;
+    text-align: center;
+    padding: 1em 0 0;
+    background: rgb(88,175,155);
+    background: linear-gradient(90deg, rgba(88,175,155,1) 0%, rgba(60,187,149,1) 100%);
     border-radius: 5px;
+    box-shadow: 5px 0px 20px 10px rgba(0, 0, 0, 0.15);
+}
+
+.other-form h2{
+    color:white;
+    padding: 0 1em;
 }
 
 .other-form form{
     width: 100%;
-    margin: 30vh auto;
-    padding: 2em 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    margin: 0 auto;
+    padding: 1em 0;
 }
 
 .other-form form input{
-    width: 80%;
-    margin: 0.5em auto;
-    border: 2px solid #777;
+    border: none;
+    width: 70%;
+    padding: 0.8em 1em;
+    margin: 0.4em 0;
+    display: inline-block;
+    border-bottom: 1px solid #AAC3BE;
     outline: none !important;
-    border-radius: 5px;
-    box-sizing: border-box;
-    background-color: #DFDFDF;
-    font-weight: bold;
-    padding: 0.4em 1em;
+    background-color: inherit;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
 }
 
 .other-form form button{
-    width: 20%;
-    margin: 0 auto;
-    background-color: gainsboro;
+    font-family: 'Montserrat', sans-serif;
+    margin: 2em auto;
+    width: auto;
+    background-color: inherit;
+    display: block;
     color: white;
-    padding: 0.6em 0.8em;
-    border: none;
-    border-radius: 0.6em;
+    padding: 0.7em 1em;
+    border: 1px solid white;
+    border-radius: 2em;
     cursor: pointer;
     font-weight: bold;
-    box-shadow: 0.1em 0.3em 0.3em rgba(0,0,0,0.2);
 }
+
 
 
 /* Clases genericas */
 
-/* .contenido{
-    width: 100%;
-} */
 .redirect{
     text-align: center;
     font-size: 0.9em;
@@ -526,41 +393,54 @@ input + p{
 
 
 
+
 /* Ajuste para pantallas medianas */
 
 @media screen and (max-width: 800px){
-.back-image{
-    background-image: none;
-    box-shadow: none;
-}
-.small-back-image{
-    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/food2.jpg);
-    background-size: cover;
-    background-position: center;
-    background-origin: content-box;
-    background-repeat: none;
-    width: 100%;
-    /* height: auto; */
-    color: white;
-    box-shadow: 0.3em 0.3em 0.6em rgba(1,1,1,1);
-}
 
+    .other-form{
+        width: 50%;
+    }    
 
+    .back-image{
+        background-image: none;
+        box-shadow: none;
+    }
+    .small-back-image{
+        background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/food2.jpg);
+        background-size: cover;
+        background-position: center;
+        background-origin: content-box;
+        background-repeat: none;
+        width: 100%;
+        color: white;
+        box-shadow: 0.3em 0.3em 0.6em rgba(1,1,1,1);
+    }
 }
-
 
 
 /* Ajustes para pantallas pequeñas */
 @media screen and (max-width: 600px){
+
+    .main-forms{
+        height: fit-content;
+        padding: 1em 0;
+    }
+
+    .other-form{
+        width: 75%;
+    }
+
+    .register .msg {
+        display: block;
+    }
+
     .main-forms{
         flex-direction: column;
         justify-content: center;
     }
     .card{
         display: none;
-    }
-    .login{
-        margin-top: -50px;
     }
     header ul{
         position: fixed;
@@ -575,7 +455,6 @@ input + p{
     header li{
         width: 100%;
         height: 50px;
-        /* padding: 0; */ 
     }
 
     a .active{

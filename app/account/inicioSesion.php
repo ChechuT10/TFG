@@ -8,6 +8,9 @@
                     <input type="password" name="pswd" placeholder="Contraseña...">
                     <button type="submit" name="enviar">Iniciar Sesion</button>
                 </form>
+                <div class="msg">
+                    <p>Para crear una cuenta <a href="">Pincha aquí</a></p>
+                </div>
             </div>            
             <div class="card back">
                 <div>
