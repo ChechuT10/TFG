@@ -86,7 +86,7 @@
                      sapiente non exercitationem ex ad aliquid rem 
                      deserunt harum voluptatum aut excepturi. Doloribus
                       ab cum a delectus.</p>
-                <a href="">Comencemos</a>
+                <a href="">Comencemos...</a>
             </div>
             <div class="info">
             </div>
