@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-04-2021 a las 11:46:42
--- Versión del servidor: 10.4.14-MariaDB
--- Versión de PHP: 7.4.11
+-- Tiempo de generación: 02-05-2021 a las 20:35:35
+-- Versión del servidor: 10.4.17-MariaDB
+-- Versión de PHP: 7.4.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,8 +41,21 @@ CREATE TABLE `alimentos` (
 --
 
 INSERT INTO `alimentos` (`idalimentos`, `nombre`, `calorias`, `hidratos`, `proteinas`, `grasas`) VALUES
-(1, 'Aceitunas', 23, 34, 34, 34),
-(2, 'aceite', 234, 324, 324, 234);
+(1, 'Aceitunas', 115, 4, 1, 15),
+(2, 'Aceite de Oliva', 234, 1, 2, 32),
+(3, 'Donuts', 200, 21, 3, 12),
+(4, 'Chocapic', 393, 5, 76, 9),
+(5, 'Croissant', 455, 31, 39, 8),
+(6, 'Galletas Maria', 450, 79, 8, 12),
+(7, 'Spaguettis', 366, 74, 12, 2),
+(8, 'Carne Picada', 182, 1, 17, 12),
+(9, 'Leche', 34, 5, 3, 1),
+(10, 'Filete de Pollo', 113, 0, 23, 3),
+(11, 'Filete de Ternera', 229, 0, 30, 12),
+(12, 'Pizza Barbacoa', 250, 30, 12, 9),
+(13, 'Pizza 4 Quesos', 200, 35, 12, 10),
+(14, 'Huevo', 74, 1, 7, 5),
+(15, 'Costillas', 279, 0, 17, 24);
 
 -- --------------------------------------------------------
 
@@ -94,6 +107,13 @@ CREATE TABLE `useraux` (
   `idUser` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `useraux`
+--
+
+INSERT INTO `useraux` (`edad`, `altura`, `peso`, `pesoIdeal`, `idUser`) VALUES
+(21, 180, 75, 70, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -115,7 +135,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`idUser`, `nombre`, `apellidos`, `nombreUser`, `email`, `userPswd`, `auxForm`) VALUES
-(1, 'Carlos', 'Tipan dsaasd', 'prueba', 'carlos@gmail.com', '$2y$10$KnhIArMvyEptkLXjlAtN7.EjFEC3Iha2W0HxrUoaiEtmvjuTz2hu6', 'S');
+(2, 'Jorge', 'Trapero Pinero', 'jorge', 'jorge@gmail.com', '$2y$10$zApAuc6lXh3k05g1RL2gYunergqfNAdnCBlLgfQjmyWcLxtHoJcY.', 'S');
 
 --
 -- Índices para tablas volcadas
@@ -125,8 +145,7 @@ INSERT INTO `users` (`idUser`, `nombre`, `apellidos`, `nombreUser`, `email`, `us
 -- Indices de la tabla `alimentos`
 --
 ALTER TABLE `alimentos`
-  ADD PRIMARY KEY (`idalimentos`),
-  ADD UNIQUE KEY `idalimentos_UNIQUE` (`idalimentos`);
+  ADD PRIMARY KEY (`idalimentos`);
 
 --
 -- Indices de la tabla `cena`
@@ -172,7 +191,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `alimentos`
 --
 ALTER TABLE `alimentos`
-  MODIFY `idalimentos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idalimentos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `cena`
@@ -196,7 +215,7 @@ ALTER TABLE `desayuno`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
