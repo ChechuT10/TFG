@@ -3,8 +3,8 @@
 class Db{
     // Creamos las variables con los datos de nuestra base de datos
     private $servidor = "localhost";
-    private $user = "carlos";
-    private $pswd = "1234";
+    private $user = "root";
+    private $pswd = "";
     private $base_datos = "tfg";
 
     //Creamos una funcion que nos servira para conectarnos a nuestra base de datos 

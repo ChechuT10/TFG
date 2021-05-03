@@ -67,7 +67,7 @@
                             <input type="number" name="edad" placeholder="Introduce tu edad..."> 
                             <input type="number" name="altura" placeholder="Altura actual...">  
                             <input type="number" name="peso" placeholder="Peso actual...">  
-                            <input type="number" name="pesoideal" placeholder="Peso ideal...">  
+                            <input type="number" name="pesoideal" placeholder="Peso a lograr...">  
                             <button type="submit" name="enviar">Enviar</button>
                         </form>
                       </div></div>';
@@ -86,7 +86,7 @@
                      sapiente non exercitationem ex ad aliquid rem 
                      deserunt harum voluptatum aut excepturi. Doloribus
                       ab cum a delectus.</p>
-                <a href="">Comencemos</a>
+                <a href="">Comencemos...</a>
             </div>
             <div class="info">
             </div>

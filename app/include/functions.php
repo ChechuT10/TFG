@@ -6,7 +6,7 @@ require_once "../class/food.php";
 
 //REGISTER
 function emptyInputSignup($name,$lastName, $userName, $email, $pswd){
-    $result;
+    $result=null;
     if(empty($name) || empty($lastName) || empty($userName) || empty($email) || empty($pswd)){
         $result = true;
     }else{
@@ -36,7 +36,7 @@ function createUser($name, $lastName, $userName, $email, $pswd){
 //LOGIN
 
 function emptyInputLogin($userName, $pswd){
-    $result;
+    $result=null;
     if(empty($userName) || empty($pswd))  {
         $result = true;
     }else{
@@ -73,7 +73,7 @@ function loginUser($userName, $pswd){
 // FORMULARIO PESO, EDAD Y ALTURA
 
 function emptyInputAuxForm($age, $height, $weight, $idealw){
-    $result;
+    $result=null;
     if(empty($age)  || empty($height)  || empty($weight) || empty($idealw))  {
         $result = true;
     }else{
