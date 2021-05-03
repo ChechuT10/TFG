@@ -1,4 +1,3 @@
-    </div>
     <footer>
         <div class="contacto">
                 <div class="redes">
@@ -20,12 +19,8 @@
                     <a href="">Cookies</a>
                 </div>
         </div>
-        <p>Copyright &copy; MMN | Todos los dereechos reservados</p>
+        <p>Copyright &copy; MMN | Todos los derechos reservados</p>
     </footer>
-    
-    <!-- <div class="night">
-            <img src="http://localhost/Nueva%20carpeta/images/moon.png">
-    </div> -->
 </div> 
 </body>
 <script src="../js/js.js"></script>

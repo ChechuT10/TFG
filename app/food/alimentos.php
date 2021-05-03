@@ -1,105 +1,61 @@
-<?php require_once '../templates/header.php'?>
-    <?php require_once '../templates/subheader.php'?>
-       
-        <?php
-            require_once '../class/dbc.php';
-            require_once '../class/food.php';
-            $aux2 = new Food();
-            $food = $aux2->getFood();
-        ?>
+<?php require_once '../templates/header.php'?>     
+    <?php
+        require_once '../class/dbc.php';
+        require_once '../class/food.php';
+        $aux = new Food();
+        $breakfast = $aux->getBreakfast($_SESSION['userId']);
+        $launch = $aux->getLaunch($_SESSION['userId']);
+        $dinner = $aux->getDinner($_SESSION['userId']);
+    ?>  
     <div class="content">
         <div class="add">
             <div class="desayuno">
                 <h3>Desayuno</h3>
-                <a href=""><p>Añadir alimento +</p></a>
+                <?php if($breakfast): ?>
+                    <div class="alimentos">
+                        <?php 
+                            foreach($breakfast as $a){
+                                $food = $aux->getFoodById($a['idAlimento']);
+                                echo '<p>'.$food['nombre'].'</p>';
+                            }
+                        ?>
+                    <!-- <input type="hidden" name="calorias" value="'.$food['calorias'].'">
+                    <input type="hidden" name="hidratos" value="'.$food['hidratos'].'">
+                    <input type="hidden" name="proteinas" value="'.$food['proteinas'].'">
+                    <input type="hidden" name="grasas" value="'.$food['grasas'].'">'; -->
+                    </div>
+                <?php endif ?>
+                <a href="add.php?food=desayuno"><p>Añadir alimento +</p></a>
             </div>
             <div class="comida">
                 <h3>Comida</h3>
-                <a href=""><p>Añadir alimento +</p></a>
+                <?php if($launch): ?>
+                    <div class="alimentos">
+                        <?php 
+                            foreach($launch as $a){
+                                $food = $aux->getFoodById($a['idAlimento']);
+                                echo '<p>'.$food['nombre'].'</p>';
+                            }
+                        ?>
+                    </div>
+                <?php endif ?>
+                <a href="add.php?food=comida"><p>Añadir alimento +</p></a>
             </div>
             <div class="cena">
                 <h3>Cena</h3>
-                <a href=""><p>Añadir alimento +</p></a>
+                <?php if($dinner): ?>
+                    <div class="alimentos">
+                    <?php 
+                        foreach($dinner as $a){
+                            $food = $aux->getFoodById($a['idAlimento']);
+                            echo '<p>'.$food['nombre'].'</p>';
+                        }
+                    ?>
+                    </div>
+                <?php endif ?>
+                <a href="add.php?food=cena"><p>Añadir alimento +</p></a>
             </div>
         </div>
-
-
-        <div class="wrapper">
-            <div class="search-input">
-                <input type="text" name="alimento" id="alimento" placeholder="Busca un alimento...">
-                <ul id="palabras"></ul>
-                <div class="icon"></div>
-            </div>
-        </div>
-
-        
 
 <?php require_once '../templates/footer.php'?>
-<script type="text/javascript">
-let val;
-const alimentos = <?php echo json_encode($food); ?>;
-console.log(alimentos.length)
-
-function damePalabras(raiz){
-    palabras=[]
-    if (raiz!=""){
-        alimentos.forEach(el=>{
-            if(el.name.toLowerCase().indexOf(raiz.toLowerCase())==0){
-                palabras.push(el)
-            }
-        })
-    }
-    return palabras
-}
-
-if(bus!=null && pal!=null){
-    bus.addEventListener('keyup',function(){
-        // val = null
-        let click = false;
-        var cont = this.value;
-        pal.textContent = "";
-        aux = damePalabras(cont)
-        // console.log(aux)
-        
-        aux.forEach(el=>{
-            let li = document.createElement('li')
-            li.textContent = el.name;
-            pal.appendChild(li)
-            li.addEventListener('click',function(){               
-                bus.value = this.textContent
-                pal.textContent = "";
-                click = true
-                console.log(click)
-            })
-            // console.log(click)
-            // if(bus.value.toLowerCase() == el.name.toLowerCase()){
-            //     click = true
-            // }
-            if(click == true){
-                console.log('s')
-                val = el;
-            }
-        })
-        console.log(click)
-        // console.log(pal)
-        // console.log(cont)
-    })
-}
-
-let icon = document.querySelector('.icon')
-icon.addEventListener('click',function(){
-    console.log('click')
-    console.log(val)
-    // if(val.name == bus.value){
-    //     console.log(val)
-    // }
-     if(bus.value.length>0){
-        console.log('no')
-    }
-     if(bus.value.length==0){
-        console.log('vacio')
-    }
-})
-
- </script>
 </html>

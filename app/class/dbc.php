@@ -5,7 +5,7 @@ class Db{
     private $servidor = "localhost";
     private $user = "carlos";
     private $pswd = "1234";
-    private $base_datos = "prueba";
+    private $base_datos = "tfg";
 
     //Creamos una funcion que nos servira para conectarnos a nuestra base de datos 
     protected function connect(){

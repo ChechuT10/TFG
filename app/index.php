@@ -1,5 +1,7 @@
 <?php
     session_start();
+    require_once "class/dbc.php";
+    require_once "class/user.php";
 ?>
 
 <!DOCTYPE html>
@@ -12,10 +14,12 @@
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <!-- <script src="templates/js.js"></script> -->
+    <script src="js/jquery.js"></script>
+    <script src="js/jquerytest.js"></script>
 </head>
-<body>
+<body class="lightmode">
 <div class="container lightmode">
+    <div class="back-image">
         <header>
             <h2><a href="index.php">Inicio</a></h2>
             <?php
@@ -34,82 +38,86 @@
                 <ul class="nav-links">
                     <?php
                         if(isset($_SESSION['userUid'])){
-                            echo '<li><a href="account/perfil.php?id='.$_SESSION["userId"].'"><p>Perfil</p></a></li>
-                                  <li><a href="include/logout.php"><p>Cerrar Sesion</p></a></li>
-                                  <li><a class="night lightmode"><img src="images/luna.png"></a></li>';
+                            echo '<li><a href="food/alimentos.php"><p>Alimentos</p><div></div></a></li>  
+                                  <li><a href="exercise/ejercicio.php"><p>Ejercicio</p><div></div></a></li>  
+                                  <li><a href=""><p>Informes</p><div></div></a></li> 
+                                  <li><a href="account/ajustes.php"><p>Ajustes</p><div></div></a></li>
+                                  <li><a href="include/logout.php"><p>Cerrar Sesion</p><div></div></a></li>
+                                  <li><a class="night"><img src="images/luna2.png"></a></li>';
                         }else{
-                            echo '<li><a href="account/inicioSesion.php"><p>Inicio de sesion</p></a></li>
-                                  <li><a href="account/registro.php"><p>Registrarse</p></a></li>
-                                  <li><a class="night lightmode"><img src="images/luna.png"></a></li>';
+                            echo '<li><a href="account/inicioSesion.php"><p>Inicio de sesion</p><div></div></a></li>
+                                  <li><a href="account/registro.php"><p>Registrarse</p><div></div></a></li>
+                                  <li><a class="night"><img src="images/luna2.png"></a></li>';
                         }
                     
                     ?>
-                    <!-- <li><a href=""><p>Inicio de sesion</p></a></li>
-                    <li><a href=""><p>Registrarse</p></a></li> -->
                 </ul>
             </nav>
         </header>
+        <!-- Hacerlo con una variable de user s/n y cuando el usuario rellene estos datos que se marque como completa -->
         <?php
             if(isset($_SESSION['userUid'])){
-                echo '<div class="subheader"><ul>
-                      <li><a href="">Mi pagina de inicio</a></li>  
-                      <li><a href="food/alimentos.php">Alimento</a></li>  
-                      <li><a href="exercise/ejercicio.php">Ejercicio</a></li>  
-                      <li><a href="">Informes</a></li>  
-                      </ul></div>';
+                $aux = new User();
+                $user = $aux->getUserById($_SESSION['userId']);
+                if($user['auxForm'] == 'N'){
+                    echo '<div class="fullscreen-container">
+                            <div class="other-form">
+                            <h2>Solo falta un poco</h2>
+                            <form action="include/auxForm.php" method="POST">
+                            <input type="number" name="edad" placeholder="Introduce tu edad..."> 
+                            <input type="number" name="altura" placeholder="Altura actual...">  
+                            <input type="number" name="peso" placeholder="Peso actual...">  
+                            <input type="number" name="pesoideal" placeholder="Peso a lograr...">  
+                            <button type="submit" name="enviar">Enviar</button>
+                        </form>
+                      </div></div>';
+                }
             }
         ?>
+        <div class="small-back-image">
+            <div class="mensaje">
+                <div>
+                    <h1 id="primero">Binevenido</h2>
+                    <h1 id="segundo">a</h2>
+                    <h1 id="tercero">NutriApp</h2>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur 
+                    adipisicing elit. Ut, minus, id magni veniam
+                     sapiente non exercitationem ex ad aliquid rem 
+                     deserunt harum voluptatum aut excepturi. Doloribus
+                      ab cum a delectus.</p>
+                <a href="">Comencemos...</a>
+            </div>
+            <div class="info">
+            </div>
+        </div>
+    </div>
         <div class="content">
-            <?php
-                $msj = "";
-                if(isset($_GET['msj'])){
-                    if($_GET['msj']=="exito"){
-                        $msj = '¡Registrado con éxito!';
-                    }
-                }
-            ?>
 
-            <div class="msg">
-                    <p class="bold white"><?php echo $msj?></p>
-            </div>
-            <div class="resumen">
-                <h3>Resumen</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Dolorum molestias, accusantium ab saepe necessitatibus laborum facilis 
-                    quod numquam ipsa quae magni eaque dicta perferendis repellat harum officia 
-                    blanditiis vero dolores?</p>
-            </div>
-            <div class="grafica">
-                <img src="images/graphic.png">
-            </div>
         </div>
-        <footer>
-            <div class="contacto">
-                    <div class="redes">
-                        <h3>Síguenos en</h3>
-                        <a href=""><img src="images/tw.png">Twitter</a>
-                        <a href=""><img src="images/insta.png">Instagram</a>
-                        <a href=""><img src="images/facebook.png">Facebook</a>
-                    </div>
-                    <div class="preguntas">
-                        <h3>Conócenos</h3>
-                        <a href="">¿Quiénes somos?</a>
-                        <a href="">Ayuda</a>
-                        <a href="">Preguntas Frecuentes</a>
-                    </div>
-                    <div class="legal">
-                        <h3>Legal</h3>
-                        <a href="">Condiciones de uso</a>
-                        <a href="">Politica de Privacidad</a>
-                        <a href="">Cookies</a>
-                    </div>
-            </div>
-        <p>Copyright &copy; MMN | Todos los dereechos reservados</p>
-        </footer>
-        </div>
-            <!-- <div class="night">
-                    <img src="http://localhost/Nueva%20carpeta/images/moon.png">
-            </div> -->
+            <footer>
+                <div class="contacto">
+                        <div class="redes">
+                            <h3>Síguenos en</h3>
+                            <a href=""><img src="images/tw.png">Twitter</a>
+                            <a href=""><img src="images/insta.png">Instagram</a>
+                            <a href=""><img src="images/facebook.png">Facebook</a>
+                        </div>
+                        <div class="preguntas">
+                            <h3>Conócenos</h3>
+                            <a href="">¿Quiénes somos?</a>
+                            <a href="">Ayuda</a>
+                            <a href="">Preguntas Frecuentes</a>
+                        </div>
+                        <div class="legal">
+                            <h3>Legal</h3>
+                            <a href="">Condiciones de uso</a>
+                            <a href="">Politica de Privacidad</a>
+                            <a href="">Cookies</a>
+                        </div>
+                </div>
+            <p>Copyright &copy; MMN | Todos los derechos reservados</p>
+            </footer>
 </div> 
 </body>
 <script src="js/js.js"></script>
