@@ -80,6 +80,23 @@ class User extends Db{
             return false;
     }
 }
+
+public function getUserByUsername($name){
+    // Declaramos la sentencia sql
+    $sql = "SELECT * FROM users WHERE nombreUser = ?;";
+    // Ejecutamos la sentencia sql
+    $query = $this->connect()->prepare($sql);
+
+    if ($query->execute([$name])) {
+        // Si se ejecuta correctamente se crea y se devuelve un array
+        while($data=$query->fetch()){
+            return $data;
+        }
+    }else{
+            return false;
+    }
+}
+
 }
 // Cerramos php
 ?>

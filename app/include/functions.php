@@ -2,6 +2,8 @@
 session_start();
 require_once "../class/dbc.php";
 require_once "../class/user.php";
+require_once "../class/food.php";
+
 //REGISTER
 function emptyInputSignup($name,$lastName, $userName, $email, $pswd){
     $result;
@@ -112,6 +114,85 @@ function createUserAux($age, $height, $weight, $idealw){
         }
     }else{
         header("location: ../index.php?error=stmtfailed");//?error=stmtfailed
+        exit();
+    }
+}
+
+
+// Editar datos de usuario
+
+function emptyEdit($data){
+    $vacio = 0;
+    if(isset($data->nombre)){
+        if($data->nombre == ""){
+            $vacio++;
+        }
+    }
+    if(isset($data->apellidos)){
+        if($data->apellidos == ""){
+            $vacio++;
+        }
+    }
+    if(isset($data->username)){
+        if($data->username == ""){
+            $vacio++;
+        }
+    }
+    if($vacio == 0){
+        return false;
+    }else{
+        return true;
+    }
+}
+
+function userNameTaken($data){
+        if(isset($data->username)){
+                $username = $data->username;
+            $user = new User();
+            $uidExist = $user->getUserByUsername($username);
+            if($uidExist===false || $uidExist===null){
+                return false;
+            }else{
+                return true;
+            }
+        }else{
+            return false;
+        }
+}
+
+
+// Añadir desayuno
+
+function addBreakfast($idUser, $idFood){
+    $food = new Food();
+    if($food->addToBreakfast($idUser, $idFood)){
+        header("location: ../food/alimentos.php?msj=added");
+        exit();
+    }else{
+        header("location: ../food/alimentos.php?msj=fail");
+        exit();
+    }
+}
+
+
+function addLaunch($idUser, $idFood){
+    $food = new Food();
+    if($food->addToLaunch($idUser, $idFood)){
+        header("location: ../food/alimentos.php?msj=added");
+        exit();
+    }else{
+        header("location: ../food/alimentos.php?msj=fail");
+        exit();
+    }
+}
+
+function addDinner($idUser, $idFood){
+    $food = new Food();
+    if($food->addToDinner($idUser, $idFood)){
+        header("location: ../food/alimentos.php?msj=added");
+        exit();
+    }else{
+        header("location: ../food/alimentos.php?msj=fail");
         exit();
     }
 }

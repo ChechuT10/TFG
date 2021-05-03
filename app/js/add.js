@@ -47,7 +47,9 @@ icon.addEventListener('click',function(){
      if(bus.value.length==0){
         console.log('vacio')
     }else{
+        let a = window.location.search;
+        let aux = a.replace('?','&');
         val = val.charAt(0).toUpperCase() + val.slice(1)
-        location.replace('search.php?search='+val)
+        location.replace('search.php?search='+val+aux)
     }
 })

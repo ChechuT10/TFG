@@ -21,13 +21,21 @@
             </div>
             <div class="resultado">
                 <h3>Resultados coincidentes</h3>
-                <?php foreach($foods as $food){ ?>
+                <?php foreach($foods as $food): ?>
                 <div class="food">
                     <h4><?php echo $food['nombre']?></h4>
                     <p>Gramos: <?php echo $food['calorias']?></p>
+                    <p>Kcal: <?php echo $food['hidratos']?></p>
                     <p>Kcal: <?php echo $food['proteinas']?></p>
+                    <p>Kcal: <?php echo $food['grasas']?></p>
+                    <form action="../include/addFood.php" method="POST">
+                        <input type="hidden" name="idUser" value="<?php echo $_SESSION["userId"] ?>">
+                        <input type="hidden" name="idFood" value="<?php echo $food['idalimentos'] ?>">
+                        <input type="hidden" name="tipo" value="<?php echo $_GET['food'] ?>">
+                        <button type="submit" name="enviar">Añadir</button>
+                    </form>
                 </div>
-                <?php } ?>
+                <?php endforeach ?>
             </div>
         <?php else: ?>
             <div class="msg">
