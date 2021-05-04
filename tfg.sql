@@ -208,7 +208,6 @@ ALTER TABLE `comida`
 
 --
 -- AUTO_INCREMENT de la tabla `desayuno`
-<<<<<<< HEAD
 --
 ALTER TABLE `desayuno`
   MODIFY `idDesayuno` int(11) NOT NULL AUTO_INCREMENT;
@@ -220,19 +219,6 @@ ALTER TABLE `users`
   MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
-=======
---
-ALTER TABLE `desayuno`
-  MODIFY `idDesayuno` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `users`
---
-ALTER TABLE `users`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
->>>>>>> Rama_Jorge_Carlos
 -- Restricciones para tablas volcadas
 --
 
