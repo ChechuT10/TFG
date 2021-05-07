@@ -1,6 +1,6 @@
 fetch("../food/alimentos.php", {})
   .then(function (respuesta) {
-    return respuesta.text();
+    return respuesta.json();
   })
   .then(function (resultado) {
     console.log("----------------------------");

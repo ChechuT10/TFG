@@ -6,6 +6,7 @@
         $breakfast = $aux->getBreakfast($_SESSION['userId']);
         $launch = $aux->getLaunch($_SESSION['userId']);
         $dinner = $aux->getDinner($_SESSION['userId']);
+        $alimentos = [];
     ?>  
     <div class="content">
         <div class="add">
@@ -17,6 +18,7 @@
                             foreach($breakfast as $a){
                                 $food = $aux->getFoodById($a['idAlimento']);
                                 echo '<p>'.$food['nombre'].'</p>';
+                                array_push ($alimentos, $food);
                             }
                         ?>
                     <!-- <input type="hidden" name="calorias" value="'.$food['calorias'].'">
@@ -56,6 +58,10 @@
                 <a href="add.php?food=cena"><p>Añadir alimento +</p></a>
             </div>
         </div>
+
+        <?php
+            echo json_encode($alimentos);
+        ?>
 
 <?php require_once '../templates/footer.php'?>
 </html>
