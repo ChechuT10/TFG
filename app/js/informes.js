@@ -1,4 +1,4 @@
-fetch("../food/alimentos.php", {})
+fetch("../include/getFoodByUser.php",{method:'post'})
   .then(function (respuesta) {
     return respuesta.json();
   })

@@ -37,6 +37,7 @@
                             foreach($launch as $a){
                                 $food = $aux->getFoodById($a['idAlimento']);
                                 echo '<p>'.$food['nombre'].'</p>';
+                                array_push ($alimentos, $food);
                             }
                         ?>
                     </div>
@@ -51,6 +52,7 @@
                         foreach($dinner as $a){
                             $food = $aux->getFoodById($a['idAlimento']);
                             echo '<p>'.$food['nombre'].'</p>';
+                            array_push ($alimentos, $food);
                         }
                     ?>
                     </div>
@@ -60,7 +62,11 @@
         </div>
 
         <?php
-            echo json_encode($alimentos);
+        foreach($alimentos as $a){
+            print_r ($a);
+        }
+        echo json_encode('hola')
+            // echo json_encode($alimentos);
         ?>
 
 <?php require_once '../templates/footer.php'?>

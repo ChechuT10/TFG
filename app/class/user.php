@@ -97,6 +97,45 @@ public function getUserByUsername($name){
     }
 }
 
+public function updateUserFirstName($nombre,$id){
+    // Declaramos la sentencia sql
+    $sql = "UPDATE users SET nombre = ? WHERE idUser = ?;";
+    // Ejecutamos la sentencia sql
+    $query = $this->connect()->prepare($sql);
+    if ($query->execute([$nombre,$id])) {
+        // Si se ejecuta correctamente se crea y se devuelve un array
+            return true;
+    }else{
+            return false;
+    }
+}
+
+public function updateUserLastName($apellidos,$id){
+    // Declaramos la sentencia sql
+    $sql = "UPDATE users SET apellidos = ? WHERE idUser = ?;";
+    // Ejecutamos la sentencia sql
+    $query = $this->connect()->prepare($sql);
+    if ($query->execute([$apellidos,$id])) {
+        // Si se ejecuta correctamente se crea y se devuelve un array
+            return true;
+    }else{
+            return false;
+    }
+}
+
+public function updateUsername($username,$id){
+    // Declaramos la sentencia sql
+    $sql = "UPDATE users SET nombreUser = ? WHERE idUser = ?;";
+    // Ejecutamos la sentencia sql
+    $query = $this->connect()->prepare($sql);
+    if ($query->execute([$username,$id])) {
+        // Si se ejecuta correctamente se crea y se devuelve un array
+            return true;
+    }else{
+            return false;
+    }
+}
+
 }
 // Cerramos php
 ?>
