@@ -1,18 +1,19 @@
-// icon = document.querySelector(".calendar-icon")
-// console.log(icon)
-// icon.addEventListener("click", () => {
-//     let calendario = document.querySelector(".calendar")
-//     // this.classList.toggle("ocultar");
-//     // console.log(this)
-//     if (calendario.classList.contains('ocultar-calendario')) {
-//         calendario.classList.remove('ocultar-calendario')
-//     } else {
-//         calendario.classList.add('ocultar-calendario')
-//     }
-// });
-
 const date = new Date();
-
+const months = [
+  "Enero",
+  "Febrero",
+  "Marzo",
+  "Abril",
+  "Mayo",
+  "Junio",
+  "Julio",
+  "Agosto",
+  "Septiembre",
+  "Octubre",
+  "Noviembre",
+  "Diciembre",
+];
+// console.log(date.getDate())
 const renderCalendar = () => {
   date.setDate(1);
 
@@ -40,24 +41,8 @@ const renderCalendar = () => {
 
   const nextDays = 7 - lastDayIndex - 1;
 
-  const months = [
-    "Enero",
-    "Febrero",
-    "Marzo",
-    "Abril",
-    "Mayo",
-    "Junio",
-    "Julio",
-    "Agosto",
-    "Septiembre",
-    "Octubre",
-    "Noviembre",
-    "Diciembre",
-  ];
-
   document.querySelector(".date h1").innerHTML = months[date.getMonth()];
-
-  document.querySelector(".date p").innerHTML = `${date.getDay()}-${date.getMonth()+1}-${date.getFullYear()}`;
+  document.querySelector(".date p").innerHTML = `${new Date().getDate()}-${new Date().getMonth()+1}-${new Date().getFullYear()}`;
 
   let days = "";
 
@@ -102,7 +87,8 @@ exerciseDate();
 function exerciseDate(){
   let alldays = document.querySelectorAll('.days div')
   let auxDate = document.querySelector('.date p').textContent
-  console.log(auxDate)
+  var b = auxDate.split("-");
+  console.log(b[0])
   Array.from(alldays).forEach(el=>{
     el.addEventListener("click",function(){
       console.log(this.textContent)
@@ -118,7 +104,7 @@ var b = a.split("=");
 c = b[1]
 
 if (b != ""){
-  document.querySelector(".date p").innerHTML = `${date.getUTCDay()}-${date.getMonth()+1}-${date.getFullYear()}`;
+  document.querySelector(".date p").innerHTML = `${date.getUTCDay()}-${months[date.getMonth()]}-${date.getFullYear()}`;
   reg.textContent = c;
 }else{
   reg.textContent = new Date().toDateString();

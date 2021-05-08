@@ -1,0 +1,60 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: black;
+}
+
+
+/* Contenedor general */
+
+.container{
+    width: 100%;
+    display: flex;
+    color: inherit;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+header{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header li{
+    list-style: none;
+}
+
+.content{
+    width: 90%;
+    margin: 0 auto;
+    color: white;
+}
+
+.content form{
+    display: flex;
+    flex-direction: column;
+}
+
+.content form input{
+    font-family: 'Montserrat', sans-serif;
+    padding: 0.3em 0.5em;
+    width: 60%;
+    margin: 0.5em auto;
+    border: none;
+    outline: none !important;
+    border-radius: 0.2em;
+    
+}
+
+.content form button{
+    width: fit-content;
+    margin: 0.5em auto;
+}
