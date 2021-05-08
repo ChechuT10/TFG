@@ -38,7 +38,7 @@ function drawBar(
 }
 
 var myVinyls = {
-  Proteina: 10,
+  Proteina: 20,
   Hidratos: 14,
   Grasas: 2,
 };
