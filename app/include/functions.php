@@ -83,22 +83,21 @@ function emptyInputAuxForm($age, $height, $weight, $idealw){
 }
 
 function validateAuxForm($age, $height, $weight, $idealw){
-    $result = true;
     if($age < 15 || $age > 80){
-        $result = false;
+        return false;
     }
     if($height < 100 || $height > 250){
-        $result = false;
+        return false;
     }
-    if($height < 30 || $height > 300){
-        $result = false;
+    if($weight < 30 || $weight > 300){
+        return false;
     }
     if($idealw < 30 || $idealw > 300){
         if($idealw == $weight){
-            $result = false;
+            return false;
         }
     }
-    return $result;
+    return true;
 }
 
 function createUserAux($age, $height, $weight, $idealw){
@@ -146,18 +145,41 @@ function emptyEdit($data){
 }
 
 function userNameTaken($data){
-        if(isset($data->username)){
-                $username = $data->username;
-            $user = new User();
-            $uidExist = $user->getUserByUsername($username);
-            if($uidExist===false || $uidExist===null){
-                return false;
-            }else{
-                return true;
-            }
-        }else{
-            return false;
-        }
+    $user = new User();
+    $uidExist = $user->getUserByUsername($data->username);
+    if($uidExist === false || $uidExist === null){
+        return false;
+    }else{
+        return true;
+    }
+}
+
+
+function changeUserFirstName($data){
+    $user = new User();
+    if($user->updateUserFirstName($data->nombre, $_SESSION['userId'])){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function changeUserLastName($data){
+    $user = new User();
+    if($user->updateUserLastName($data->apellidos, $_SESSION['userId'])){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function changeUsername($data){
+    $user = new User();
+    if($user->updateUsername($data->username, $_SESSION['userId'])){
+        return true;
+    }else{
+        return false;
+    }
 }
 
 
