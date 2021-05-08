@@ -5,16 +5,66 @@
     /* font-weight: bold; */
     color: inherit;
 }
+.add{
+    margin-left: 5%;
+}
 
+.resultado{
+    margin-left: 5%;
+}
 
-/* .add-image{
+.food{
+    margin-left: 5%;
+}
+
+.resultados{
+    border: 2px solid #3cbb95;
+    width: 20%;
+}
+
+.linea{
+    height: 1px;
+    background-color: #3cbb95;
+}
+
+.resultados p{
+    text-align: center;
+}
+
+.botonEnviar{
+    text-decoration: none;
+    padding: 5px;
+    font-weight: 500;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #3cbb95;
+    border-radius: 6px;
+    border: 2px solid #3cbb95;
+}
+.botonEnviar:hover{
+    color: #3cbb95;
+    background-color: #ffffff;
+  }
+
+.add-image-ejer{
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/food.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: none;
+    width: 100%;
+    height: 50vh;
+    box-shadow: 5px 6px 10px 7px rgba(0,0,0,0.5);
+}
+
+.add-image-ali{
     background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/food.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: none;
     width: 100%;
     height: 40vh;
-} */
+    box-shadow: 5px 6px 10px 7px rgba(0,0,0,0.5);
+}
 
 /* Buscar alimentos */
 

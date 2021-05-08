@@ -44,9 +44,9 @@ header{
     color:inherit;
 }
 
-header h2{
-    /* border: 1px solid white; */
-    width: auto;
+.logo{
+    margin: 5%;
+    width: 30%;
     grid-area: tit;
 }
 

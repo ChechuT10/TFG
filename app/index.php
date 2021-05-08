@@ -21,7 +21,7 @@
 <div class="container lightmode">
     <div class="back-image">
         <header>
-            <h2><a href="index.php">Inicio</a></h2>
+            <a href="index.php"><img src="images/logo_small.png" class="logo"></a>
             <?php
                 if(isset($_SESSION['userUid'])){
                     echo '<div class="msg">';
@@ -79,14 +79,15 @@
                 <div>
                     <h1 id="primero">Binevenido</h2>
                     <h1 id="segundo">a</h2>
-                    <h1 id="tercero">NutriApp</h2>
+                    <h1 id="tercero">NutriLife</h2>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur 
-                    adipisicing elit. Ut, minus, id magni veniam
-                     sapiente non exercitationem ex ad aliquid rem 
-                     deserunt harum voluptatum aut excepturi. Doloribus
-                      ab cum a delectus.</p>
-                <a href="">Comencemos...</a>
+                <p>En esta aplicación te ayudaremos a controlar tu ingesta calórica
+                    y tu actividad física durante el tiempo que estes con nosotros.
+                    En ella verás los nutrientes, calorias y otros aspectos que influiran
+                    en tí para mejorar tu salud y te aydara a perder, ganar o mantener tu
+                    forma fisica.
+                </p>
+                <a href="">Comencemos</a>
             </div>
             <div class="info">
             </div>
@@ -99,9 +100,9 @@
                 <div class="contacto">
                         <div class="redes">
                             <h3>Síguenos en</h3>
-                            <a href=""><img src="images/tw.png">Twitter</a>
-                            <a href=""><img src="images/insta.png">Instagram</a>
-                            <a href=""><img src="images/facebook.png">Facebook</a>
+                            <a href="https://twitter.com/"><img src="images/tw.png">Twitter</a>
+                            <a href="https://www.instagram.com/"><img src="images/insta.png">Instagram</a>
+                            <a href="https://www.facebook.com/"><img src="images/facebook.png">Facebook</a>
                         </div>
                         <div class="preguntas">
                             <h3>Conócenos</h3>
