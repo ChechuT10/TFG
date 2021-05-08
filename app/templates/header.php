@@ -23,8 +23,15 @@
       rel="stylesheet"
     />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <!-- jqury -->
     <script src="../js/jquery.js"></script>
     <script src="../js/jquerytest.js"></script>
+    
+    <!-- date picker -->
+    <link rel="stylesheet" href="../datepiker/dtsel.css" />
+    <script src="../datepiker/dtsel.js"></script>
+
 </head>
 <body>
 <div class="container lightmode">
