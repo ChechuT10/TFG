@@ -70,6 +70,20 @@ function loginUser($userName, $pswd){
     }
 }
 
+
+// ELIMINAR USUARIO
+
+function deleteUser($id){
+    $user = new User();
+    if($user->deleteAccount($id)){
+        header("location: ../index.php");
+        exit();
+    }else{
+        header("location: ../account/eliminarCuenta.php?error=stmtfailed");//?error=stmtfailed
+        exit();
+    }
+}
+
 // FORMULARIO PESO, EDAD Y ALTURA
 
 function emptyInputAuxForm($age, $height, $weight, $idealw){
@@ -111,6 +125,18 @@ function createUserAux($age, $height, $weight, $idealw){
             header("location: ../index.php?error=stmtfailed");//?error=stmtfailed
         exit();
         }
+    }else{
+        header("location: ../index.php?error=stmtfailed");//?error=stmtfailed
+        exit();
+    }
+}
+
+function updateUserAux($age, $height, $weight, $idealw){
+    $auxId =  $_SESSION['userId'];
+    $user = new User();
+    if($user->updateAuxForm($age, $height, $weight, $idealw, $auxId)){
+        header("location: ../account/perfilDieta.php");
+        exit();
     }else{
         header("location: ../index.php?error=stmtfailed");//?error=stmtfailed
         exit();
