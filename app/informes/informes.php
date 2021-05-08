@@ -2,7 +2,7 @@
     
     <div class="content">
         <canvas id="myCanvas" ></canvas>
-        <legend for="myCanvas"></legend>
+        <legend class="lege" for="myCanvas"></legend>
     </div>
     
 <?php require_once '../templates/footer.php'?>
