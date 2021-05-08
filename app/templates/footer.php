@@ -2,9 +2,9 @@
         <div class="contacto">
                 <div class="redes">
                     <h3>Síguenos en</h3>
-                    <a href=""><img src="../images/tw.png">Twitter</a>
-                    <a href=""><img src="../images/insta.png">Instagram</a>
-                    <a href=""><img src="../images/facebook.png">Facebook</a>
+                    <a href="https://twitter.com/"><img src="../images/tw.png">Twitter</a>
+                    <a href="https://www.instagram.com/"><img src="../images/insta.png">Instagram</a>
+                    <a href="https://www.facebook.com/"><img src="../images/facebook.png">Facebook</a>
                 </div>
                 <div class="preguntas">
                     <h3>Conócenos</h3>
