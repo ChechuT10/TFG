@@ -24,7 +24,6 @@
                 <?php foreach($foods as $food): ?>
                 <div class="food">
                     <h4><?php echo $food['nombre']?></h4>
-<<<<<<< HEAD
                     <p>Gramos: <?php echo $food['calorias']?></p>
                     <p>Kcal: <?php echo $food['hidratos']?></p>
                     <p>Kcal: <?php echo $food['proteinas']?></p>
@@ -35,14 +34,6 @@
                         <input type="hidden" name="tipo" value="<?php echo $_GET['food'] ?>">
                         <button type="submit" name="enviar">Añadir</button>
                     </form>
-=======
-                    <p>Calorias: <?php echo $food['calorias']?></p>
-                    <p>Hidratos: <?php echo $food['hidratos']?></p>
-                    <p>Proteinas: <?php echo $food['proteinas']?></p>
-                    <p>Grasas: <?php echo $food['grasas']?></p>
-                    <input type="Submit" name="elegir" value="Elegir" id="valor">
-                    <input type="hidden" name="hd" value="valor">
->>>>>>> 63d1349c61ef61e2c96f556b78a74f56cb4229b9
                 </div>
                 <?php endforeach ?>
             </div>
