@@ -7,16 +7,6 @@
                     <h3>Cardiovascular</h3>
                     <p>Añadir</p>
                 </div>
-                <div class="weekdays">
-                    <div>Lun</div>
-                    <div>Mar</div>
-                    <div>Mie</div>
-                    <div>Jue</div>
-                    <div>Vie</div>
-                    <div>Sab</div>
-                    <div>Dom</div>
-                </div>
-                <div class="days"></div>
             </div>
         </div>
         <div class="ejercicios">
