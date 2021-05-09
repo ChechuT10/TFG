@@ -18,8 +18,15 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <!-- jqury -->
     <script src="../js/jquery.js"></script>
     <script src="../js/jquerytest.js"></script>
+    
+    <!-- date picker -->
+    <link rel="stylesheet" href="../datepiker/dtsel.css" />
+    <script src="../datepiker/dtsel.js"></script>
+
 </head>
 
 <body>

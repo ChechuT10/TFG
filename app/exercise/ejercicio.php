@@ -1,6 +1,13 @@
 <?php require_once '../templates/header.php' ?>
 <div class="add-image-ejer">
     <div class="content">
+<<<<<<< HEAD
+    <input name="dateTimePicker" value="<?php echo date("Y-m-d");?>" />
+            <div class="ejercicios">
+                <div class="cardio">
+                    <h3>Cardiovascular</h3>
+                    <p>Añadir</p>
+=======
         <div class="registro">
             <p>Tu registro de ejercicios para:</p>
             <div class="fecha">
@@ -17,6 +24,7 @@
                         <p></p>
                     </div>
                     <i class="fas fa-angle-right next"></i>
+>>>>>>> 3e8d3e67c5d95a8e9728c23fa8cf7aa92dd190a4
                 </div>
                 <div class="weekdays">
                     <div>Lun</div>
@@ -39,6 +47,11 @@
                 <h3>Ejercicios de fuerza</h3>
                 <p>Añadir</p>
             </div>
+<<<<<<< HEAD
+    </div>   
+<?php require_once '../templates/footer.php'?>
+<script src="../datepiker/calendar.js"></script>
+=======
         </div>
 
         <div class="notas">
@@ -51,4 +64,5 @@
 <?php require_once '../templates/footer.php' ?>
 <script src="../js/calendario.js"></script>
 
+>>>>>>> 3e8d3e67c5d95a8e9728c23fa8cf7aa92dd190a4
 </html>
