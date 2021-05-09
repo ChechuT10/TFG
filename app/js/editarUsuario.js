@@ -19,7 +19,7 @@ fetch(url,params)
 }).then(function(datos){
 
     url = window.location.search
-    url = url.substr(0,url.lastIndexOf("&"));
+    url = url.substr(0,url.lastIndexOf("?"));
     
     if(datos == "exito"){
         if(url == ""){
@@ -30,23 +30,23 @@ fetch(url,params)
     }
     if(datos == "vacio"){
         if(url == ""){
-            location.replace('perfil.php'+window.location.search+"&err=empty")
+            location.replace('perfil.php'+window.location.search+"?err=empty")
         }else{
-            location.replace('perfil.php'+url+"&err=empty")
+            location.replace('perfil.php'+url+"?err=empty")
         }
     }
     if(datos == "no valido"){
         if(url == ""){
-            location.replace('perfil.php'+window.location.search+"&err=usernametaken")
+            location.replace('perfil.php'+window.location.search+"?err=usernametaken")
         }else{
-            location.replace('perfil.php'+url+"&err=usernametaken")
+            location.replace('perfil.php'+url+"?err=usernametaken")
         }
     }
     if(datos == "error"){
         if(url == ""){
-            location.replace('perfil.php'+window.location.search+"&err=error")
+            location.replace('perfil.php'+window.location.search+"?err=error")
         }else{
-            location.replace('perfil.php'+url+"&err=error")
+            location.replace('perfil.php'+url+"?err=error")
         }
     }
 })

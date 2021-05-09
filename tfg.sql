@@ -128,8 +128,9 @@ CREATE TABLE `users` (
   `nombreUser` varchar(128) NOT NULL,
   `email` varchar(128) NOT NULL,
   `userPswd` varchar(128) NOT NULL,
-  `auxForm` set('S','N') NOT NULL DEFAULT 'N'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `auxForm` set('S','N') NOT NULL DEFAULT 'N',
+  `admin` set('S','N') NOT NULL DEFAULT 'N'
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `users`

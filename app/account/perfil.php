@@ -2,12 +2,11 @@
 include('../templates/header.php'); 
 require_once '../class/dbc.php';
 require_once '../class/user.php';
-require_once '../class/food.php';
 
     //detalles de cada usuario
-    if(isset($_GET['id']) && $_GET['id'] == $_SESSION['userId']){
+    if(isset($_SESSION['userId'])){
 
-        $id = $_GET['id'];
+        $id = $_SESSION['userId'];
         $aux = new User();
         $user = $aux->getUserById($id);
     }
