@@ -46,7 +46,6 @@
     background-color: #ffffff;
   }
 
-<<<<<<< HEAD
 .add-image-ejer{
     background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/food.jpg);
     background-size: cover;
@@ -58,9 +57,6 @@
 }
 
 .add-image-ali{
-=======
-.add-image{
->>>>>>> be0965e41b1523d4a900d7fc3d724fda6d18ef34
     background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/food.jpg);
     background-size: cover;
      background-position: center; 
