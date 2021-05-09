@@ -1,18 +1,11 @@
-fetch("../include/getFoodByUser.php",{method:'post'})
-  .then(function (respuesta) {
-    return respuesta.json();
-  })
-  .then(function (resultado) {
-    console.log("----------------------------");
-    console.log(resultado);
-  });
-
 var myCanvas = document.getElementById("myCanvas");
-myCanvas.width = 300;
-myCanvas.height = 300;
+myCanvas.width = 500;
+myCanvas.height = 500;
 
 var ctx = myCanvas.getContext("2d");
 
+
+// linia divisoria horizontal
 function drawLine(ctx, startX, startY, endX, endY, color) {
   ctx.save();
   ctx.strokeStyle = color;
@@ -23,6 +16,7 @@ function drawLine(ctx, startX, startY, endX, endY, color) {
   ctx.restore();
 }
 
+// barra
 function drawBar(
   ctx,
   upperLeftCornerX,
@@ -37,12 +31,9 @@ function drawBar(
   ctx.restore();
 }
 
-var myVinyls = {
-  Proteina: 10,
-  Hidratos: 14,
-  Grasas: 2,
-};
 
+
+// dibujar estadisticas
 var Barchart = function (options) {
   this.options = options;
   this.canvas = options.canvas;
@@ -57,7 +48,7 @@ var Barchart = function (options) {
     var canvasActualHeight = this.canvas.height - this.options.padding * 2;
     var canvasActualWidth = this.canvas.width - this.options.padding * 2;
 
-    //drawing the grid lines
+    //lineas de la cuadricula
     var gridValue = 0;
     while (gridValue <= maxValue) {
       var gridY =
@@ -71,7 +62,7 @@ var Barchart = function (options) {
         this.options.gridColor
       );
 
-      //writing grid markers
+      //marcadores
       this.ctx.save();
       this.ctx.fillStyle = this.options.gridColor;
       this.ctx.font = "bold 10px Arial";
@@ -81,7 +72,7 @@ var Barchart = function (options) {
       gridValue += this.options.gridScale;
     }
 
-    //drawing the bars
+    //dibujar las barras
     var barIndex = 0;
     var numberOfBars = Object.keys(this.options.data).length;
     var barSize = canvasActualWidth / numberOfBars;
@@ -101,7 +92,7 @@ var Barchart = function (options) {
       barIndex++;
     }
 
-    //draw legend
+    //legenda
     barIndex = 0;
     var legend = document.querySelector("legend[for='myCanvas']");
     var ul = document.createElement("ul");
@@ -119,12 +110,38 @@ var Barchart = function (options) {
   };
 };
 
-var myBarchart = new Barchart({
-  canvas: myCanvas,
-  padding: 10,
-  gridScale: 5,
-  gridColor: "#eeeeee",
-  data: myVinyls,
-  colors: ["#a55ca5", "#67b6c7", "#bccd7a"],
+
+window.addEventListener('load', function (){
+  datos = {
+    Proteina: 0,
+    Hidratos: 0,
+    Grasas: 0,
+  };
+  
+  fetch("../include/getFoodByUser.php",{method:'post'})
+    .then(function (respuesta) {
+      return respuesta.json();
+    })
+    .then(function (resultado) {
+  
+      for (const key in resultado) {
+        console.log(resultado[key]);
+        datos.Proteina = datos.Proteina + parseInt( resultado[key].proteinas);
+        datos.Hidratos = datos.Hidratos + parseInt(resultado[key].hidratos);
+        datos.Grasas = datos.Grasas + parseInt(resultado[key].grasas);
+      }
+
+      var myBarchart = new Barchart({
+        canvas: myCanvas,
+        padding: 10,
+        gridScale: 5,
+        // color de la barra horizontal
+        gridColor: "#118AB2",
+        data: datos,
+        // coloes de las barras en orden iz / dere
+        colors: ["#EF476F", "#FFD166", "#06D6A0"],
+      });
+      myBarchart.draw();
+      
+    });
 });
-myBarchart.draw();

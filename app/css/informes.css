@@ -1,0 +1,14 @@
+.lege {
+    width: 500px;
+}
+
+.lege ul {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;;
+}
+
+ul li{
+    margin-bottom: 10px;
+}
