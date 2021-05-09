@@ -2,10 +2,7 @@
 
 <div class="content">
     <canvas id="myCanvas"></canvas>
-
     <legend class="lege" for="myCanvas"></legend>
-
-    <legend for="myCanvas"></legend>
 
 </div>
 

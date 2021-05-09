@@ -13,6 +13,7 @@ session_start();
     <link rel="stylesheet" type="text/css" href="../css/alimentos.css" />
     <link rel="stylesheet" type="text/css" href="../css/ejercicio.css" />
     <link rel="stylesheet" type="text/css" href="../css/forms.css" />
+    <link rel="stylesheet" href="../css/informes.css">
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
