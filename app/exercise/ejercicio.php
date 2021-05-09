@@ -18,7 +18,8 @@
                 <h3>Ejercicios de fuerza</h3>
                 <p>Añadir</p>
             </div>
-    </div>   
+    </div>
+</div>   
 <?php require_once '../templates/footer.php'?>
 <script src="../datepiker/calendar.js"></script>
 </html>
