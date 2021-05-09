@@ -2,6 +2,17 @@
 // Creamos una clase llamada User que se 'extiende' de db para poder hacer uso de sus funciones
 class User extends Db{
 
+    public function getUsersCount(){
+        $sql = "SELECT * FROM users;";
+        $query = $this->connect()->query($sql);
+        if ($query) {
+             while($data=$query->fetchAll()){
+                return count($data);
+            }
+        }else{
+            return false;
+        }
+    }
     // Creamos una funcion para crear usuarios
     public function createUsers($name, $lastName, $userName, $email, $pswd){
         // Declaramos la sentencia sql

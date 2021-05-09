@@ -2,12 +2,12 @@
 
 class Food extends Db{
 
-    public function getFood(){
+    public function getFoodCount(){
         $sql = "SELECT * FROM alimentos;";
         $query = $this->connect()->query($sql);
         if ($query) {
              while($data=$query->fetchAll()){
-                return $data;
+                return count($data);
             }
         }else{
             return false;
@@ -15,8 +15,8 @@ class Food extends Db{
     }
 
     public function addFood($name, $calorias, $hidratos, $proteinas, $grasas){
-        $sql = "INSERT INTO desayuno (`nombre`, `calorias`, `hidratos`, `proteinas`, `grasas`) VALUES (?, ?, ?, ?, ?);";
-        $query = $this->connect()->query($sql);
+        $sql = "INSERT INTO alimentos (idalimentos, nombre, calorias, hidratos, proteinas, grasas) VALUES (NULL, ?, ?, ?, ?, ?);";
+        $query = $this->connect()->prepare($sql);
         if ($query->execute([$name, $calorias, $hidratos, $proteinas, $grasas])) {
             return true;
         }else{

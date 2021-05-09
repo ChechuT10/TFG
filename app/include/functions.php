@@ -55,7 +55,17 @@ function loginUser($userName, $pswd){
     //Hay que recordar que en el metodo de arriba usamos un assosiactive array
     else{
         // Probablemente se pueda comprobar si el usuario es admin if($uidExist['admin'] == 'S')
-
+        if($uidExist['admin'] == 'S'){
+            if($uidExist["userPswd"] == $pswd){
+                $_SESSION['userId'] = $uidExist["idUser"];
+                header("location: ../admin.php");
+                exit();
+            }else{
+                header("location: ../account/inicioSesion.php?error=wronglogin");
+                exit();
+            }
+        }
+        
         $pswdHashed = $uidExist["userPswd"];
         $checkPwd = password_verify($pswd, $pswdHashed);
 
@@ -63,20 +73,12 @@ function loginUser($userName, $pswd){
             header("location: ../account/inicioSesion.php?error=wronglogin");
             exit();
         }
-
-        if($uidExist['admin'] == 'S'){
-            $_SESSION['userId'] = $uidExist["idUser"];
-            header("location: ../admin.php");
-            exit();
-        }else {
-            /*Obtenemos el numero generado automaticamente por la base de datos
-            esto nos ayudara mas tarde a mostrar paginas personalizadas por usuario*/
-            $_SESSION['userId'] = $uidExist["idUser"];
-            $_SESSION['userUid'] = $uidExist["nombreUser"];
-            header("location: ../index.php");
-            exit();
-        }
-
+        /*Obtenemos el numero generado automaticamente por la base de datos
+        esto nos ayudara mas tarde a mostrar paginas personalizadas por usuario*/
+        $_SESSION['userId'] = $uidExist["idUser"];
+        $_SESSION['userUid'] = $uidExist["nombreUser"];
+        header("location: ../index.php");
+        exit();
     }
 }
 
