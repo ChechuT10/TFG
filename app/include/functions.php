@@ -54,6 +54,18 @@ function loginUser($userName, $pswd){
     //Aqui obtenemos la contraseña descodificada de la base de datos
     //Hay que recordar que en el metodo de arriba usamos un assosiactive array
     else{
+        // Probablemente se pueda comprobar si el usuario es admin if($uidExist['admin'] == 'S')
+        if($uidExist['admin'] == 'S'){
+            if($uidExist["userPswd"] == $pswd){
+                $_SESSION['userId'] = $uidExist["idUser"];
+                header("location: ../admin.php");
+                exit();
+            }else{
+                header("location: ../account/inicioSesion.php?error=wronglogin");
+                exit();
+            }
+        }
+        
         $pswdHashed = $uidExist["userPswd"];
         $checkPwd = password_verify($pswd, $pswdHashed);
 
@@ -66,6 +78,20 @@ function loginUser($userName, $pswd){
         $_SESSION['userId'] = $uidExist["idUser"];
         $_SESSION['userUid'] = $uidExist["nombreUser"];
         header("location: ../index.php");
+        exit();
+    }
+}
+
+
+// ELIMINAR USUARIO
+
+function deleteUser($id){
+    $user = new User();
+    if($user->deleteAccount($id)){
+        header("location: ../index.php");
+        exit();
+    }else{
+        header("location: ../account/eliminarCuenta.php?error=stmtfailed");//?error=stmtfailed
         exit();
     }
 }
@@ -111,6 +137,18 @@ function createUserAux($age, $height, $weight, $idealw){
             header("location: ../index.php?error=stmtfailed");//?error=stmtfailed
         exit();
         }
+    }else{
+        header("location: ../index.php?error=stmtfailed");//?error=stmtfailed
+        exit();
+    }
+}
+
+function updateUserAux($age, $height, $weight, $idealw){
+    $auxId =  $_SESSION['userId'];
+    $user = new User();
+    if($user->updateAuxForm($age, $height, $weight, $idealw, $auxId)){
+        header("location: ../account/perfilDieta.php");
+        exit();
     }else{
         header("location: ../index.php?error=stmtfailed");//?error=stmtfailed
         exit();
@@ -215,6 +253,35 @@ function addDinner($idUser, $idFood){
         exit();
     }else{
         header("location: ../food/alimentos.php?msj=fail");
+        exit();
+    }
+}
+
+
+// ADMINISTRADOR
+
+function emptyInputAdmin($name, $calorias, $hidratos, $proteinas, $grasas){
+    $result=null;
+    if(empty($name) || empty($calorias) || empty($hidratos) || empty($proteinas) || empty($grasas))  {
+        $result = true;
+    }else{
+       $result = false;
+    } 
+    return $result;
+}
+
+function foodExists($name){
+    $food = new Food();
+    return $food->getFoodByName($name);
+}
+
+function addFoodAdmin($name, $calorias, $hidratos, $proteinas, $grasas){
+    $food = new Food();
+    if($food->addFood($name, $calorias, $hidratos, $proteinas, $grasas)){
+        header("location: ../admin.php?msj=added");
+        exit();
+    }else{
+        header("location: ../admin.php?msj=fail");
         exit();
     }
 }

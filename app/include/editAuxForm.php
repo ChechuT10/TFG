@@ -8,22 +8,20 @@ if(isset($_POST['enviar'])){
     $weight = $_POST['peso'];
     $idealw = $_POST['pesoideal'];
 
-    require_once "../class/dbc.php";
-    require_once "../class/user.php";
     require_once "functions.php";
 
     if(emptyInputAuxForm($age, $height, $weight, $idealw) !== false){
-        header("location: ../index.php?error=emptyinput");
+        header("location: ../account/perfilDieta.php?error=emptyinput");
         exit();
     }
     if(validateAuxForm($age, $height, $weight, $idealw) === false){
-        header("location: ../index.php?error=invalidform");
+        header("location: ../account/perfilDieta.php?error=invalidform");
         exit();
     }
     //Los errores de datos los manejamos con rejex   
-    createUserAux($age, $height, $weight, $idealw);
+    updateUserAux($age, $height, $weight, $idealw);
 
 }else{
-    header("location: ../index.php");
+    header("location: ../account/perfilDieta.php");
     exit();
 }

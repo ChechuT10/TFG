@@ -2,6 +2,17 @@
 // Creamos una clase llamada User que se 'extiende' de db para poder hacer uso de sus funciones
 class User extends Db{
 
+    public function getUsersCount(){
+        $sql = "SELECT * FROM users;";
+        $query = $this->connect()->query($sql);
+        if ($query) {
+             while($data=$query->fetchAll()){
+                return count($data);
+            }
+        }else{
+            return false;
+        }
+    }
     // Creamos una funcion para crear usuarios
     public function createUsers($name, $lastName, $userName, $email, $pswd){
         // Declaramos la sentencia sql
@@ -50,6 +61,31 @@ class User extends Db{
         }
     }   
 
+    public function getAuxForm($id){
+        $sql = "SELECT * FROM useraux WHERE idUser = ?;";
+        $query = $this->connect()->prepare($sql);
+        // $query->bind_param("ss" , $userName , $email);
+        if ($query->execute([$id])) {
+            // Si se ejecuta correctamente se crea y se devuelve un array
+            while($data=$query->fetch()){
+                return $data;
+            }
+        }else{
+                return false;
+        }
+    }
+
+    public function updateAuxForm($age, $height, $weight, $idealw, $auxId){
+        $sql = "UPDATE userAux SET edad = ?, altura = ?, peso = ?, pesoIdeal = ?  WHERE idUser = ?;";
+        $query = $this->connect()->prepare($sql);
+        // $query->bind_param("ss" , $userName , $email);
+        if ($query->execute([$age, $height, $weight, $idealw, $auxId])) {
+                return true;
+        }else{
+                return false;
+        }
+    }
+
     function getUser($userName , $email){
         $sql = "SELECT * FROM users WHERE nombreUser = ? OR email = ?;";
         $query = $this->connect()->prepare($sql);
@@ -62,7 +98,6 @@ class User extends Db{
         }else{
                 return false;
         }
-    
    }
 
    public function getUserById($id){
@@ -103,7 +138,6 @@ public function updateUserFirstName($nombre,$id){
     // Ejecutamos la sentencia sql
     $query = $this->connect()->prepare($sql);
     if ($query->execute([$nombre,$id])) {
-        // Si se ejecuta correctamente se crea y se devuelve un array
             return true;
     }else{
             return false;
@@ -116,7 +150,6 @@ public function updateUserLastName($apellidos,$id){
     // Ejecutamos la sentencia sql
     $query = $this->connect()->prepare($sql);
     if ($query->execute([$apellidos,$id])) {
-        // Si se ejecuta correctamente se crea y se devuelve un array
             return true;
     }else{
             return false;
@@ -129,7 +162,17 @@ public function updateUsername($username,$id){
     // Ejecutamos la sentencia sql
     $query = $this->connect()->prepare($sql);
     if ($query->execute([$username,$id])) {
-        // Si se ejecuta correctamente se crea y se devuelve un array
+            return true;
+    }else{
+            return false;
+    }
+}
+
+public function deleteAccount($id){
+    $sql = "DELETE FROM users WHERE idUser = ?;";
+    // Ejecutamos la sentencia sql
+    $query = $this->connect()->prepare($sql);
+    if ($query->execute([$id])) {
             return true;
     }else{
             return false;
