@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var myCanvas = document.getElementById("myCanvas");
 myCanvas.width = 500;
 myCanvas.height = 500;
@@ -6,6 +7,23 @@ var ctx = myCanvas.getContext("2d");
 
 
 // linia divisoria horizontal
+=======
+fetch("../include/getFoodByUser.php",{method:'post'})
+  .then(function (respuesta) {
+    return respuesta.json();
+  })
+  .then(function (resultado) {
+    console.log("----------------------------");
+    console.log(resultado);
+  });
+
+var myCanvas = document.getElementById("myCanvas");
+myCanvas.width = 300;
+myCanvas.height = 300;
+
+var ctx = myCanvas.getContext("2d");
+
+>>>>>>> main
 function drawLine(ctx, startX, startY, endX, endY, color) {
   ctx.save();
   ctx.strokeStyle = color;
@@ -16,7 +34,10 @@ function drawLine(ctx, startX, startY, endX, endY, color) {
   ctx.restore();
 }
 
+<<<<<<< HEAD
 // barra
+=======
+>>>>>>> main
 function drawBar(
   ctx,
   upperLeftCornerX,
@@ -31,9 +52,18 @@ function drawBar(
   ctx.restore();
 }
 
+<<<<<<< HEAD
 
 
 // dibujar estadisticas
+=======
+var myVinyls = {
+  Proteina: 10,
+  Hidratos: 14,
+  Grasas: 2,
+};
+
+>>>>>>> main
 var Barchart = function (options) {
   this.options = options;
   this.canvas = options.canvas;
@@ -48,7 +78,11 @@ var Barchart = function (options) {
     var canvasActualHeight = this.canvas.height - this.options.padding * 2;
     var canvasActualWidth = this.canvas.width - this.options.padding * 2;
 
+<<<<<<< HEAD
     //lineas de la cuadricula
+=======
+    //drawing the grid lines
+>>>>>>> main
     var gridValue = 0;
     while (gridValue <= maxValue) {
       var gridY =
@@ -62,7 +96,11 @@ var Barchart = function (options) {
         this.options.gridColor
       );
 
+<<<<<<< HEAD
       //marcadores
+=======
+      //writing grid markers
+>>>>>>> main
       this.ctx.save();
       this.ctx.fillStyle = this.options.gridColor;
       this.ctx.font = "bold 10px Arial";
@@ -72,7 +110,11 @@ var Barchart = function (options) {
       gridValue += this.options.gridScale;
     }
 
+<<<<<<< HEAD
     //dibujar las barras
+=======
+    //drawing the bars
+>>>>>>> main
     var barIndex = 0;
     var numberOfBars = Object.keys(this.options.data).length;
     var barSize = canvasActualWidth / numberOfBars;
@@ -92,7 +134,11 @@ var Barchart = function (options) {
       barIndex++;
     }
 
+<<<<<<< HEAD
     //legenda
+=======
+    //draw legend
+>>>>>>> main
     barIndex = 0;
     var legend = document.querySelector("legend[for='myCanvas']");
     var ul = document.createElement("ul");
@@ -110,6 +156,7 @@ var Barchart = function (options) {
   };
 };
 
+<<<<<<< HEAD
 
 window.addEventListener('load', function (){
   datos = {
@@ -145,3 +192,14 @@ window.addEventListener('load', function (){
       
     });
 });
+=======
+var myBarchart = new Barchart({
+  canvas: myCanvas,
+  padding: 10,
+  gridScale: 5,
+  gridColor: "#eeeeee",
+  data: myVinyls,
+  colors: ["#a55ca5", "#67b6c7", "#bccd7a"],
+});
+myBarchart.draw();
+>>>>>>> main
