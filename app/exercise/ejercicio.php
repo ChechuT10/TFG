@@ -1,7 +1,7 @@
 <?php require_once '../templates/header.php' ?>
 <div class="add-image-ejer">
     <div class="content">
-    <input name="dateTimePicker" value="<?php echo date("Y-m-d");?>" />
+    <input name="dateTimePicker" id="date" value="<?php echo date("Y-m-d");?>" />
             <div class="ejercicios">
                 <div class="cardio">
                     <h3>Cardiovascular</h3>
