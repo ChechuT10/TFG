@@ -17,9 +17,8 @@ window.addEventListener("load", function () {
     this.localStorage.removeItem("dia");
   } else {
     var f = new Date();
-    var hoy = f.toISOString();
-    h = hoy.split("T");
-    console.log(h[0]);
-    document.getElementById("fecha").value = h[0];
+    var hoy = f.toISOString().split("T");
+    console.log(hoy[0]);
+    document.getElementById("fecha").value = hoy[0];
   }
 });
