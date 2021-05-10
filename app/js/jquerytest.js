@@ -2,10 +2,12 @@ $(document).ready(function () {
     const lineas = $('.lines')
     const content = $('.content')
     const footer = $('footer')
+    const hideimages = $('.queryhide')
     const backImage = $('.small-back-image')
     const pop = $('.fullscreen-container')
     const cicon = $(".calendar-icon")
     console.log(cicon)
+    // console.log(hideimages)
 
     if (lineas != null) {
 
@@ -29,12 +31,14 @@ $(document).ready(function () {
                 content.fadeIn(600)
                 footer.fadeIn(600)
                 backImage.fadeIn(600)
+                hideimages.fadeIn(500)
                 ul.removeClass('animate')
                 ul.addClass('animateout')
             } else {
                 backImage.fadeOut(600)
                 content.fadeOut(600)
                 footer.fadeOut(600)
+                hideimages.fadeOut(500)
                 ul.removeClass('animateout')
                 ul.addClass('animate')
             }

@@ -25,12 +25,19 @@ header{
     flex-basis: 20%;
     background-color: #58AF9B;
     color: white;
+    padding: 0 0.5em;
 }
 
-header h2{
+header .index{
     width: 80%;
-    margin: 1em auto;
+    margin: 2em auto;
     color: white;
+    display: flex;
+    align-content: center;
+}
+.index img{
+    width: 90%;
+    max-width: 180px;
 }
 
 .section{
@@ -185,4 +192,20 @@ header h2{
     border-radius: 2em;
     cursor: pointer;
     font-weight: bold;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media screen and (max-width: 700px){
+
+    header{
+        display: none;
+    }
+    .content{
+        flex-basis: 100%;
+        padding: 1em;
+    }
+
+    .content .info{
+        width: 100%;
+    }
 }

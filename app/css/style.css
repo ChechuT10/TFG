@@ -33,6 +33,7 @@ html,body{
 /* Cabezera */
 
 header{
+    /* padding: 0.2em 0; */
     width: 100%;
     display: grid;
     grid-gap: 10px;
@@ -45,14 +46,10 @@ header{
 }
 
 .logo{
-    margin: 5%;
-    width: 30%;
     grid-area: tit;
 }
-
-header h2 a{
-    text-decoration: none;
-    color: inherit;
+.logo img{
+    max-width: 150px;
 }
 
 header .msg{
@@ -444,6 +441,9 @@ section{
 /* Ajustes para pantallas pequeñas */
 @media screen and (max-width: 600px){
 
+    header{
+        padding: 0.6em 0;
+    }
     .main-forms{
         height: fit-content;
         padding: 1em 0;

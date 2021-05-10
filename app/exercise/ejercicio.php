@@ -1,7 +1,9 @@
 <?php require_once '../templates/header.php' ?>
-<div class="add-image-ejer">
+<div class="add-image-ejer queryhide">
     <div class="content">
-    <input name="dateTimePicker" id="date" value="<?php echo date("Y-m-d");?>" />
+        <form id="envia" method="post">
+            <input type="date" name="fecha" id="fecha">
+        </form>
             <div class="ejercicios">
                 <div class="cardio">
                     <h3>Cardiovascular</h3>
@@ -20,6 +22,7 @@
             </div>
     </div>
 </div>   
+<script src="../js/calendario.js"></script>
 <?php require_once '../templates/footer.php'?>
-<script src="../datepiker/calendar.js"></script>
+<!-- <script src="../datepiker/calendar.js"></script> -->
 </html>

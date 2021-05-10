@@ -50,20 +50,20 @@ class Food extends Db{
 
     // Añadir y obtener desayuno
 
-    public function addToBreakfast($idUser, $idFood){
-        $sql = "INSERT INTO desayuno (idUser,idAlimento) VALUES (?, ?);";
+    public function addToBreakfast($idUser, $idFood, $date){
+        $sql = "INSERT INTO desayuno (idUser,idAlimento, fecha) VALUES (?, ?, ?);";
         $query = $this->connect()->prepare($sql);  
-        if ($query->execute([$idUser, $idFood])) {
+        if ($query->execute([$idUser, $idFood, $date])) {
                 return true;
         }else{
                 return false;
         }
     }
     
-    public function getBreakfast($user){
-        $sql = "SELECT * FROM desayuno WHERE idUser = ?;";
+    public function getBreakfast($user, $date){
+        $sql = "SELECT * FROM desayuno WHERE idUser = ? AND fecha = ?;";
         $query = $this->connect()->prepare($sql);
-        if ($query->execute([$user])) {
+        if ($query->execute([$user, $date])) {
             while($data=$query->fetchAll()){
                 return $data;
             }
@@ -75,20 +75,20 @@ class Food extends Db{
 
     // Añadir y obtener comida
 
-    public function addToLaunch($idUser, $idFood){
-        $sql = "INSERT INTO comida (idUser,idAlimento) VALUES (?, ?);";
+    public function addToLaunch($idUser, $idFood, $date){
+        $sql = "INSERT INTO comida (idUser,idAlimento, fecha) VALUES (?, ?, ?);";
         $query = $this->connect()->prepare($sql);
-        if ($query->execute([$idUser, $idFood])) {
+        if ($query->execute([$idUser, $idFood, $date])) {
                 return true;
         }else{
                 return false;
         }
     }
     
-    public function getLaunch($user){
-        $sql = "SELECT * FROM comida WHERE idUser = ?;";
+    public function getLaunch($user, $date){
+        $sql = "SELECT * FROM comida WHERE idUser = ? AND fecha = ?;";
         $query = $this->connect()->prepare($sql);
-        if ($query->execute([$user])) {
+        if ($query->execute([$user, $date])) {
             while($data=$query->fetchAll()){
                 return $data;
             }
@@ -100,20 +100,20 @@ class Food extends Db{
 
     // Añadir y obtener cena
 
-    public function addToDinner($idUser, $idFood){
-        $sql = "INSERT INTO cena (idUser,idAlimento) VALUES (?, ?);";
+    public function addToDinner($idUser, $idFood, $date){
+        $sql = "INSERT INTO cena (idUser,idAlimento, fecha) VALUES (?, ?, ?);";
         $query = $this->connect()->prepare($sql);
-        if ($query->execute([$idUser, $idFood])) {
+        if ($query->execute([$idUser, $idFood, $date])) {
                 return true;
         }else{
                 return false;
         }
     }
     
-    public function getDinner($user){
-        $sql = "SELECT * FROM cena WHERE idUser = ?;";
+    public function getDinner($user, $date){
+        $sql = "SELECT * FROM cena WHERE idUser = ? AND fecha = ?;";
         $query = $this->connect()->prepare($sql);
-        if ($query->execute([$user])) {
+        if ($query->execute([$user, $date])) {
             while($data=$query->fetchAll()){
                 return $data;
             }

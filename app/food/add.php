@@ -1,5 +1,5 @@
 <?php require_once '../templates/header.php'?>
-    <div class="add-image-ali">
+    <div class="add-image-ali queryhide">
         <div class="content">
         <div class = "add">
         <h3>Añade un alimento a <?php echo $_GET['food']?>  
@@ -13,7 +13,6 @@
             </div>
         </div>
     </div>
-</div>
 <?php require_once '../templates/footer.php'?>
 <script src="../js/add.js"></script>
 </html>

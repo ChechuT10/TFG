@@ -225,8 +225,8 @@ function changeUsername($data){
 
 function addBreakfast($idUser, $idFood){
     $food = new Food();
-    if($food->addToBreakfast($idUser, $idFood)){
-        header("location: ../food/alimentos.php?msj=added");
+    if($food->addToBreakfast($idUser, $idFood, $_SESSION['date'])){
+        header("location: ../food/alimentos.php");
         exit();
     }else{
         header("location: ../food/alimentos.php?msj=fail");
@@ -237,8 +237,8 @@ function addBreakfast($idUser, $idFood){
 
 function addLaunch($idUser, $idFood){
     $food = new Food();
-    if($food->addToLaunch($idUser, $idFood)){
-        header("location: ../food/alimentos.php?msj=added");
+    if($food->addToLaunch($idUser, $idFood, $_SESSION['date'])){
+        header("location: ../food/alimentos.php");
         exit();
     }else{
         header("location: ../food/alimentos.php?msj=fail");
@@ -248,8 +248,8 @@ function addLaunch($idUser, $idFood){
 
 function addDinner($idUser, $idFood){
     $food = new Food();
-    if($food->addToDinner($idUser, $idFood)){
-        header("location: ../food/alimentos.php?msj=added");
+    if($food->addToDinner($idUser, $idFood, $_SESSION['date'])){
+        header("location: ../food/alimentos.php");
         exit();
     }else{
         header("location: ../food/alimentos.php?msj=fail");

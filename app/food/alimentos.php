@@ -1,29 +1,29 @@
 <?php require_once '../templates/header.php' ?>
 <?php
-require_once '../class/dbc.php';
-require_once '../class/food.php';
-$aux = new Food();
-$breakfast = $aux->getBreakfast($_SESSION['userId']);
-$launch = $aux->getLaunch($_SESSION['userId']);
-$dinner = $aux->getDinner($_SESSION['userId']);
-$alimentos = [];
+    require_once '../class/dbc.php';
+    require_once '../class/food.php';
+
+    if(isset($_GET['date'])){
+        $_SESSION['date'] = $_GET['date'];
+    }else{
+        $auxdate = getdate();
+        $year = $auxdate['year'];
+        $month = $auxdate['mon'];
+        $day = $auxdate['mday'];
+        $date = "$year-$month-$day";
+        $_SESSION['date'] = $date;
+    }
+
+    $aux = new Food();
+    $breakfast = $aux->getBreakfast($_SESSION['userId'], $_SESSION['date']);
+    $launch = $aux->getLaunch($_SESSION['userId'], $_SESSION['date']);
+    $dinner = $aux->getDinner($_SESSION['userId'], $_SESSION['date']);
+    $alimentos = [];
 ?>
-<section>
     <div class="content">
         <form id="envia" method="post">
             <input type="date" name="fecha" id="fecha">
         </form>
-        
-        <?php
-            if ($dia =file_get_contents('php://input')) {
-                echo $dia;  
-                if (isset($_POST['dia'])) {
-                    echo $_POST["dia"];
-                }
-                
-
-            }
-        ?>
             <div class="add">
                 <div class="desayuno">
                     <h3>Desayuno</h3>
@@ -36,10 +36,6 @@ $alimentos = [];
                                 array_push($alimentos, $food);
                             }
                             ?>
-                            <!-- <input type="hidden" name="calorias" value="'.$food['calorias'].'">
-                        <input type="hidden" name="hidratos" value="'.$food['hidratos'].'">
-                        <input type="hidden" name="proteinas" value="'.$food['proteinas'].'">
-                        <input type="hidden" name="grasas" value="'.$food['grasas'].'">'; -->
                         </div>
                     <?php endif ?>
                     <a href="add.php?food=desayuno">
@@ -81,9 +77,7 @@ $alimentos = [];
                     </a>
                 </div>
             </div>
-        </div>
     </div>
-</section>
 <script src="../js/calendario.js"></script>
 <?php require_once '../templates/footer.php' ?>
 </html>

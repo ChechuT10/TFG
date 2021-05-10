@@ -21,7 +21,7 @@
 <div class="container lightmode">
     <div class="back-image">
         <header>
-            <a href="index.php"><img src="images/logo_small.png" class="logo"></a>
+            <a href="index.php" class="logo"><img src="images/logo_small.png"></a>
             <?php
                 if(isset($_SESSION['userUid'])){
                     echo '<div class="msg">';

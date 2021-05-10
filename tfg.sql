@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-05-2021 a las 16:42:22
--- Versión del servidor: 10.4.17-MariaDB
--- Versión de PHP: 7.4.15
+-- Tiempo de generación: 10-05-2021 a las 18:54:37
+-- Versión del servidor: 10.4.14-MariaDB
+-- Versión de PHP: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -93,8 +93,16 @@ CREATE TABLE `desayuno` (
   `idDesayuno` int(11) NOT NULL,
   `idAlimento` int(11) NOT NULL,
   `idUser` int(11) NOT NULL,
-  `fecha` date DEFAULT NULL
+  `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `desayuno`
+--
+
+INSERT INTO `desayuno` (`idDesayuno`, `idAlimento`, `idUser`, `fecha`) VALUES
+(1, 1, 3, '2021-05-10'),
+(2, 2, 3, '2021-05-10');
 
 -- --------------------------------------------------------
 
@@ -115,7 +123,8 @@ CREATE TABLE `useraux` (
 --
 
 INSERT INTO `useraux` (`edad`, `altura`, `peso`, `pesoIdeal`, `idUser`) VALUES
-(21, 180, 75, 70, 2);
+(21, 180, 75, 70, 2),
+(34, 124, 34, 45, 3);
 
 -- --------------------------------------------------------
 
@@ -130,15 +139,18 @@ CREATE TABLE `users` (
   `nombreUser` varchar(128) NOT NULL,
   `email` varchar(128) NOT NULL,
   `userPswd` varchar(128) NOT NULL,
-  `auxForm` set('S','N') NOT NULL DEFAULT 'N'
+  `auxForm` set('S','N') NOT NULL DEFAULT 'N',
+  `admin` set('S','N') NOT NULL DEFAULT 'N'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`idUser`, `nombre`, `apellidos`, `nombreUser`, `email`, `userPswd`, `auxForm`) VALUES
-(2, 'Jorge', 'Trapero Pinero', 'jorge', 'jorge@gmail.com', '$2y$10$zApAuc6lXh3k05g1RL2gYunergqfNAdnCBlLgfQjmyWcLxtHoJcY.', 'S');
+INSERT INTO `users` (`idUser`, `nombre`, `apellidos`, `nombreUser`, `email`, `userPswd`, `auxForm`, `admin`) VALUES
+(2, 'Jorge', 'Trapero Pinero', 'jorge', 'jorge@gmail.com', '$2y$10$zApAuc6lXh3k05g1RL2gYunergqfNAdnCBlLgfQjmyWcLxtHoJcY.', 'S', 'N'),
+(3, 'carlos', 'rodriguez sasas', 'prueba', 'prueba2@gmail.com', '$2y$10$itrh5KoScexVSlloow6fEeV2mFQ3BnL8VD6SYbwQkNNWUCqssQ.WK', 'S', 'N'),
+(4, 'admin', 'admin', 'admin', 'admin@gmail.com', '12345678', 'S', 'S');
 
 --
 -- Índices para tablas volcadas
@@ -212,13 +224,13 @@ ALTER TABLE `comida`
 -- AUTO_INCREMENT de la tabla `desayuno`
 --
 ALTER TABLE `desayuno`
-  MODIFY `idDesayuno` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idDesayuno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
@@ -228,22 +240,22 @@ ALTER TABLE `users`
 -- Filtros para la tabla `cena`
 --
 ALTER TABLE `cena`
-  ADD CONSTRAINT `alimentoCn` FOREIGN KEY (`idAlimento`) REFERENCES `alimentos` (`idalimentos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `userCn` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `alimentoCn` FOREIGN KEY (`idAlimento`) REFERENCES `alimentos` (`idalimentos`) ON DELETE CASCADE,
+  ADD CONSTRAINT `userCn` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `comida`
 --
 ALTER TABLE `comida`
-  ADD CONSTRAINT `aliemntoC` FOREIGN KEY (`idAlimento`) REFERENCES `alimentos` (`idalimentos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `userC` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `aliemntoC` FOREIGN KEY (`idAlimento`) REFERENCES `alimentos` (`idalimentos`) ON DELETE CASCADE,
+  ADD CONSTRAINT `userC` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `desayuno`
 --
 ALTER TABLE `desayuno`
-  ADD CONSTRAINT `alimentoDe` FOREIGN KEY (`idAlimento`) REFERENCES `alimentos` (`idalimentos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `userDe` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `alimentoDe` FOREIGN KEY (`idAlimento`) REFERENCES `alimentos` (`idalimentos`) ON DELETE CASCADE,
+  ADD CONSTRAINT `userDe` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `useraux`

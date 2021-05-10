@@ -28,7 +28,7 @@
 <div class="container ">
     <?php if(isset($_SESSION['userId'])): ?>
         <header>
-        <h2><a href="">Inicio</a></h2>
+        <a href="" class="index"><img src="images/logo_white_large.png"></a>
         <div class="section">
             <img src="images/houseIcon.png">
             <p>Inicio<p>

@@ -33,7 +33,7 @@ session_start();
 <body>
     <div class="container lightmode">
         <header>
-        <a href="../index.php"><img src="../images/logo_small.png" class="logo"></a>
+        <a href="../index.php" class="logo"><img src="../images/logo_small.png"></a>
             <?php
             if (isset($_SESSION['userUid'])) {
                 echo '<div class="msg">';

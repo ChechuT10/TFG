@@ -1,24 +1,23 @@
 document.getElementById("fecha").addEventListener("change", function () {
   var dia = this.value;
-  localStorage.setItem("dia", dia);
-  console.log(dia);
-  fetch("../food/alimentos.php", {
-    method: "POST",
-    body: dia,
-  });
-  document.getElementById("envia").submit();
+  var url = window.location.pathname;
+  var filename = url.substring(url.lastIndexOf('/')+1);
+  if(filename == "alimentos.php"){
+     location.replace('alimentos.php?date='+dia)
+  }
+  if(filename == "ejercicio.php"){
+    location.replace('ejercicio.php?date='+dia)
+ }
 });
 
 window.addEventListener("load", function () {
-  var dia = this.localStorage.getItem("dia");
-  if (dia != null) {
-    document.getElementById("fecha").value = dia;
-    console.log(dia);
-    this.localStorage.removeItem("dia");
+  var dia = window.location.search;
+  if (dia != "") {
+    document.getElementById("fecha").value = dia.substr(6);
   } else {
     var f = new Date();
-    var hoy = f.toISOString().split("T");
-    console.log(hoy[0]);
-    document.getElementById("fecha").value = hoy[0];
+    var hoy = f.toISOString();
+    h = hoy.split("T");
+    document.getElementById("fecha").value = h[0];
   }
 });
