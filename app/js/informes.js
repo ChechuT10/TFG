@@ -118,7 +118,7 @@ window.addEventListener('load', function (){
     Grasas: 0,
   };
   
-  fetch("../include/getFoodByUser.php",{method:'post'})
+  fetch("../include/getFoodByUser.php",{})
     .then(function (respuesta) {
       return respuesta.json();
     })
