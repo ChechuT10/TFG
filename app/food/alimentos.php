@@ -11,14 +11,17 @@ $alimentos = [];
 <section>
     <div class="content">
         <form id="envia" method="post">
-            <input type="date" name="fecha" id="fecha" value="<?php echo date("Y-m-d");?>">
+            <input type="date" name="fecha" id="fecha">
         </form>
         
         <?php
-            if (file_get_contents('php://input')) {
-                $cont = 0;
-                echo $cont;
-                $cont++;
+            if ($dia =file_get_contents('php://input')) {
+                echo $dia;  
+                if (isset($_POST['dia'])) {
+                    echo $_POST["dia"];
+                }
+                
+
             }
         ?>
             <div class="add">
