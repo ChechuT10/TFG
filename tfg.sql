@@ -1,10 +1,9 @@
-
 -- phpMyAdmin SQL Dump
 -- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-05-2021 a las 20:35:35
+-- Tiempo de generación: 10-05-2021 a las 16:42:22
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 7.4.15
 
@@ -67,7 +66,8 @@ INSERT INTO `alimentos` (`idalimentos`, `nombre`, `calorias`, `hidratos`, `prote
 CREATE TABLE `cena` (
   `idCena` int(11) NOT NULL,
   `idAlimento` int(11) NOT NULL,
-  `idUser` int(11) NOT NULL
+  `idUser` int(11) NOT NULL,
+  `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -79,7 +79,8 @@ CREATE TABLE `cena` (
 CREATE TABLE `comida` (
   `idComida` int(11) NOT NULL,
   `idAlimento` int(11) NOT NULL,
-  `idUser` int(11) NOT NULL
+  `idUser` int(11) NOT NULL,
+  `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -91,7 +92,8 @@ CREATE TABLE `comida` (
 CREATE TABLE `desayuno` (
   `idDesayuno` int(11) NOT NULL,
   `idAlimento` int(11) NOT NULL,
-  `idUser` int(11) NOT NULL
+  `idUser` int(11) NOT NULL,
+  `fecha` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -128,9 +130,8 @@ CREATE TABLE `users` (
   `nombreUser` varchar(128) NOT NULL,
   `email` varchar(128) NOT NULL,
   `userPswd` varchar(128) NOT NULL,
-  `auxForm` set('S','N') NOT NULL DEFAULT 'N',
-  `admin` set('S','N') NOT NULL DEFAULT 'N'
-  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `auxForm` set('S','N') NOT NULL DEFAULT 'N'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `users`
@@ -170,8 +171,8 @@ ALTER TABLE `comida`
 --
 ALTER TABLE `desayuno`
   ADD PRIMARY KEY (`idDesayuno`),
-  ADD KEY `comida_idx` (`idAlimento`),
-  ADD KEY `user_idx` (`idUser`);
+  ADD KEY `alimentoDe_idx` (`idAlimento`),
+  ADD KEY `userDe_idx` (`idUser`);
 
 --
 -- Indices de la tabla `useraux`
@@ -227,22 +228,22 @@ ALTER TABLE `users`
 -- Filtros para la tabla `cena`
 --
 ALTER TABLE `cena`
-  ADD CONSTRAINT `alimentoCn` FOREIGN KEY (`idAlimento`) REFERENCES `alimentos` (`idalimentos`) ON DELETE CASCADE,
-  ADD CONSTRAINT `userCn` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE CASCADE;
+  ADD CONSTRAINT `alimentoCn` FOREIGN KEY (`idAlimento`) REFERENCES `alimentos` (`idalimentos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `userCn` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `comida`
 --
 ALTER TABLE `comida`
-  ADD CONSTRAINT `aliemntoC` FOREIGN KEY (`idAlimento`) REFERENCES `alimentos` (`idalimentos`) ON DELETE CASCADE,
-  ADD CONSTRAINT `userC` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE CASCADE;
+  ADD CONSTRAINT `aliemntoC` FOREIGN KEY (`idAlimento`) REFERENCES `alimentos` (`idalimentos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `userC` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `desayuno`
 --
 ALTER TABLE `desayuno`
-  ADD CONSTRAINT `alimentoD` FOREIGN KEY (`idAlimento`) REFERENCES `alimentos` (`idalimentos`) ON DELETE CASCADE,
-  ADD CONSTRAINT `userD` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE CASCADE;
+  ADD CONSTRAINT `alimentoDe` FOREIGN KEY (`idAlimento`) REFERENCES `alimentos` (`idalimentos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `userDe` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `useraux`
