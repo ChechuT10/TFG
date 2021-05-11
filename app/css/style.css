@@ -43,6 +43,7 @@ header{
     align-items: center;
     box-shadow: 0 0 0.4em rgba(0,0,0,0.2);
     color:inherit;
+    /* padding: 0 2em; */
 }
 
 .logo{
@@ -202,23 +203,6 @@ nav a:hover div{
 #segundo{animation-delay:1s;}
 #tercero{animation-delay:2s;}
 #ultimo{animation-delay:3s;}
-
-
-/*Estilo de la tabla*/
-table{
-    height:15em;
-    width: 40em;
-    border-collapse: collapse;
-    padding: 0.8em 0.8em;
-    margin: 2em auto 0;
-    font-size: 0.9em;
-}
-
-table td{
-    border-bottom: 1px solid black;
-    margin: 5px;
-    padding: 8px;
-}
 
 
 /* footer */
@@ -387,11 +371,18 @@ section{
     flex-wrap: wrap;
 }
 .content{
-    width: 100%;
+    /* width: 100%;
     margin-left: 17%;
     margin-right: 17%;
-    margin-top: 20px;
+    margin-top: 20px; */
+    width: 80%;
+    margin: 2em auto;
     color: inherit;
+}
+
+.nochanges{
+    margin: 0;
+    width: 100%;
 }
 
 

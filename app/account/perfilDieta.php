@@ -10,30 +10,48 @@ require_once '../class/user.php';
         $data = $aux->getAuxForm($id);
     }
 ?>
-<div class = "content">
-    <?php if(isset($data)):?>
-        <div class = "">
-            <form action="../include/editAuxForm.php" method="POST">
-                <label for="fname">Edad: </label>
-                <input type="text" name = "edad">
-                <label for="fname">Altura: </label>
-                <input type="text" name = "altura">
-                <label for="fname">Peso Inicial: </label>
-                <input type="text" name = "peso">
-                <!-- <label for="fname">Peso Actual: </label>
-                <input type="text" name = "pesoActual"> -->
-                <label for="fname">Peso Ideal: </label>
-                <input type="text" name = "pesoideal">
-                <button type="submit" name = "enviar">Actualizar Perfil</button>
-            </form>
+<?php require_once '../templates/sidebar.php' ?>
+    <div class="settings-aux2">
+        <div class = "content slight nochanges">
+            <h4 class = "titulo">Ajustes de Usuario</h4>
+            <?php if(isset($data)):?>
+                <div class = "update-diet">
+                    <p>Puedes observar tus datos o si lo prefieres puedes actualizarlos</p>
+                    <form action="../include/editAuxForm.php" method="POST">
+                        <label for="fname">Edad: </label>
+                        <div>
+                            <input type="text" name = "edad">
+                            <label for="fname" class="unit">años</label>
+                        </div>
+                        <label for="fname">Altura: </label>
+                        <div>
+                            <input type="text" name = "altura">
+                            <label for="fname" class="unit">cm</label>
+                        </div>
+                        <label for="fname">Peso Inicial: </label>
+                        <div>
+                            <input type="text" name = "peso">
+                            <label for="fname" class="unit">Kg</label>
+                        </div>
+                        <!-- <label for="fname">Peso Actual: </label>
+                        <input type="text" name = "pesoActual"> -->
+                        <label for="fname">Peso Ideal: </label>
+                        <div>
+                            <input type="text" name = "pesoideal">
+                            <label for="fname" class="unit">Kg</label>
+                        </div>
+                        <button type="submit" name = "enviar">Actualizar</button>
+                    </form>
+                </div>
+            <?php else: ?>
+                <div class="msg">
+                <p>No tienes acceso</p>
+                </div>
+            <?php endif ?>   
         </div>
-    <?php else: ?>
-        <div class="msg">
-        <p>No tienes acceso</p>
-        </div>
-    <?php endif ?>   
+    <?php include('../templates/footer.php'); ?>
+    </div>
 </div>
-<?php include('../templates/footer.php'); ?>
 <script type="text/javascript">
 
     const datos = <?php echo json_encode($data); ?>;

@@ -6,7 +6,7 @@ $(document).ready(function () {
     const backImage = $('.small-back-image')
     const pop = $('.fullscreen-container')
     const cicon = $(".calendar-icon")
-    console.log(cicon)
+    // console.log(cicon)
     // console.log(hideimages)
 
     if (lineas != null) {

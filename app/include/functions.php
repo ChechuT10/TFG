@@ -234,6 +234,16 @@ function addBreakfast($idUser, $idFood){
     }
 }
 
+function removeBreakfast($idUser, $idFood){
+    $food = new Food();
+    if($food->removeFromBreakfast($idUser, $idFood, $_SESSION['date'])){
+        header("location: ../food/alimentos.php");
+        exit();
+    }else{
+        header("location: ../food/alimentos.php?msj=fail");
+        exit();
+    }
+}
 
 function addLaunch($idUser, $idFood){
     $food = new Food();
@@ -246,9 +256,32 @@ function addLaunch($idUser, $idFood){
     }
 }
 
+
+function removeLaunch($idUser, $idFood){
+    $food = new Food();
+    if($food->removeFromLaunch($idUser, $idFood, $_SESSION['date'])){
+        header("location: ../food/alimentos.php");
+        exit();
+    }else{
+        header("location: ../food/alimentos.php?msj=fail");
+        exit();
+    }
+}
+
 function addDinner($idUser, $idFood){
     $food = new Food();
     if($food->addToDinner($idUser, $idFood, $_SESSION['date'])){
+        header("location: ../food/alimentos.php");
+        exit();
+    }else{
+        header("location: ../food/alimentos.php?msj=fail");
+        exit();
+    }
+}
+
+function removeDinner($idUser, $idFood){
+    $food = new Food();
+    if($food->removeFromDinner($idUser, $idFood, $_SESSION['date'])){
         header("location: ../food/alimentos.php");
         exit();
     }else{

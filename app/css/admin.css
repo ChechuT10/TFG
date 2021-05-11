@@ -33,7 +33,7 @@ header .index{
     margin: 2em auto;
     color: white;
     display: flex;
-    align-content: center;
+    align-items: center;
 }
 .index img{
     width: 90%;
@@ -43,19 +43,38 @@ header .index{
 .section{
     border: 1px solid white;
     display: flex;
-    align-content: center;
+    align-items: center;
     width: 80%;
     margin: 4em auto 0;
     padding: 0 0.2em;
     border-radius: 5px;
 }
 
+.sfood{
+    margin-top: 1em;
+    cursor: pointer;
+}
+
+.sfood:hover{
+    background-color: #95CCBF;
+}
+
+.sexe{
+    margin-top: 1em;
+    cursor: pointer;
+}
+
+.sexe:hover{
+    background-color: #95CCBF;
+}
+
 .section img{
-    max-width: 50px;
+    max-width: 40px;
 }
 
 .section p{
-    margin-left: 20px;
+    padding:0;
+    margin: 0 0 0 20px;
 }
 
 .content{
@@ -161,9 +180,14 @@ header .index{
     flex-direction: column;
 }
 
+.form .add-exercise{
+    display: none;
+}
+
 .form h4{
     text-align: center;
     color: #58AF9B;
+    padding: 0;
 }
 
 .content form input{
@@ -173,8 +197,8 @@ header .index{
     /* background-color: #F3F9F8; */
     display: block;
     padding: 0.8em 0.5em;
-    width: 60%;
-    margin: 0.5em auto;
+    width: 65%;
+    margin: 0.2em auto 0.4em;
     outline: none !important;
     border-radius: 0.2em;
     
