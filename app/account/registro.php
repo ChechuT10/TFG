@@ -1,5 +1,5 @@
 <?php require_once '../templates/header.php'?>
-    <div class="content">
+    <div class="content nochanges">
         <div class="main-forms">
             <div class="card">
                 <div>

@@ -19,6 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="css/admin.css"/>
+    <script src="js/jquery.js"></script>
     <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <!-- <script src="js/jquery.js"></script> -->
@@ -32,6 +33,14 @@
         <div class="section">
             <img src="images/houseIcon.png">
             <p>Inicio<p>
+        </div>
+        <div class="section sfood">
+            <img src="images/foodicon2.png">
+            <p>Comida<p>
+        </div>
+        <div class="section sexe">
+            <img src="images/exerciseicon.png">
+            <p>Ejercicio<p>
         </div>
         <!-- Si esta muy vacio podria añadir una lista de usuario o alimentos -->
         <!-- https://windmill-dashboard.vercel.app/index.html -->
@@ -60,7 +69,7 @@
                 </div>
             </div>
             <div class="form">
-                <div>
+                <div class="add-food">
                     <h4>Añade un alimento</h4>
                     <form action="include/adminAddFood.php" method="POST">
                         <input type="text" name="nombre" placeholder="Nombre del alimento">
@@ -68,6 +77,15 @@
                         <input type="number" name="hidratos" placeholder="Hidratos">
                         <input type="number" name="proteinas" placeholder="Proteinas">
                         <input type="number" name="grasas" placeholder="grasas">
+                        <button type="submit" name="enviar">Guardar</button>
+                    </form>
+                </div>
+                <div class="add-exercise">
+                    <h4>Añade un ejercicio</h4>
+                    <form action="include/adminAddExercise.php" method="POST">
+                        <input type="text" name="nombre" placeholder="Nombre del alimento">
+                        <input type="number" name="calorias" placeholder="Calorias">
+                        <input type="number" name="hidratos" placeholder="Hidratos">
                         <button type="submit" name="enviar">Guardar</button>
                     </form>
                 </div>
@@ -79,4 +97,28 @@
     <?php endif ?> 
 </div> 
 </body>
+<script>
+
+$(document).ready(function () {
+    let ex = $('.sexe')
+    let food = $('.sfood')
+
+    let f = $('.add-food')
+    let e = $('.add-exercise')
+
+    ex.on("click",function(){
+        f.fadeOut(400,function(){
+            e.fadeIn(400)
+        }) 
+    })
+
+    food.on("click",function(){
+        e.fadeOut(400,function(){
+            f.fadeIn(400)
+        }) 
+    })
+
+})
+
+</script>
 </html>

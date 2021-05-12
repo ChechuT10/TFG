@@ -10,6 +10,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../css/settings.css" />
     <link rel="stylesheet" type="text/css" href="../css/alimentos.css" />
     <link rel="stylesheet" type="text/css" href="../css/ejercicio.css" />
     <link rel="stylesheet" type="text/css" href="../css/forms.css" />
@@ -57,22 +58,28 @@ session_start();
                             echo '<li><a href="../food/alimentos.php"><p>Alimentos</p><div class="active"></div></a></li>  
                                   <li><a href="../exercise/ejercicio.php"><p>Ejercicio</p><div></div></a></li>  
                                   <li><a href="../informes/informes.php"><p>Informes</p><div></div></a></li> 
-                                  <li><a href="../account/ajustes.php"><p>Ajustes</p><div></div></a></li>
+                                  <li><a href="../account/perfil.php"><p>Ajustes</p><div></div></a></li>
                                   <li><a href="../include/logout.php"><p>Cerrar Sesion</p><div></div></a></li>
                                   <li><a class="night"><img src="../images/luna2.png"></a></li>';
                         } else if ($curPageName == 'ejercicio.php') {
                             echo '<li><a href="../food/alimentos.php"><p>Alimentos</p><div></div></a></li>  
                                   <li><a href="../exercise/ejercicio.php"><p>Ejercicio</p><div class="active"></div></a></li>  
                                   <li><a href="../informes/informes.php"><p>Informes</p><div></div></a></li> 
-                                  <li><a href="../account/ajustes.php"><p>Ajustes</p><div></div></a></li>
+                                  <li><a href="../account/perfil.php"><p>Ajustes</p><div></div></a></li>
                                   <li><a href="../include/logout.php"><p>Cerrar Sesion</p><div></div></a></li>
                                   <li><a class="night"><img src="../images/luna2.png"></a></li>';
-                        } else {
-
+                        }  else if ($curPageName == 'informes.php') {
+                            echo '<li><a href="../food/alimentos.php"><p>Alimentos</p><div></div></a></li>  
+                                  <li><a href="../exercise/ejercicio.php"><p>Ejercicio</p><div></div></a></li>  
+                                  <li><a href="../informes/informes.php"><p>Informes</p><div div class="active"></div></a></li> 
+                                  <li><a href="../account/perfil.php"><p>Ajustes</p><div></div></a></li>
+                                  <li><a href="../include/logout.php"><p>Cerrar Sesion</p><div></div></a></li>
+                                  <li><a class="night"><img src="../images/luna2.png"></a></li>';
+                        }else {
                             echo '<li><a href="../food/alimentos.php"><p>Alimentos</p><div></div></a></li>  
                                   <li><a href="../exercise/ejercicio.php"><p>Ejercicio</p><div></div></a></li>  
                                   <li><a href="../informes/informes.php"><p>Informes</p><div></div></a></li> 
-                                  <li><a href="../account/ajustes.php"><p>Ajustes</p><div></div></a></li>
+                                  <li><a href="../account/perfil.php"><p>Ajustes</p><div class="active"></div></a></li>
                                   <li><a href="../include/logout.php"><p>Cerrar Sesion</p><div></div></a></li>
                                   <li><a class="night"><img src="../images/luna2.png"></a></li>';
                         }

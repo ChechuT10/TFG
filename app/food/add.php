@@ -1,6 +1,6 @@
 <?php require_once '../templates/header.php'?>
     <div class="add-image-ali queryhide">
-        <div class="content">
+        <div class="content nochanges">
         <div class = "add">
         <h3>Añade un alimento a <?php echo $_GET['food']?>  
             <div class="wrapper">

@@ -59,6 +59,16 @@ class Food extends Db{
                 return false;
         }
     }
+
+    public function removeFromBreakfast($idUser, $idFood, $date){
+        $sql = "DELETE FROM desayuno WHERE idUser = ? AND idAlimento = ? AND  fecha = ?;";
+        $query = $this->connect()->prepare($sql);  
+        if ($query->execute([$idUser, $idFood, $date])) {
+                return true;
+        }else{
+                return false;
+        }
+    }
     
     public function getBreakfast($user, $date){
         $sql = "SELECT * FROM desayuno WHERE idUser = ? AND fecha = ?;";
@@ -85,6 +95,16 @@ class Food extends Db{
         }
     }
     
+    public function removeFromLaunch($idUser, $idFood, $date){
+        $sql = "DELETE FROM comida WHERE idUser = ? AND idAlimento = ? AND  fecha = ?;";
+        $query = $this->connect()->prepare($sql);  
+        if ($query->execute([$idUser, $idFood, $date])) {
+                return true;
+        }else{
+                return false;
+        }
+    }
+
     public function getLaunch($user, $date){
         $sql = "SELECT * FROM comida WHERE idUser = ? AND fecha = ?;";
         $query = $this->connect()->prepare($sql);
@@ -110,6 +130,16 @@ class Food extends Db{
         }
     }
     
+    public function removeFromDinner($idUser, $idFood, $date){
+        $sql = "DELETE FROM cena WHERE idUser = ? AND idAlimento = ? AND  fecha = ?;";
+        $query = $this->connect()->prepare($sql);  
+        if ($query->execute([$idUser, $idFood, $date])) {
+                return true;
+        }else{
+                return false;
+        }
+    }
+
     public function getDinner($user, $date){
         $sql = "SELECT * FROM cena WHERE idUser = ? AND fecha = ?;";
         $query = $this->connect()->prepare($sql);

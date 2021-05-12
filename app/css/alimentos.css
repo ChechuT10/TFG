@@ -1,35 +1,163 @@
-/* Añadir alimentos */
-.add a{
-    /* margin-left: 2em; */
-    text-decoration: none;
-    /* font-weight: bold; */
-    color: inherit;
+/* alimentos.php */
+
+.registro-diario{
+    display: flex;
+    align-items: center;
 }
+.registro-diario h4{
+    margin: 0 2em 0 0;
+}
+.add a{
+    text-decoration: none;
+    color: #3cbb95;
+    font-size: 0.9em;
+    width: fit-content;
+}
+
 .add{
-    margin-left: 5%;
+    width: 90%;
+    /* margin: 0 auto; */
+}
+
+.desayuno .tit{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.desayuno .tit div{
+    display: flex;
+    font-size: 0.8em;
+    /* margin: 0 2em; */
+}
+
+.tit div p{
+    margin:  auto 0.1em;
+    padding: 0.4em 0.4em;
+    background-color: #3cbb95;
+    border-radius: 2px;
+    color: white;
+}
+
+.tit p:last-child{
+    margin-right: 28px;
+}
+
+.alimentos{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0;
+    margin: 5px 0;
+} 
+.alimentos .nombre{
+    margin: 0;
+    font-size: 0.8em;
+}
+
+.alimentos .datos{
+    width: fit-content;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0;
+    padding: 0;
+}
+
+.alimentos .datos p{
+    margin: auto 2.2em;
+    font-size: 0.8em;
+    padding:  0;
+}
+
+.datos .idalimento{
+    display: none;
+}
+
+.datos img{
+    max-width: 20px;
+    cursor: pointer;
+}
+
+.alimentos .bottom{
+    order: 1;
+    flex:1 0 100%;
+    border-bottom: 1px solid #DCEEEA;
+}
+
+/* Search.php */
+
+.search-flex{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.copy-food{
+    flex-basis: 45%;
 }
 
 .resultado{
-    margin-left: 5%;
+    flex-basis: 50%;
+    height: max-content;
+    padding: 0 0 0 1em;
+    border: 1px solid #3cbb95;
+    border-radius: 5px;
+}
+
+.resultado form{
+    display: none;
 }
 
 .food{
-    margin-left: 5%;
+    /* width: 33%; */
+    font-size: 0.9em;
 }
 
 .resultados{
-    border: 2px solid #3cbb95;
-    width: 20%;
+    display: none;
 }
 
-.linea{
-    height: 1px;
-    background-color: #3cbb95;
+.preview h4{
+    margin: 0.5em 0;
+    padding: 0;
+}
+
+.preview p{
+    margin: 0;
+    padding: 0 0 0.2em 0;
+    font-size: 0.9em;
+    border-bottom: 1px solid #B8DDD4;
+}
+
+.copy-food .resultados{
+    width: fit-content;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #B8DDD4;
+    text-align: center;
+    font-size: 0.9em;
+    padding: 0.5em;
+    border-radius: 5px;
 }
 
 .resultados p{
-    text-align: center;
+    border-right: 1px solid #B8DDD4;
+    margin: 0;
+    padding:0 0.5em;
 }
+
+.resultados p:last-child{
+    border: none;
+}
+
+.copy-food .form{
+    display: block;
+}
+
 
 .botonEnviar{
     text-decoration: none;
@@ -46,15 +174,9 @@
     background-color: #ffffff;
   }
 
-.add-image-ejer{
-    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/food.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: none;
-    width: 100%;
-    height: 50vh;
-    box-shadow: 5px 6px 10px 7px rgba(0,0,0,0.5);
-}
+
+
+/* Buscar alimentos */
 
 .add-image-ali{
     background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/food.jpg);
@@ -66,7 +188,6 @@
     box-shadow: 5px 6px 10px 7px rgba(0,0,0,0.5);
 }
 
-/* Buscar alimentos */
 
 .wrapper{
     margin: 2em auto ;
@@ -121,7 +242,6 @@ input+ul li{
     background: #efefef;
 }
 .search-input .icon{
-    /* border: 1px solid black; */
     position: absolute;
     right: 2px;
     top: 3px;
