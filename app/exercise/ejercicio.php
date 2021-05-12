@@ -26,8 +26,10 @@
                 </div>
             </div>
     </div>
-</div>   
+</div>
+</div>
 <script src="../js/calendario.js"></script>
-<?php require_once '../templates/footer.php'?>
+<?php require_once '../templates/footer.php' ?>
 <!-- <script src="../datepiker/calendar.js"></script> -->
+
 </html>
