@@ -15,12 +15,6 @@
                 </div>
             </div>
             <div class="ejercicio">
-                <div class="cardio">
-                    <h3>Cardiovascular</h3>
-                    <p>Añadir</p>
-                </div>
-            </div>
-            <div class="ejercicio">
                 <div class="otro">
                     <h3>Ejercicios de fuerza</h3>
                     <p>Añadir</p>
