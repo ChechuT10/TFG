@@ -1,9 +1,8 @@
 var myCanvas = document.getElementById("myCanvas");
-myCanvas.width = 500;
+myCanvas.width = 600;
 myCanvas.height = 500;
 
 var ctx = myCanvas.getContext("2d");
-
 
 // linia divisoria horizontal
 function drawLine(ctx, startX, startY, endX, endY, color) {
@@ -30,8 +29,6 @@ function drawBar(
   ctx.fillRect(upperLeftCornerX, upperLeftCornerY, width, height);
   ctx.restore();
 }
-
-
 
 // dibujar estadisticas
 var Barchart = function (options) {
@@ -110,23 +107,21 @@ var Barchart = function (options) {
   };
 };
 
-
-window.addEventListener('load', function (){
+window.addEventListener("load", function () {
   datos = {
     Proteina: 0,
     Hidratos: 0,
     Grasas: 0,
   };
-  
-  fetch("../include/getFoodByUser.php",{})
+
+  fetch("../include/getFoodByUser.php", {})
     .then(function (respuesta) {
       return respuesta.json();
     })
     .then(function (resultado) {
-  
       for (const key in resultado) {
         console.log(resultado[key]);
-        datos.Proteina = datos.Proteina + parseInt( resultado[key].proteinas);
+        datos.Proteina = datos.Proteina + parseInt(resultado[key].proteinas);
         datos.Hidratos = datos.Hidratos + parseInt(resultado[key].hidratos);
         datos.Grasas = datos.Grasas + parseInt(resultado[key].grasas);
       }
@@ -142,6 +137,5 @@ window.addEventListener('load', function (){
         colors: ["#EF476F", "#FFD166", "#06D6A0"],
       });
       myBarchart.draw();
-      
     });
 });

@@ -1,3 +1,8 @@
+form{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
 .lege {
     width: 500px;
 }
