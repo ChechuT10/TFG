@@ -113,6 +113,45 @@
                 </div>
             </div>
     </div>
-<script src="../js/calendario.js"></script>
 <?php require_once '../templates/footer.php' ?>
+<script src="../js/calendario.js"></script>
+<script>
+
+let datos = document.querySelectorAll('.datos');
+
+datos.forEach(el=>{
+    let button = el.querySelector('img')
+    button.addEventListener("click",function(){
+        let tipo;
+        let id = el.querySelector('.idalimento');
+        idalimento = id.textContent
+
+        if(id.classList.contains('des')){
+            tipo = 'desayuno';
+        }
+        if(id.classList.contains('com')){
+            tipo = 'comida'
+        }
+        if(id.classList.contains('cena')){
+            tipo = 'cena';
+        }
+
+        let url = "../include/deleteFood.php";
+        let params = {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: 'data=' + JSON.stringify({tipo:tipo, id:idalimento})
+        }
+        fetch(url,params)
+        .then(function(respuesta){
+            return respuesta.json();
+        }).then(function(datos){
+            location.replace(datos)
+        })
+    })
+})
+
+</script>
 </html>
