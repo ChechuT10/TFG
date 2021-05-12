@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-05-2021 a las 18:54:37
--- Versión del servidor: 10.4.14-MariaDB
--- Versión de PHP: 7.4.11
+-- Tiempo de generación: 12-05-2021 a las 13:53:20
+-- Versión del servidor: 10.4.17-MariaDB
+-- Versión de PHP: 7.4.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,20 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `tfg`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `actividad`
+--
+
+CREATE TABLE `actividad` (
+  `idActividad` int(11) NOT NULL,
+  `idEjercicio` int(11) NOT NULL,
+  `idUser` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `minutos` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -93,16 +107,34 @@ CREATE TABLE `desayuno` (
   `idDesayuno` int(11) NOT NULL,
   `idAlimento` int(11) NOT NULL,
   `idUser` int(11) NOT NULL,
-  `fecha` date NOT NULL
+  `fecha` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ejercicios`
+--
+
+CREATE TABLE `ejercicios` (
+  `idEjercicios` int(11) NOT NULL,
+  `nombre` varchar(45) NOT NULL,
+  `calorias` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `desayuno`
+-- Volcado de datos para la tabla `ejercicios`
 --
 
-INSERT INTO `desayuno` (`idDesayuno`, `idAlimento`, `idUser`, `fecha`) VALUES
-(1, 1, 3, '2021-05-10'),
-(2, 2, 3, '2021-05-10');
+INSERT INTO `ejercicios` (`idEjercicios`, `nombre`, `calorias`) VALUES
+(1, 'Maquina Eliptica', 11),
+(2, 'Caminar', 4),
+(3, 'Correr(trote)', 15),
+(4, 'Correr(footing)', 20),
+(5, 'Baloncesto', 10),
+(6, 'Futbol', 8),
+(7, 'Tenis', 9),
+(8, 'Nadar', 12);
 
 -- --------------------------------------------------------
 
@@ -115,6 +147,7 @@ CREATE TABLE `useraux` (
   `altura` double NOT NULL,
   `peso` int(11) NOT NULL,
   `pesoIdeal` int(11) NOT NULL,
+  `genero` set('H','M') NOT NULL,
   `idUser` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -122,9 +155,8 @@ CREATE TABLE `useraux` (
 -- Volcado de datos para la tabla `useraux`
 --
 
-INSERT INTO `useraux` (`edad`, `altura`, `peso`, `pesoIdeal`, `idUser`) VALUES
-(21, 180, 75, 70, 2),
-(34, 124, 34, 45, 3);
+INSERT INTO `useraux` (`edad`, `altura`, `peso`, `pesoIdeal`, `genero`, `idUser`) VALUES
+(21, 180, 75, 70, '', 2);
 
 -- --------------------------------------------------------
 
@@ -139,22 +171,27 @@ CREATE TABLE `users` (
   `nombreUser` varchar(128) NOT NULL,
   `email` varchar(128) NOT NULL,
   `userPswd` varchar(128) NOT NULL,
-  `auxForm` set('S','N') NOT NULL DEFAULT 'N',
-  `admin` set('S','N') NOT NULL DEFAULT 'N'
+  `auxForm` set('S','N') NOT NULL DEFAULT 'N'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`idUser`, `nombre`, `apellidos`, `nombreUser`, `email`, `userPswd`, `auxForm`, `admin`) VALUES
-(2, 'Jorge', 'Trapero Pinero', 'jorge', 'jorge@gmail.com', '$2y$10$zApAuc6lXh3k05g1RL2gYunergqfNAdnCBlLgfQjmyWcLxtHoJcY.', 'S', 'N'),
-(3, 'carlos', 'rodriguez sasas', 'prueba', 'prueba2@gmail.com', '$2y$10$itrh5KoScexVSlloow6fEeV2mFQ3BnL8VD6SYbwQkNNWUCqssQ.WK', 'S', 'N'),
-(4, 'admin', 'admin', 'admin', 'admin@gmail.com', '12345678', 'S', 'S');
+INSERT INTO `users` (`idUser`, `nombre`, `apellidos`, `nombreUser`, `email`, `userPswd`, `auxForm`) VALUES
+(2, 'Jorge', 'Trapero Pinero', 'jorge', 'jorge@gmail.com', '$2y$10$zApAuc6lXh3k05g1RL2gYunergqfNAdnCBlLgfQjmyWcLxtHoJcY.', 'S');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `actividad`
+--
+ALTER TABLE `actividad`
+  ADD PRIMARY KEY (`idActividad`),
+  ADD KEY `idEjercicio_idx` (`idEjercicio`),
+  ADD KEY `idUser_idx` (`idUser`);
 
 --
 -- Indices de la tabla `alimentos`
@@ -187,6 +224,13 @@ ALTER TABLE `desayuno`
   ADD KEY `userDe_idx` (`idUser`);
 
 --
+-- Indices de la tabla `ejercicios`
+--
+ALTER TABLE `ejercicios`
+  ADD PRIMARY KEY (`idEjercicios`),
+  ADD UNIQUE KEY `idejercicios_UNIQUE` (`idEjercicios`);
+
+--
 -- Indices de la tabla `useraux`
 --
 ALTER TABLE `useraux`
@@ -201,6 +245,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `actividad`
+--
+ALTER TABLE `actividad`
+  MODIFY `idActividad` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `alimentos`
@@ -224,38 +274,51 @@ ALTER TABLE `comida`
 -- AUTO_INCREMENT de la tabla `desayuno`
 --
 ALTER TABLE `desayuno`
-  MODIFY `idDesayuno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idDesayuno` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `ejercicios`
+--
+ALTER TABLE `ejercicios`
+  MODIFY `idEjercicios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
+-- Filtros para la tabla `actividad`
+--
+ALTER TABLE `actividad`
+  ADD CONSTRAINT `idEjercicio` FOREIGN KEY (`idEjercicio`) REFERENCES `ejercicios` (`idEjercicios`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `idUser` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Filtros para la tabla `cena`
 --
 ALTER TABLE `cena`
-  ADD CONSTRAINT `alimentoCn` FOREIGN KEY (`idAlimento`) REFERENCES `alimentos` (`idalimentos`) ON DELETE CASCADE,
-  ADD CONSTRAINT `userCn` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE CASCADE;
+  ADD CONSTRAINT `alimentoCn` FOREIGN KEY (`idAlimento`) REFERENCES `alimentos` (`idalimentos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `userCn` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `comida`
 --
 ALTER TABLE `comida`
-  ADD CONSTRAINT `aliemntoC` FOREIGN KEY (`idAlimento`) REFERENCES `alimentos` (`idalimentos`) ON DELETE CASCADE,
-  ADD CONSTRAINT `userC` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE CASCADE;
+  ADD CONSTRAINT `aliemntoC` FOREIGN KEY (`idAlimento`) REFERENCES `alimentos` (`idalimentos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `userC` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `desayuno`
 --
 ALTER TABLE `desayuno`
-  ADD CONSTRAINT `alimentoDe` FOREIGN KEY (`idAlimento`) REFERENCES `alimentos` (`idalimentos`) ON DELETE CASCADE,
-  ADD CONSTRAINT `userDe` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE CASCADE;
+  ADD CONSTRAINT `alimentoDe` FOREIGN KEY (`idAlimento`) REFERENCES `alimentos` (`idalimentos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `userDe` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `useraux`
