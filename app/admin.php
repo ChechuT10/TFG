@@ -83,15 +83,13 @@
                 <div class="add-exercise">
                     <h4>Añade un ejercicio</h4>
                     <form action="include/adminAddExercise.php" method="POST">
-                        <input type="text" name="nombre" placeholder="Nombre del alimento">
-                        <input type="number" name="calorias" placeholder="Calorias">
-                        <input type="number" name="hidratos" placeholder="Hidratos">
+                        <input type="text" name="nombre" placeholder="Nombre del ejercicio">
+                        <input type="number" name="calorias" placeholder="Calorias quemadas">
                         <button type="submit" name="enviar">Guardar</button>
                     </form>
                 </div>
             </div>
         </div>
-
     <?php else: ?>
         <p>No tienes permiso</p>
     <?php endif ?> 

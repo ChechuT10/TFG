@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-05-2021 a las 13:53:20
--- Versión del servidor: 10.4.17-MariaDB
--- Versión de PHP: 7.4.15
+-- Tiempo de generación: 13-05-2021 a las 13:44:57
+-- Versión del servidor: 10.4.14-MariaDB
+-- Versión de PHP: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,6 +34,17 @@ CREATE TABLE `actividad` (
   `fecha` date NOT NULL,
   `minutos` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `actividad`
+--
+
+INSERT INTO `actividad` (`idActividad`, `idEjercicio`, `idUser`, `fecha`, `minutos`) VALUES
+(6, 2, 1, '2021-05-13', 7),
+(7, 2, 1, '2021-05-13', 5),
+(8, 2, 2, '2021-05-03', 5),
+(13, 2, 1, '2021-05-13', 5),
+(14, 2, 2, '2021-05-13', 2);
 
 -- --------------------------------------------------------
 
@@ -110,6 +121,13 @@ CREATE TABLE `desayuno` (
   `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `desayuno`
+--
+
+INSERT INTO `desayuno` (`idDesayuno`, `idAlimento`, `idUser`, `fecha`) VALUES
+(1, 1, 2, '2021-05-13');
+
 -- --------------------------------------------------------
 
 --
@@ -156,7 +174,7 @@ CREATE TABLE `useraux` (
 --
 
 INSERT INTO `useraux` (`edad`, `altura`, `peso`, `pesoIdeal`, `genero`, `idUser`) VALUES
-(21, 180, 75, 70, '', 2);
+(34, 125, 45, 56, '', 2);
 
 -- --------------------------------------------------------
 
@@ -179,8 +197,9 @@ CREATE TABLE `users` (
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`idUser`, `nombre`, `apellidos`, `nombreUser`, `email`, `userPswd`, `auxForm`) VALUES
-(2, 'Jorge', 'Trapero Pinero', 'jorge', 'jorge@gmail.com', '$2y$10$zApAuc6lXh3k05g1RL2gYunergqfNAdnCBlLgfQjmyWcLxtHoJcY.', 'S', 'N');
+INSERT INTO `users` (`idUser`, `nombre`, `apellidos`, `nombreUser`, `email`, `userPswd`, `auxForm`, `admin`) VALUES
+(1, 'admin', 'admin', 'admin', 'admin@gmail.com', '12345678', 'S', 'S'),
+(2, 'Carlos', 'Tipan fdfdf', 'prueba', 'carlos@gmail.com', '$2y$10$dFVEbYcuz83DwvOBjSb.lOyrtFJZlJIOL.N7EztjsZYAdpanGJ7J2', 'S', 'N');
 
 --
 -- Índices para tablas volcadas
@@ -191,8 +210,8 @@ INSERT INTO `users` (`idUser`, `nombre`, `apellidos`, `nombreUser`, `email`, `us
 --
 ALTER TABLE `actividad`
   ADD PRIMARY KEY (`idActividad`),
-  ADD KEY `idEjercicio_idx` (`idEjercicio`),
-  ADD KEY `idUser_idx` (`idUser`);
+  ADD KEY `idEjercicio` (`idEjercicio`),
+  ADD KEY `idUser` (`idUser`);
 
 --
 -- Indices de la tabla `alimentos`
@@ -251,7 +270,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `actividad`
 --
 ALTER TABLE `actividad`
-  MODIFY `idActividad` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idActividad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `alimentos`
@@ -275,13 +294,13 @@ ALTER TABLE `comida`
 -- AUTO_INCREMENT de la tabla `desayuno`
 --
 ALTER TABLE `desayuno`
-  MODIFY `idDesayuno` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idDesayuno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `ejercicios`
 --
 ALTER TABLE `ejercicios`
-  MODIFY `idEjercicios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idEjercicios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
@@ -297,8 +316,8 @@ ALTER TABLE `users`
 -- Filtros para la tabla `actividad`
 --
 ALTER TABLE `actividad`
-  ADD CONSTRAINT `idEjercicio` FOREIGN KEY (`idEjercicio`) REFERENCES `ejercicios` (`idEjercicios`) ON DELETE CASCADE,
-  ADD CONSTRAINT `idUser` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE CASCADE;
+  ADD CONSTRAINT `actividad_ibfk_1` FOREIGN KEY (`idEjercicio`) REFERENCES `ejercicios` (`idEjercicios`) ON DELETE CASCADE,
+  ADD CONSTRAINT `actividad_ibfk_2` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `cena`

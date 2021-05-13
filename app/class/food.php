@@ -36,6 +36,18 @@ class Food extends Db{
         }
     }
 
+    public function checkFoodByName($name){
+        $sql = "SELECT * FROM alimentos WHERE nombre = ?;";
+        $query = $this->connect()->prepare($sql);    
+        if ($query->execute([$name])) {
+            while($data=$query->fetch()){
+                return $data;
+            }
+        }else{
+                return false;
+        }
+    }
+
     public function getFoodById($id){
         $sql = "SELECT * FROM alimentos WHERE idalimentos = ?;";
         $query = $this->connect()->prepare($sql);

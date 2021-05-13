@@ -3,6 +3,7 @@ session_start();
 require_once "../class/dbc.php";
 require_once "../class/user.php";
 require_once "../class/food.php";
+require_once "../class/exercise.php";
 
 //REGISTER
 function emptyInputSignup($name,$lastName, $userName, $email, $pswd){
@@ -297,9 +298,35 @@ function emptyInputAdmin($name, $calorias, $hidratos, $proteinas, $grasas){
     return $result;
 }
 
+function emptyInputAdminEx($name, $calorias){
+    $result=null;
+    if(empty($name) || empty($calorias))  {
+        $result = true;
+    }else{
+       $result = false;
+    } 
+    return $result;
+}
+
+function exerciseExists($name){
+    $ex = new Exercise();
+    return $ex->checkExerciseByName($name);
+}
+
 function foodExists($name){
     $food = new Food();
-    return $food->getFoodByName($name);
+    return $food->checkFoodByName($name);
+}
+
+function addExerciseAdmin($name, $calorias){
+    $ex = new Exercise();
+    if($ex->addExerciseAdmin($name, $calorias)){
+        header("location: ../admin.php?msj=added");
+        exit();
+    }else{
+        header("location: ../admin.php?msj=fail");
+        exit();
+    }
 }
 
 function addFoodAdmin($name, $calorias, $hidratos, $proteinas, $grasas){
@@ -310,5 +337,28 @@ function addFoodAdmin($name, $calorias, $hidratos, $proteinas, $grasas){
     }else{
         header("location: ../admin.php?msj=fail");
         exit();
+    }
+}
+
+
+// EJERCICIOS
+
+function addExercise($idUser, $idEx, $cantidad){
+    $ex = new Exercise();
+    if($ex->addExerciseUser($idUser, $idEx, $_SESSION['date'], $cantidad)){
+        header("location: ../exercise/ejercicio.php");
+        exit();
+    }else{
+        header("location: ../exercise/ejercicio.php");
+        exit();
+    }
+}
+
+function removeExercise($idEx){
+    $ex = new Exercise();
+    if($ex->deleteExercise($_SESSION['userId'], $idEx, $_SESSION['date'])){
+        return "ejercicio.php";
+    }else{
+        return "ejercicio.php";
     }
 }

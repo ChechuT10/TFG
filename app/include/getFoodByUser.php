@@ -4,17 +4,6 @@ session_start();
 require_once '../class/dbc.php';
 require_once '../class/food.php';
 
-if(isset($_GET['date'])){
-    $_SESSION['date'] = $_GET['date'];
-}else{
-    $auxdate = getdate();
-    $year = $auxdate['year'];
-    $month = $auxdate['mon'];
-    $day = $auxdate['mday'];
-    $date = "$year-$month-$day";
-    $_SESSION['date'] = $date;
-}
-
 $aux = new Food();
 $breakfast = $aux->getBreakfast($_SESSION['userId'], $_SESSION['date']);
 $launch = $aux->getLaunch($_SESSION['userId'], $_SESSION['date']);

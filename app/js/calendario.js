@@ -7,7 +7,10 @@ document.getElementById("fecha").addEventListener("change", function () {
   }
   if(filename == "ejercicio.php"){
     location.replace('ejercicio.php?date='+dia)
- }
+  }
+  if(filename == "informes.php"){
+    location.replace('informes.php?date='+dia)
+  }
 });
 
 window.addEventListener("load", function () {
