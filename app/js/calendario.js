@@ -1,13 +1,14 @@
 document.getElementById("fecha").addEventListener("change", function () {
+  console.log(this.dia);
   var dia = this.value;
   var url = window.location.pathname;
-  var filename = url.substring(url.lastIndexOf('/')+1);
-  if(filename == "alimentos.php"){
-     location.replace('alimentos.php?date='+dia)
+  var filename = url.substring(url.lastIndexOf("/") + 1);
+  if (filename == "alimentos.php") {
+    location.replace("alimentos.php?date=" + dia);
   }
-  if(filename == "ejercicio.php"){
-    location.replace('ejercicio.php?date='+dia)
- }
+  if (filename == "ejercicio.php") {
+    location.replace("ejercicio.php?date=" + dia);
+  }
 });
 
 window.addEventListener("load", function () {

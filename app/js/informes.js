@@ -128,7 +128,7 @@ window.addEventListener("load", function () {
 
       var myBarchart = new Barchart({
         canvas: myCanvas,
-        padding: 10,
+        padding: 40,
         gridScale: 5,
         // color de la barra horizontal
         gridColor: "#118AB2",
