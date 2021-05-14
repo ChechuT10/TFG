@@ -19,9 +19,48 @@
     <form id="envia" method="post">
         <input type="date" name="fecha" id="fecha">
     </form>
-    <canvas id="myCanvas"></canvas>
-    <legend class="lege" for="myCanvas"></legend>
-
+    <div class="flex">
+        <div class="canva">
+            <canvas id="myCanvas"  width="100"></canvas>
+            <legend class="lege" for="myCanvas"></legend>
+        </div>
+        <div class="datos">
+            <table>
+                <tr>
+                    <th>Kcal Diarias</th>
+                </tr>
+                <tr>
+                    <td>2000</td>
+                </tr>
+            </table>
+            <div class="table2">
+                <table>
+                    <tr>
+                        <th>Kcal Consumidas</th>
+                    </tr>
+                    <tr>
+                        <td>2000</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <th>Kcal Quemadas</th>
+                    </tr>
+                    <tr>
+                        <td>2000</td>
+                    </tr>
+                </table>
+            </div>
+            <table>
+                <tr>
+                    <th>Kcal Restantes</th>
+                </tr>
+                <tr>
+                    <td>2000</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>
 
 <?php require_once '../templates/footer.php' ?>

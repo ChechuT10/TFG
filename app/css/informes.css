@@ -1,19 +1,109 @@
+/* fecha */
 form{
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
 }
-.lege {
-    width: 500px;
+/* colocacion de los elementos */
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-.lege ul {
+/* canvas */
+.canva, .datos{
+    width: 45%;
+}
+#myCanvas{
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Legenda del canvas */
+.canva .lege {
+    width: 100%;
+}
+
+.canva .lege ul {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+    padding: 0;    
+}
+
+.lege ul li {
+    margin: 0px 4%;
+}
+
+/* tablas */
+.datos{
     display: flex;
     flex-direction: column;
     align-content: center;
-    flex-wrap: wrap;;
+    margin-top: 12px;
+}
+.datos table{
+    border-collapse: collapse;
+    border-radius: 10px;
+
+    width: 100%;
+    min-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15%;
+    text-align: center;
+    font-size: 22px;
 }
 
-ul li{
-    margin-bottom: 10px;
+.datos table , th, td{
+    border: 2px solid #44ba98;
+    padding: 10px;
+    
 }
+
+.table2{
+    display: flex;
+    justify-content: space-between;
+}
+
+.table2 table{
+    width: 45%;
+    min-width: 40%;
+    margin: unset;
+    margin-bottom: 15%;
+}
+
+
+.table2 + table {
+    margin-bottom: 0;
+}
+
+/* romper en formato movil */
+@media screen and (max-width: 770px) {
+
+    .flex,
+    .table2,
+    .canva .lege ul {
+        flex-direction: column;
+    }
+    .canva {
+        width: 100%;
+        margin-bottom: 50px;
+    }
+    .datos {
+        width: 100%;
+    }
+
+    .datos table {
+        margin-bottom: 20px;
+    }
+    .table2 table{
+        width: 100%;
+    }
+}
+
