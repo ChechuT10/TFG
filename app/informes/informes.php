@@ -24,7 +24,7 @@
             <canvas id="myCanvas"  width="100"></canvas>
             <legend class="lege" for="myCanvas"></legend>
         </div>
-        <div class="datos">
+        <div class="datos-informe">
             <table>
                 <tr>
                     <th>Kcal Diarias</th>

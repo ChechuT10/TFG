@@ -12,7 +12,7 @@ form{
 }
 
 /* canvas */
-.canva, .datos{
+.canva, .datos-informe{
     width: 45%;
 }
 #myCanvas{
@@ -41,13 +41,13 @@ form{
 }
 
 /* tablas */
-.datos{
+.datos-informe{
     display: flex;
     flex-direction: column;
     align-content: center;
     margin-top: 12px;
 }
-.datos table{
+.datos-informe table{
     border-collapse: collapse;
     border-radius: 10px;
 
@@ -60,7 +60,7 @@ form{
     font-size: 22px;
 }
 
-.datos table , th, td{
+.datos-informe table , th, td{
     border: 2px solid #44ba98;
     padding: 10px;
     
@@ -95,11 +95,11 @@ form{
         width: 100%;
         margin-bottom: 50px;
     }
-    .datos {
+    .datos-informe {
         width: 100%;
     }
 
-    .datos table {
+    .datos-informe table {
         margin-bottom: 20px;
     }
     .table2 table{
