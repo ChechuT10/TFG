@@ -24,11 +24,6 @@ session_start();
     <!-- jqury -->
     <script src="../js/jquery.js"></script>
     <script src="../js/jquerytest.js"></script>
-    
-    <!-- date picker -->
-    <link rel="stylesheet" href="../datepiker/dtsel.css" />
-    <script src="../datepiker/dtsel.js"></script>
-
 </head>
 
 <body>
