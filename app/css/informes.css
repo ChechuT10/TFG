@@ -60,7 +60,9 @@ form{
     font-size: 22px;
 }
 
-.datos-informe table , th, td{
+.datos-informe table,
+.datos-informe th,
+.datos-informe td {
     border: 2px solid #44ba98;
     padding: 10px;
     
