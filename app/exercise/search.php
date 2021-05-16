@@ -24,27 +24,22 @@
         </div>
         <div class="search-flex">
             <div class="table-exercise">
-                <table>
-                    <tr>
-                        <th><h3>Nombre</h3></th>
-                        <th><h3>Calorias</h3></th>
-                        <th><h3>Minutos</h3></th>
-                        <th><h3></h3></th>
-                    </tr>
-                    <?php foreach ($ex as $e) : ?>
-                        <tr>
-                            <form action="../include/addExercise.php" method="POST">
-                                <input type="hidden" name="idUser" value="<?php echo $_SESSION["userId"] ?>">
-                                <input type="hidden" name="idExercise" value="<?php echo $e['idEjercicios'] ?>">
-                                <input type="hidden" name="url" value="<?php echo $msj ?>">
-                                <td><h4><?php echo $e['nombre'];?></h4></td>
-                                <td><p><?php echo $e['calorias'];?></p></td>
-                                <td><input type="number" name="cantidad"></td>
-                                <td><button type="submit" name="enviar" class="botonEnviar">Añadir</button></td>
-                            </form>
-                        </tr>
-                    <?php endforeach ?>
-                </table>
+                <div class="table-exercise-header">
+                    <h3>Nombre</h3>
+                    <h3>Calorias</h3>
+                    <h3>Minutos</h3>
+                </div>
+                <?php foreach ($ex as $e) : ?>
+                    <form action="../include/addExercise.php" method="POST">
+                        <input type="hidden" name="idUser" value="<?php echo $_SESSION["userId"] ?>">
+                        <input type="hidden" name="idExercise" value="<?php echo $e['idEjercicios'] ?>">
+                        <input type="hidden" name="url" value="<?php echo $msj ?>">
+                        <div><h4><?php echo $e['nombre'];?></h4></div>
+                        <div><p><?php echo $e['calorias'];?></p></div>
+                        <div><input type="number" name="cantidad"></div>
+                        <div><button type="submit" name="enviar" class="botonEnviar">Añadir</button></div>
+                    </form>
+                <?php endforeach ?>
             </div>
         </div>
     <?php else : ?>
