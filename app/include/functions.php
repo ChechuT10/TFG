@@ -345,7 +345,7 @@ function addFoodAdmin($name, $calorias, $hidratos, $proteinas, $grasas){
 
 function addExercise($idUser, $idEx, $cantidad){
     $ex = new Exercise();
-    if($ex->addExerciseUser($idUser, $idEx, $_SESSION['date'], $cantidad)){
+    if($ex->addExerciseUser($idEx, $idUser, $_SESSION['date'], $cantidad)){
         header("location: ../exercise/ejercicio.php");
         exit();
     }else{
