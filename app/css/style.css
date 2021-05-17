@@ -34,6 +34,7 @@ html,body{
 
 header{
     /* padding: 0.2em 0; */
+    padding: 0.1em 0;
     width: 100%;
     display: grid;
     grid-gap: 10px;
@@ -56,6 +57,7 @@ header{
 header .msg{
     grid-area: user;
     font-size: 0.7em;
+    color: darkgrey;
 }
 
 /* Nav */
@@ -338,6 +340,23 @@ footer p{
     font-weight: bold;
 }
 
+.other-form div{
+    display: flex;
+    align-items: center;
+    align-content: space-around;
+}
+
+.other-form label{
+    font-size: 0.8em;
+    font-weight: bold;
+    width: 50%;
+    color: white;
+}
+
+.other-form label input{
+    width: 10px;
+    margin: 1em 0.2em;
+}
 
 
 /* Clases genericas */
@@ -353,7 +372,7 @@ footer p{
 }
 .msg{
     text-align: center;
-    color: inherit;
+    color: orange;
     font-weight: bold;
 }
 
@@ -407,7 +426,21 @@ section{
 /* Ajuste para pantallas medianas */
 
 @media screen and (max-width: 800px){
+    .card{
+        display: none;
+    }
+    .register .msg {
+        display: block;
+    }
 
+    .main-forms{
+        flex-direction: column;
+        justify-content: center;
+        height: fit-content;
+        padding: 1em;
+        width: fit-content;
+    }
+    
     .other-form{
         width: 50%;
     }    
@@ -435,26 +468,11 @@ section{
     header{
         padding: 0.6em 0;
     }
-    .main-forms{
-        height: fit-content;
-        padding: 1em 0;
-    }
 
     .other-form{
         width: 75%;
     }
 
-    .register .msg {
-        display: block;
-    }
-
-    .main-forms{
-        flex-direction: column;
-        justify-content: center;
-    }
-    .card{
-        display: none;
-    }
     header ul{
         position: fixed;
         flex-direction: column;
@@ -480,7 +498,6 @@ section{
         height: 2px;
     }
     
-    
     .lines{
         width: auto;
         /* border: 1px solid white; */
@@ -500,8 +517,16 @@ section{
         padding: 0.2em 0;
     }
 
+    .main-forms{
+        width: 75%;
+        padding: 0;
+    }
     .register form{
         width: 90%;
+    }
+
+    .register input {
+        width: 60%;
     }
 
     table{

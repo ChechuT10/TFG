@@ -5,12 +5,10 @@ if(isset($_POST['enviar'])){
     $userName = $_POST['usuario'];
     $pswd = $_POST['pswd'];
 
-    require_once "../class/dbc.php";
-    require_once "../class/user.php";
     require_once "functions.php";
 
     if(emptyInputLogin($userName, $pswd) !== false){
-        header("location: ../account/inicioSesion.php?error=emptyinput");//?error=emptyinput
+        header("location: ../account/inicioSesion.php?error=emptyinput");
         exit();
     }
 

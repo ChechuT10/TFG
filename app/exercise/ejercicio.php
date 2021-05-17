@@ -18,7 +18,6 @@
     // Lo podemos usar para añadir la suma de los alimentos
     $ejercicios = [];
 ?>
-<div class="add-image-ejer queryhide">
     <div class="content">
         <div class="registro-diario">
             <h4>Tu registro de ejercicios para: <h4>
@@ -26,26 +25,18 @@
                 <input type="date" name="fecha" id="fecha">
             </form>
         </div>
-        <div class="flex-ejercicio">
-            <div class="ejercicio">
-                <div class="cardio">
+        <div class="add">
+            <div class="desayuno">
+                <div class="tit">
                     <h3>Ejercicio</h3>
-                    <p>Añadir</p>
+                    <div>
+                        <p>Calorias</p>
+                        <p>Minutos</p>
+                        <p>Resultado</p>
+                    </div>
                 </div>
             </div>
-            <div class="wrapper">
-                    <div class="search-input">
-                        <input type="text" name="alimento" id="ejercicio" placeholder="Busca un alimento...">
-                        <ul id="palabras"></ul>
-                        <div class="icon"></div>
-                    </div>
-            </div>
-        </div>
-        <?php if ($exercise) : ?>
-            <div class = "tit-ejercicios">
-                <p>Ejercicio</p>
-                <p>Calorias</p>
-            </div>
+            <?php if ($exercise) : ?>
                 <?php
                     foreach ($exercise as $e) {
                         echo '<div class="ejercicios">';
@@ -53,6 +44,8 @@
                         echo '<p class="nombre">' . $ex['nombre'] . '</p>';
                         echo '<div class="datos">
                                 <p>'.$ex['calorias'].'</p>
+                                <p>'.$e['minutos'].'</p>
+                                <p>'.intval($ex['calorias']*($e['minutos'])).'</p>
                                 <div class="idejercicio">'.$e['idActividad'].'</div>
                                 <img src="../images/trashicon.png">
                                 </div>
@@ -61,18 +54,43 @@
                     }
                 ?>
             <?php endif ?>
+            <div class="add-ex">
+                <p>Añadir ejercicio</p>
+            </div>
+        </div>
+        <div class="search-exercise">
+            <div class="wrapper">
+                    <div class="search-input">
+                        <input type="text" name="alimento" id="ejercicio" placeholder="Busca un ejercicio">
+                        <ul id="palabras"></ul>
+                        <div class="icon"></div>
+                    </div>
+            </div>
+        </div>
+        <?php
+            $error = "";
+            if(isset($_GET['msj'])){
+                if($_GET['msj']=="fail"){
+                    $error = 'No se ha podido añadir el ejercicio';
+                }
+                if($_GET['msj']=="err"){
+                    $error = 'No se ha podido borrar el ejercicio';
+                }
+            }
+        ?>
+        <div class="msg">
+            <p><?php echo $error?></p>
+        </div>
     </div>
-</div>
 <?php require_once '../templates/footer.php' ?>
-</div>
 <script src="../js/calendario.js"></script>
 <script>
 $(document).ready(function () {
-    const add = $('.cardio p')
+    const add = $('.add-ex p')
     const search = $('.wrapper')
 
     add.on("click",function(){
-        search.toggle(800)
+        search.toggle(400)
     })
 })
 </script>

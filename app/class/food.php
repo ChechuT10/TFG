@@ -14,6 +14,55 @@ class Food extends Db{
         }
     }
 
+    // Elegir alimentos por diferentes ordenes
+
+    public function getFoodOrderByCalories(){
+        $sql = "SELECT * FROM alimentos ORDER BY calorias;";
+        $query = $this->connect()->query($sql);
+        if ($query) {
+             while($data=$query->fetchAll()){
+                return $data;
+            }
+        }else{
+            return false;
+        }
+    }
+
+    public function getFoodOrderByHydrates(){
+        $sql = "SELECT * FROM alimentos ORDER BY hidratos;";
+        $query = $this->connect()->query($sql);
+        if ($query) {
+             while($data=$query->fetchAll()){
+                return $data;
+            }
+        }else{
+            return false;
+        }
+    }
+
+    public function getFoodOrderByProtein(){
+        $sql = "SELECT * FROM alimentos ORDER BY proteinas;";
+        $query = $this->connect()->query($sql);
+        if ($query) {
+             while($data=$query->fetchAll()){
+                return $data;
+            }
+        }else{
+            return false;
+        }
+    }
+    public function getFoodOrderByFat(){
+        $sql = "SELECT * FROM alimentos ORDER BY grasas;";
+        $query = $this->connect()->query($sql);
+        if ($query) {
+             while($data=$query->fetchAll()){
+                return $data;
+            }
+        }else{
+            return false;
+        }
+    }
+
     public function addFood($name, $calorias, $hidratos, $proteinas, $grasas){
         $sql = "INSERT INTO alimentos (idalimentos, nombre, calorias, hidratos, proteinas, grasas) VALUES (NULL, ?, ?, ?, ?, ?);";
         $query = $this->connect()->prepare($sql);
@@ -62,10 +111,10 @@ class Food extends Db{
 
     // Añadir y obtener desayuno
 
-    public function addToBreakfast($idUser, $idFood, $date){
-        $sql = "INSERT INTO desayuno (idUser,idAlimento, fecha) VALUES (?, ?, ?);";
+    public function addToBreakfast($idUser, $idFood, $date, $cantidad){
+        $sql = "INSERT INTO desayuno (idUser,idAlimento, fecha, cantidad) VALUES (?, ?, ?, ?);";
         $query = $this->connect()->prepare($sql);  
-        if ($query->execute([$idUser, $idFood, $date])) {
+        if ($query->execute([$idUser, $idFood, $date, $cantidad])) {
                 return true;
         }else{
                 return false;
@@ -97,10 +146,10 @@ class Food extends Db{
 
     // Añadir y obtener comida
 
-    public function addToLaunch($idUser, $idFood, $date){
-        $sql = "INSERT INTO comida (idUser,idAlimento, fecha) VALUES (?, ?, ?);";
+    public function addToLaunch($idUser, $idFood, $date, $cantidad){
+        $sql = "INSERT INTO comida (idUser,idAlimento, fecha, cantidad) VALUES (?, ?, ?, ?);";
         $query = $this->connect()->prepare($sql);
-        if ($query->execute([$idUser, $idFood, $date])) {
+        if ($query->execute([$idUser, $idFood, $date, $cantidad])) {
                 return true;
         }else{
                 return false;
@@ -132,10 +181,10 @@ class Food extends Db{
 
     // Añadir y obtener cena
 
-    public function addToDinner($idUser, $idFood, $date){
-        $sql = "INSERT INTO cena (idUser,idAlimento, fecha) VALUES (?, ?, ?);";
+    public function addToDinner($idUser, $idFood, $date, $cantidad){
+        $sql = "INSERT INTO cena (idUser,idAlimento, fecha, cantidad) VALUES (?, ?, ?, ?);";
         $query = $this->connect()->prepare($sql);
-        if ($query->execute([$idUser, $idFood, $date])) {
+        if ($query->execute([$idUser, $idFood, $date, $cantidad])) {
                 return true;
         }else{
                 return false;

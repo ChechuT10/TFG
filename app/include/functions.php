@@ -25,10 +25,8 @@ function createUser($name, $lastName, $userName, $email, $pswd){
     $user = new User();
     if($user->createUsers($name, $lastName, $userName, $email, $pswd)){
         loginUser($userName, $pswd);
-        // header("location: ../index.php?msj=exito");
-        // exit();
     }else{
-        header("location: ../account/registro.php?error=stmtfailed");//?error=stmtfailed
+        header("location: ../account/registro.php?error=stmtfailed");
         exit();
     }
 }
@@ -52,10 +50,7 @@ function loginUser($userName, $pswd){
         header("location: ../account/inicioSesion.php?error=wronglogin");
         exit();
     }
-    //Aqui obtenemos la contraseña descodificada de la base de datos
-    //Hay que recordar que en el metodo de arriba usamos un assosiactive array
     else{
-        // Probablemente se pueda comprobar si el usuario es admin if($uidExist['admin'] == 'S')
         if($uidExist['admin'] == 'S'){
             if($uidExist["userPswd"] == $pswd){
                 $_SESSION['userId'] = $uidExist["idUser"];
@@ -74,8 +69,6 @@ function loginUser($userName, $pswd){
             header("location: ../account/inicioSesion.php?error=wronglogin");
             exit();
         }
-        /*Obtenemos el numero generado automaticamente por la base de datos
-        esto nos ayudara mas tarde a mostrar paginas personalizadas por usuario*/
         $_SESSION['userId'] = $uidExist["idUser"];
         $_SESSION['userUid'] = $uidExist["nombreUser"];
         header("location: ../index.php");
@@ -92,7 +85,7 @@ function deleteUser($id){
         header("location: ../index.php");
         exit();
     }else{
-        header("location: ../account/eliminarCuenta.php?error=stmtfailed");//?error=stmtfailed
+        header("location: ../account/eliminarCuenta.php?error=stmtfailed");
         exit();
     }
 }
@@ -127,19 +120,19 @@ function validateAuxForm($age, $height, $weight, $idealw){
     return true;
 }
 
-function createUserAux($age, $height, $weight, $idealw){
+function createUserAux($age, $height, $weight, $idealw, $gender){
     $auxId =  $_SESSION['userId'];
     $user = new User();
-    if($user->createUsersAux($age, $height, $weight, $idealw, $auxId)){
+    if($user->createUsersAux($age, $height, $weight, $idealw, $gender, $auxId)){
         if($user->finishAuxForm($auxId)){
             header("location: ../index.php?msj=exito");
             exit();
         }else{
-            header("location: ../index.php?error=stmtfailed");//?error=stmtfailed
+            header("location: ../index.php?error=stmtfailed");
         exit();
         }
     }else{
-        header("location: ../index.php?error=stmtfailed");//?error=stmtfailed
+        header("location: ../index.php?error=stmtfailed");
         exit();
     }
 }
@@ -151,7 +144,7 @@ function updateUserAux($age, $height, $weight, $idealw){
         header("location: ../account/perfilDieta.php");
         exit();
     }else{
-        header("location: ../index.php?error=stmtfailed");//?error=stmtfailed
+        header("location: ../index.php?error=stmtfailed");
         exit();
     }
 }
@@ -222,11 +215,64 @@ function changeUsername($data){
 }
 
 
+
+// Consultar todos los alimentos filtrados por una caracteristica
+
+function filterBreakfast($order){
+    if($order == "calorias"){
+        header("location: ../food/search.php?search=Calorias&food=desayuno");
+        exit();
+    }else if($order == "hidratos"){
+        header("location: ../food/search.php?search=Hidratos&food=desayuno");
+        exit();
+    }else if($order == "proteinas"){
+        header("location: ../food/search.php?search=Proteinas&food=desayuno");
+        exit();
+    }else{
+        header("location: ../food/search.php?search=Grasas&food=desayuno");
+        exit();
+    }
+}
+
+function filterLaunch($order){
+    if($order == "calorias"){
+        header("location: ../food/search.php?search=Calorias&food=comida");
+        exit();
+    }else if($order == "hidratos"){
+        header("location: ../food/search.php?search=Hidratos&food=comida");
+        exit();
+    }else if($order == "proteinas"){
+        header("location: ../food/search.php?search=Proteinas&food=comida");
+        exit();
+    }else{
+        header("location: ../food/search.php?search=Grasas&food=comida");
+        exit();
+    }
+}
+
+function filterDinner($order){
+    if($order == "calorias"){
+        header("location: ../food/search.php?search=Calorias&food=cena");
+        exit();
+    }else if($order == "hidratos"){
+        header("location: ../food/search.php?search=Hidratos&food=cena");
+        exit();
+    }else if($order == "proteinas"){
+        header("location: ../food/search.php?search=Proteinas&food=cena");
+        exit();
+    }else{
+        header("location: ../food/search.php?search=Grasas&food=cena");
+        exit();
+    }
+}
+
+
+
 // Añadir desayuno
 
-function addBreakfast($idUser, $idFood){
+function addBreakfast($idUser, $idFood, $cantidad){
     $food = new Food();
-    if($food->addToBreakfast($idUser, $idFood, $_SESSION['date'])){
+    if($food->addToBreakfast($idUser, $idFood, $_SESSION['date'], $cantidad)){
         header("location: ../food/alimentos.php");
         exit();
     }else{
@@ -240,13 +286,13 @@ function removeBreakfast($idFood){
     if($food->removeFromBreakfast($_SESSION['userId'], $idFood, $_SESSION['date'])){
         return "alimentos.php";
     }else{
-        return "alimentos.php?msj=fail";
+        return "alimentos.php?msj=err";
     }
 }
 
-function addLaunch($idUser, $idFood){
+function addLaunch($idUser, $idFood, $cantidad){
     $food = new Food();
-    if($food->addToLaunch($idUser, $idFood, $_SESSION['date'])){
+    if($food->addToLaunch($idUser, $idFood, $_SESSION['date'], $cantidad)){
         header("location: ../food/alimentos.php");
         exit();
     }else{
@@ -261,13 +307,13 @@ function removeLaunch($idFood){
     if($food->removeFromLaunch($_SESSION['userId'], $idFood, $_SESSION['date'])){
         return "alimentos.php";
     }else{
-        return "alimentos.php?msj=fail";
+        return "alimentos.php?msj=err";
     }
 }
 
-function addDinner($idUser, $idFood){
+function addDinner($idUser, $idFood, $cantidad){
     $food = new Food();
-    if($food->addToDinner($idUser, $idFood, $_SESSION['date'])){
+    if($food->addToDinner($idUser, $idFood, $_SESSION['date'], $cantidad)){
         header("location: ../food/alimentos.php");
         exit();
     }else{
@@ -281,7 +327,7 @@ function removeDinner($idFood){
     if($food->removeFromDinner($_SESSION['userId'], $idFood, $_SESSION['date'])){
         return "alimentos.php";
     }else{
-        return "alimentos.php?msj=fail";
+        return "alimentos.php?msj=err";
     }
 }
 
@@ -349,7 +395,7 @@ function addExercise($idUser, $idEx, $cantidad){
         header("location: ../exercise/ejercicio.php");
         exit();
     }else{
-        header("location: ../exercise/ejercicio.php");
+        header("location: ../exercise/ejercicio.php?msj=fail");
         exit();
     }
 }
@@ -359,6 +405,6 @@ function removeExercise($idEx){
     if($ex->deleteExercise($_SESSION['userId'], $idEx, $_SESSION['date'])){
         return "ejercicio.php";
     }else{
-        return "ejercicio.php";
+        return "ejercicio.php?msj=err";
     }
 }

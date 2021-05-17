@@ -1,7 +1,10 @@
 <?php require_once '../templates/header.php' ?>
 <?php
     require_once '../class/dbc.php';
+    require_once '../class/user.php';
     require_once '../class/food.php';
+    require_once '../class/exercise.php';
+    require_once '../include/foodExercise.php';
 
     if(isset($_GET['date'])){
         $_SESSION['date'] = $_GET['date'];
@@ -13,12 +16,18 @@
         $date = "$year-$month-$day";
         $_SESSION['date'] = $date;
     }
+
+    $aux = new User();
+    $user = $aux->getAuxForm($_SESSION['userId']);
 ?>
 
 <div class="content">
-    <form id="envia" method="post">
-        <input type="date" name="fecha" id="fecha">
-    </form>
+<div class="registro-diario">
+            <h4>Tus informes para: <h4>
+            <form id="envia" method="post">
+                <input type="date" name="fecha" id="fecha">
+            </form>
+        </div>
     <div class="flex">
         <div class="canva">
             <canvas id="myCanvas"  width="100"></canvas>
@@ -61,7 +70,10 @@
             </table>
         </div>
     </div>
-</div>
+    <?php if($user['genero'] == 'H'):?>
+    <?php else: ?>
+    <?php endif ?>
+    </div>
 
 <?php require_once '../templates/footer.php' ?>
 

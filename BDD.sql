@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-05-2021 a las 13:44:57
+-- Tiempo de generación: 17-05-2021 a las 19:35:15
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.11
 
@@ -44,7 +44,18 @@ INSERT INTO `actividad` (`idActividad`, `idEjercicio`, `idUser`, `fecha`, `minut
 (7, 2, 1, '2021-05-13', 5),
 (8, 2, 2, '2021-05-03', 5),
 (13, 2, 1, '2021-05-13', 5),
-(14, 2, 2, '2021-05-13', 2);
+(14, 2, 2, '2021-05-13', 2),
+(18, 2, 2, '2021-05-16', 5),
+(20, 2, 1, '2021-05-16', 5),
+(21, 2, 1, '2021-05-16', 5),
+(22, 2, 2, '2021-05-16', 1),
+(23, 2, 1, '2021-05-16', 4),
+(24, 3, 1, '2021-05-16', 5),
+(25, 3, 1, '2021-05-16', 5),
+(26, 3, 1, '2021-05-16', 5),
+(28, 1, 2, '2021-05-16', 5),
+(31, 1, 3, '2021-05-17', 4),
+(33, 1, 2, '2021-05-17', 34);
 
 -- --------------------------------------------------------
 
@@ -92,8 +103,18 @@ CREATE TABLE `cena` (
   `idCena` int(11) NOT NULL,
   `idAlimento` int(11) NOT NULL,
   `idUser` int(11) NOT NULL,
-  `fecha` date NOT NULL
+  `fecha` date NOT NULL,
+  `cantidad` int(11) NOT NULL DEFAULT 100
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `cena`
+--
+
+INSERT INTO `cena` (`idCena`, `idAlimento`, `idUser`, `fecha`, `cantidad`) VALUES
+(1, 1, 2, '2021-05-17', 5),
+(2, 2, 2, '2021-05-17', 434),
+(3, 1, 2, '2021-05-17', 20);
 
 -- --------------------------------------------------------
 
@@ -105,7 +126,8 @@ CREATE TABLE `comida` (
   `idComida` int(11) NOT NULL,
   `idAlimento` int(11) NOT NULL,
   `idUser` int(11) NOT NULL,
-  `fecha` date NOT NULL
+  `fecha` date NOT NULL,
+  `cantidad` int(11) NOT NULL DEFAULT 100
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -118,15 +140,22 @@ CREATE TABLE `desayuno` (
   `idDesayuno` int(11) NOT NULL,
   `idAlimento` int(11) NOT NULL,
   `idUser` int(11) NOT NULL,
-  `fecha` date NOT NULL
+  `fecha` date NOT NULL,
+  `cantidad` int(11) NOT NULL DEFAULT 100
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `desayuno`
 --
 
-INSERT INTO `desayuno` (`idDesayuno`, `idAlimento`, `idUser`, `fecha`) VALUES
-(1, 1, 2, '2021-05-13');
+INSERT INTO `desayuno` (`idDesayuno`, `idAlimento`, `idUser`, `fecha`, `cantidad`) VALUES
+(1, 1, 2, '2021-05-13', 100),
+(2, 1, 2, '2021-05-12', 100),
+(3, 4, 2, '2021-05-13', 100),
+(4, 1, 2, '2021-05-16', 100),
+(7, 1, 2, '2021-05-17', 100),
+(9, 1, 2, '2021-05-17', 200),
+(10, 1, 3, '2021-05-17', 100);
 
 -- --------------------------------------------------------
 
@@ -174,7 +203,8 @@ CREATE TABLE `useraux` (
 --
 
 INSERT INTO `useraux` (`edad`, `altura`, `peso`, `pesoIdeal`, `genero`, `idUser`) VALUES
-(34, 125, 45, 56, '', 2);
+(34, 125, 45, 56, '', 2),
+(34, 143, 54, 65, 'H', 3);
 
 -- --------------------------------------------------------
 
@@ -199,7 +229,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`idUser`, `nombre`, `apellidos`, `nombreUser`, `email`, `userPswd`, `auxForm`, `admin`) VALUES
 (1, 'admin', 'admin', 'admin', 'admin@gmail.com', '12345678', 'S', 'S'),
-(2, 'Carlos', 'Tipan fdfdf', 'prueba', 'carlos@gmail.com', '$2y$10$dFVEbYcuz83DwvOBjSb.lOyrtFJZlJIOL.N7EztjsZYAdpanGJ7J2', 'S', 'N');
+(2, 'Carlos', 'Tipan fdfdf', 'prueba', 'carlos@gmail.com', '$2y$10$dFVEbYcuz83DwvOBjSb.lOyrtFJZlJIOL.N7EztjsZYAdpanGJ7J2', 'S', 'N'),
+(3, 'Carlos', 'dsad dasassad', 'prueba2', 'carlos.tipan.rodr@gmail.com', '$2y$10$1cuf5sThMqXgUWznnbQ6Pums2lVAMmSWQM//Ts45ZD2yd.V1mjVHa', 'S', 'N');
 
 --
 -- Índices para tablas volcadas
@@ -270,7 +301,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `actividad`
 --
 ALTER TABLE `actividad`
-  MODIFY `idActividad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `idActividad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de la tabla `alimentos`
@@ -282,7 +313,7 @@ ALTER TABLE `alimentos`
 -- AUTO_INCREMENT de la tabla `cena`
 --
 ALTER TABLE `cena`
-  MODIFY `idCena` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idCena` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `comida`
@@ -294,7 +325,7 @@ ALTER TABLE `comida`
 -- AUTO_INCREMENT de la tabla `desayuno`
 --
 ALTER TABLE `desayuno`
-  MODIFY `idDesayuno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idDesayuno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `ejercicios`
@@ -306,7 +337,7 @@ ALTER TABLE `ejercicios`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas

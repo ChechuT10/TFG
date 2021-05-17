@@ -15,8 +15,7 @@ if(isset($_POST['enviar'])){
     if(exerciseExists($name) != false || exerciseExists($name) != null){
         header("location: ../admin.php?error=usernametaken");
         exit();
-    }
-    //Los errores de datos los manejamos con rejex   
+    } 
     addExerciseAdmin($name, $calorias);
 
 }else{

@@ -19,7 +19,6 @@ if(isset($_POST['enviar'])){
         header("location: ../account/registro.php?error=usernametaken");
         exit();
     }
-    //Los errores de datos los manejamos con rejex   
     addFoodAdmin($name, $calorias, $hidratos, $proteinas, $grasas);
 
 }else{

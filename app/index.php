@@ -35,7 +35,7 @@
                         <li><a href="food/alimentos.php"><p>Alimentos</p><div></div></a></li>  
                         <li><a href="exercise/ejercicio.php"><p>Ejercicio</p><div></div></a></li>  
                         <li><a href=""><p>Informes</p><div></div></a></li> 
-                        <li><a href="account/ajustes.php"><p>Ajustes</p><div></div></a></li>
+                        <li><a href="account/perfil.php"><p>Ajustes</p><div></div></a></li>
                         <li><a href="include/logout.php"><p>Cerrar Sesion</p><div></div></a></li>
                         <li><a class="night"><img src="images/luna2.png"></a></li>
                     </ul>
@@ -50,11 +50,19 @@
                                 <div class="other-form">
                                 <h2>Solo falta un poco</h2>
                                 <form action="include/auxForm.php" method="POST">
-                                <input type="number" name="edad" placeholder="Introduce tu edad..."> 
-                                <input type="number" name="altura" placeholder="Altura actual...">  
-                                <input type="number" name="peso" placeholder="Peso actual...">  
-                                <input type="number" name="pesoideal" placeholder="Peso a lograr...">  
-                                <button type="submit" name="enviar">Enviar</button>
+                                <input type="number" name="edad" placeholder="Introduce tu edad"> 
+                                <input type="number" name="altura" placeholder="Altura actual(cm)">  
+                                <input type="number" name="peso" placeholder="Peso actual(Kg)">  
+                                <input type="number" name="pesoideal" placeholder="Peso a lograr(Kg)">
+                                <div>
+                                    <label>
+                                        <input type="radio" name="gender" value="H"> Hombre
+                                    </label>    
+                                    <label>
+                                        <input type="radio" name="gender" value="M"> Mujer
+                                    </label> 
+                                </div> 
+                                    <button type="submit" name="enviar">Enviar</button>
                             </form>
                         </div></div>';
                     }
@@ -83,7 +91,7 @@
                                 <a href="">Cookies</a>
                             </div>
                     </div>
-                <p>Copyright &copy; MMN | Todos los derechos reservados</p>
+                <p>Copyright &copy; NutriLife | Todos los derechos reservados</p>
                 </footer>
     <?php else: ?>
         <div class="back-image">
@@ -98,7 +106,7 @@
                     <ul class="nav-links">
                         <li><a href="account/inicioSesion.php"><p>Inicio de sesion</p><div></div></a></li>
                         <li><a href="account/registro.php"><p>Registrarse</p><div></div></a></li>
-                        <li><a class="night"><img src="images/luna2.png"></a></li>;
+                        <li><a class="night"><img src="images/luna2.png"></a></li>
                     </ul>
                 </nav>
             </header>
@@ -145,7 +153,7 @@
                                 <a href="">Cookies</a>
                             </div>
                     </div>
-                <p>Copyright &copy; MMN | Todos los derechos reservados</p>
+                <p>Copyright &copy; NutriLife | Todos los derechos reservados</p>
                 </footer>
     <?php endif ?>
 </div> 
