@@ -49,6 +49,6 @@ icon.addEventListener('click',function(){
         console.log('vacio')
     }else{
         val = val.charAt(0).toUpperCase() + val.slice(1)
-        location.replace('search.php?search='+val)
+        location.replace('searchEx.php?search='+val)
     }
 })

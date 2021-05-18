@@ -49,14 +49,14 @@ session_start();
                     $curPageName = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], "/") + 1);
                     if (isset($_SESSION['userUid'])) {
                         // echo $curPageName;
-                        if ($curPageName == 'alimentos.php') {
+                        if ($curPageName == 'alimentos.php' || $curPageName == 'add.php' || $curPageName == 'search.php') {
                             echo '<li><a href="../food/alimentos.php"><p>Alimentos</p><div class="active"></div></a></li>  
                                   <li><a href="../exercise/ejercicio.php"><p>Ejercicio</p><div></div></a></li>  
                                   <li><a href="../informes/informes.php"><p>Informes</p><div></div></a></li> 
                                   <li><a href="../account/perfil.php"><p>Ajustes</p><div></div></a></li>
                                   <li><a href="../include/logout.php"><p>Cerrar Sesion</p><div></div></a></li>
                                   <li><a class="night"><img src="../images/luna2.png"></a></li>';
-                        } else if ($curPageName == 'ejercicio.php') {
+                        } else if ($curPageName == 'ejercicio.php' || $curPageName == 'searchEx.php') {
                             echo '<li><a href="../food/alimentos.php"><p>Alimentos</p><div></div></a></li>  
                                   <li><a href="../exercise/ejercicio.php"><p>Ejercicio</p><div class="active"></div></a></li>  
                                   <li><a href="../informes/informes.php"><p>Informes</p><div></div></a></li> 

@@ -2,6 +2,15 @@
     session_start();
     require_once "class/dbc.php";
     require_once "class/user.php";
+    require_once "class/food.php";
+    require_once "class/exercise.php";
+
+    $auxdate = getdate();
+    $year = $auxdate['year'];
+    $month = $auxdate['mon'];
+    $day = $auxdate['mday'];
+    $date = "$year-$month-$day";
+    $_SESSION['date'] = $date;
 ?>
 
 <!DOCTYPE html>
@@ -66,33 +75,99 @@
                             </form>
                         </div></div>';
                     }
+                     
+                    $aux3 = new Exercise();
+                    $exercise = $aux3->getExercises($_SESSION['userId'],$_SESSION['date']);
+                    $aux = new Food();
+                    $breakfast = $aux->getBreakfast($_SESSION['userId'], $_SESSION['date']);
+                    $launch = $aux->getLaunch($_SESSION['userId'], $_SESSION['date']);
+                    $dinner = $aux->getDinner($_SESSION['userId'], $_SESSION['date']);
+                    $food = 0;
+                    if(is_countable($breakfast)) {
+                        $food += count($breakfast);
+                    }
+                    if(is_countable($launch)) {
+                        $food += count($breakfast);
+                    }
+                    if(is_countable($dinner)) {
+                        $food += count($breakfast);
+                    }       
             ?>
             <div class="content">
-
-            </div>
-                <footer>
-                    <div class="contacto">
-                            <div class="redes">
-                                <h3>Síguenos en</h3>
-                                <a href="https://twitter.com/"><img src="images/tw.png">Twitter</a>
-                                <a href="https://www.instagram.com/"><img src="images/insta.png">Instagram</a>
-                                <a href="https://www.facebook.com/"><img src="images/facebook.png">Facebook</a>
-                            </div>
-                            <div class="preguntas">
-                                <h3>Conócenos</h3>
-                                <a href="">¿Quiénes somos?</a>
-                                <a href="">Ayuda</a>
-                                <a href="">Preguntas Frecuentes</a>
-                            </div>
-                            <div class="legal">
-                                <h3>Legal</h3>
-                                <a href="">Condiciones de uso</a>
-                                <a href="">Politica de Privacidad</a>
-                                <a href="">Cookies</a>
-                            </div>
+                <h3 class = "index-titulo">Tu resumen diario</h3>
+                <div class="index-resumen">
+                    <div class="info-index">
+                        <div class="card">
+                            <img src="images/foodIcon.png">
+                            <p class = "tit">Alimentos</p>
+                            <?php if(isset($food)): ?>
+                                <p class = "count"><?php echo $food ?></p>
+                            <?php else:?>
+                                <p class = "count">0</p>
+                            <?php endif ?>
+                        </div>
+                        <div class="card">
+                        <img src="images/iconopesa.png">
+                            <p class = "tit">Ejercicios</p>
+                            <?php if(isset($exercise)): ?>
+                                <p class = "count"><?php echo count($exercise) ?></p>
+                            <?php else:?>
+                                <p class = "count">0</p>
+                            <?php endif ?>
+                        </div>
                     </div>
+                    <div class="resumen-data">
+                        <div class="cal-res">
+                            <p>Calorias restantes</p>
+                            <h1>0</h1>
+                        </div>
+                        <div class="cal-enl">
+                            <a href="food/alimentos.php">Añadir alimentos</a>
+                            <a href="exercise/ejercicio.php">Añadir ejercicios</a>
+                        </div>
+                        <div class="cal-math">
+                            <div class="cal-obj"><h4>0</h4><p>OBJETIVO</p></div>
+                            <div class="cal-al"><h4>0</h4><p>ALIMENTO</p></div>
+                            <div><h4>-</h4></div>
+                            <div class="cal-ej"><h4>0</h4><p>EJERCICIO</p></div>
+                            <div><h4>=</h4></div>
+                            <div class="cal-neto"><h4>0</h4><p>NETO</p></div>
+                        </div>
+                        <div class="width-pro">
+                            <div class='progress'>
+                                <div class='progress-bar' data-width='58'>
+                                    <div class='progress-bar-text'>
+                                        <span class='data-percent'></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <div class="contacto">
+                    <div class="redes">
+                        <h3>Síguenos en</h3>
+                            <a href="https://twitter.com/"><img src="images/tw.png">Twitter</a>
+                            <a href="https://www.instagram.com/"><img src="images/insta.png">Instagram</a>
+                            <a href="https://www.facebook.com/"><img src="images/facebook.png">Facebook</a>
+                        </div>
+                    <div class="preguntas">
+                        <h3>Conócenos</h3>
+                        <a href="">¿Quiénes somos?</a>
+                        <a href="">Ayuda</a>
+                        <a href="">Preguntas Frecuentes</a>
+                    </div>
+                    <div class="legal">
+                        <h3>Legal</h3>
+                        <a href="">Condiciones de uso</a>
+                        <a href="">Politica de Privacidad</a>
+                        <a href="">Cookies</a>
+                    </div>
+                </div>
                 <p>Copyright &copy; NutriLife | Todos los derechos reservados</p>
-                </footer>
+            </footer>
     <?php else: ?>
         <div class="back-image">
             <header>
@@ -159,4 +234,5 @@
 </div> 
 </body>
 <script src="js/js.js"></script>
+<script src="js/barraIndex.js"></script>
 </html>

@@ -11,7 +11,7 @@ if(isset($_POST['enviar'])){
     require_once "functions.php";
 
     if($cantidad == null){
-        header('location: ../exercise/search.php?search='.$aux.'&msj=err');
+        header('location: ../exercise/searchEx.php?search='.$aux.'&msj=err');
         exit();
     }
     addExercise($idUser, $idEx, $cantidad);
