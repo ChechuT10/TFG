@@ -14,6 +14,19 @@ class Food extends Db{
         }
     }
 
+    public function getFood(){
+        $sql = "SELECT * FROM alimentos;";
+        $query = $this->connect()->query($sql);
+        if ($query) {
+             while($data=$query->fetchAll()){
+                return $data;
+            }
+        }else{
+            return false;
+        }
+    }
+
+
     // Elegir alimentos por diferentes ordenes
 
     public function getFoodOrderByCalories(){
@@ -104,6 +117,16 @@ class Food extends Db{
             while($data=$query->fetch()){
                 return $data;
             }
+        }else{
+                return false;
+        }
+    }
+
+    public function deleteFoodAdmin($id){
+        $sql = "DELETE FROM alimentos WHERE idalimentos = ?;";
+        $query = $this->connect()->prepare($sql);  
+        if ($query->execute([$id])) {
+                return true;
         }else{
                 return false;
         }

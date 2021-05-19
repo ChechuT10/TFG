@@ -54,7 +54,7 @@ function loginUser($userName, $pswd){
         if($uidExist['admin'] == 'S'){
             if($uidExist["userPswd"] == $pswd){
                 $_SESSION['userId'] = $uidExist["idUser"];
-                header("location: ../admin.php");
+                header("location: ../admin/admin.php");
                 exit();
             }else{
                 header("location: ../account/inicioSesion.php?error=wronglogin");
@@ -367,10 +367,10 @@ function foodExists($name){
 function addExerciseAdmin($name, $calorias){
     $ex = new Exercise();
     if($ex->addExerciseAdmin($name, $calorias)){
-        header("location: ../admin.php?msj=added");
+        header("location: ../admin/admin.php?msj=added");
         exit();
     }else{
-        header("location: ../admin.php?msj=fail");
+        header("location: ../admin/admin.php?msj=fail");
         exit();
     }
 }
@@ -378,14 +378,31 @@ function addExerciseAdmin($name, $calorias){
 function addFoodAdmin($name, $calorias, $hidratos, $proteinas, $grasas){
     $food = new Food();
     if($food->addFood($name, $calorias, $hidratos, $proteinas, $grasas)){
-        header("location: ../admin.php?msj=added");
+        header("location: ../admin/admin.php?msj=added");
         exit();
     }else{
-        header("location: ../admin.php?msj=fail");
+        header("location: ../admin/admin.php?msj=fail");
         exit();
     }
 }
 
+function removeFoodAdmin($id){
+    $food = new Food();
+    if($food->deleteFoodAdmin($id)){
+        return "admin.php";
+    }else{
+        return "admin.php?msj=err";
+    }
+}
+
+function removeExerciseAdmin($id){
+    $ex = new Exercise();
+    if($ex->deleteExerciseAdmin($id)){
+        return "admin.php";
+    }else{
+        return "admin.php?msj=err";
+    }
+}
 
 // EJERCICIOS
 

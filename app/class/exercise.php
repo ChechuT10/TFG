@@ -14,6 +14,18 @@ class Exercise extends Db{
         }
     }
 
+    public function getExercise(){
+        $sql = "SELECT * FROM ejercicios;";
+        $query = $this->connect()->query($sql);
+        if ($query) {
+             while($data=$query->fetchAll()){
+                return $data;
+            }
+        }else{
+            return false;
+        }
+    }
+
     public function addExerciseUser($exercise, $user, $date, $min){
         $sql = "INSERT INTO actividad (idActividad, idEjercicio, idUser, fecha, minutos) VALUES (NULL, ?, ?, ?, ?);";
         $query = $this->connect()->prepare($sql);
@@ -81,6 +93,15 @@ class Exercise extends Db{
         }
     }
 
+    public function deleteExerciseAdmin($id){
+        $sql = "DELETE FROM ejercicios WHERE idEjercicios = ?;";
+        $query = $this->connect()->prepare($sql);  
+        if ($query->execute([$id])) {
+                return true;
+        }else{
+                return false;
+        }
+    }
 
     public function checkExerciseByName($name){
         $sql = "SELECT * FROM ejercicios WHERE nombre = ?;";

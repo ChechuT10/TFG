@@ -62,7 +62,7 @@
                         <input type="hidden" name="idFood" value="<?php echo $food['idalimentos'] ?>">
                         <input type="hidden" name="tipo" value="<?php echo $_GET['food'] ?>">
                         <input type="hidden" name="url" value="<?php echo $msj ?>">
-                        <input type="number" name="cantidad" placeholder="Introduce la cantidad">
+                        <input type="number" name="cantidad" placeholder="Introduce la cantidad (gr)">
                         <button type="submit" name="enviar" class="botonEnviar">Añadir</button>
                     </form>
                     </div>
