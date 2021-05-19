@@ -4,13 +4,6 @@
     require_once "class/user.php";
     require_once "class/food.php";
     require_once "class/exercise.php";
-
-    $auxdate = getdate();
-    $year = $auxdate['year'];
-    $month = $auxdate['mon'];
-    $day = $auxdate['mday'];
-    $date = "$year-$month-$day";
-    $_SESSION['date'] = $date;
 ?>
 
 <!DOCTYPE html>
@@ -75,23 +68,7 @@
                             </form>
                         </div></div>';
                     }
-                     
-                    $aux3 = new Exercise();
-                    $exercise = $aux3->getExercises($_SESSION['userId'],$_SESSION['date']);
-                    $aux = new Food();
-                    $breakfast = $aux->getBreakfast($_SESSION['userId'], $_SESSION['date']);
-                    $launch = $aux->getLaunch($_SESSION['userId'], $_SESSION['date']);
-                    $dinner = $aux->getDinner($_SESSION['userId'], $_SESSION['date']);
-                    $food = 0;
-                    if(is_countable($breakfast)) {
-                        $food += count($breakfast);
-                    }
-                    if(is_countable($launch)) {
-                        $food += count($breakfast);
-                    }
-                    if(is_countable($dinner)) {
-                        $food += count($breakfast);
-                    }       
+                    require_once "include/auxIndex.php";
             ?>
             <div class="content">
                 <h3 class = "index-titulo">Tu resumen diario</h3>
@@ -100,8 +77,8 @@
                         <div class="card">
                             <img src="images/foodIcon.png">
                             <p class = "tit">Alimentos</p>
-                            <?php if(isset($food)): ?>
-                                <p class = "count"><?php echo $food ?></p>
+                            <?php if(isset($foodCount)): ?>
+                                <p class = "count"><?php echo $foodCount ?></p>
                             <?php else:?>
                                 <p class = "count">0</p>
                             <?php endif ?>
@@ -109,8 +86,8 @@
                         <div class="card">
                         <img src="images/iconopesa.png">
                             <p class = "tit">Ejercicios</p>
-                            <?php if(isset($exercise)): ?>
-                                <p class = "count"><?php echo count($exercise) ?></p>
+                            <?php if(isset($actividad)): ?>
+                                <p class = "count"><?php echo count($actividad) ?></p>
                             <?php else:?>
                                 <p class = "count">0</p>
                             <?php endif ?>
@@ -127,11 +104,11 @@
                         </div>
                         <div class="cal-math">
                             <div class="cal-obj"><h4>0</h4><p>OBJETIVO</p></div>
-                            <div class="cal-al"><h4>0</h4><p>ALIMENTO</p></div>
+                            <div class="cal-al"><h4><?php echo $sumaAlimentos?></h4><p>ALIMENTO</p></div>
                             <div><h4>-</h4></div>
-                            <div class="cal-ej"><h4>0</h4><p>EJERCICIO</p></div>
+                            <div class="cal-ej"><h4><?php echo $sumaEjercicios?></h4><p>EJERCICIO</p></div>
                             <div><h4>=</h4></div>
-                            <div class="cal-neto"><h4>0</h4><p>NETO</p></div>
+                            <div class="cal-neto"><h4><?php echo $neto?></h4><p>NETO</p></div>
                         </div>
                         <div class="width-pro">
                             <div class='progress'>
