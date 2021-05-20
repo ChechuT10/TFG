@@ -3,18 +3,18 @@
         <div class="main-forms">
             <div class="card">
                 <div>
-                    <h2>Bienvenido</h2>
-                    <p>Por favor introduce los datos necesarios</p>
-                    <a>Iniciar sesion</a>
+                    <h2>¡Bienvenido!</h2>
+                    <p>Si ya dispones de una cuenta pincha en el boton inferior</p>
+                    <a href="inicioSesion.php">Iniciar sesion</a>
                 </div>
             </div>
             <div class = "register">
                 <h2>Crear una cuenta</h2>
                 <form action="../include/registroForm.php" method="POST">
                     <input type="text" name="nombre" placeholder="Nombre...">
-                    <p>Debe incluir solo letras y espacios</p>
+                    <p>Solo debe contener letras</p>
                     <input type="text" name="apellidos" placeholder="Apellidos...">
-                    <p>Entre 5 y 12 caracteres</p>
+                    <p>Puede contener letras y un espacio</p>
                     <input type="text" name="usuario" placeholder="Nombre de Usuario...">
                     <p>Entre 5 y 12 caracteres</p>
                     <input type="email" name="email" placeholder="Email...">
@@ -27,10 +27,8 @@
                     <p>Para crear una cuenta <a href="">Pincha aquí</a></p>
                 </div>
             </div>
-        </div>             
-    </div>
-    <div>
-            <?php
+        </div>         
+        <?php
             $error = "";
             if(isset($_GET['error'])){
                 if($_GET['error']=="emptyinput"){
@@ -43,11 +41,11 @@
                     $error = '¡Algo fue mal, intentálo de nuevo!';
                 }
             }
-            ?>
-            <div class="msg">
-                <p><?php echo $error?></p>
-            </div>
+        ?>
+        <div class="msg">
+            <p><?php echo $error?></p>
         </div>
+    </div>    
     <?php require_once '../templates/footer.php'?>
     <script src="../js/regex.js"></script>
 </html>

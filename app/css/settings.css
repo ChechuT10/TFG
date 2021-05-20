@@ -118,6 +118,7 @@
 
 .edit{
     color: #58AF9B;
+    cursor: pointer;
 }
 
 .table input{

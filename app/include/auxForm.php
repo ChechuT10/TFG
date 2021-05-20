@@ -7,9 +7,8 @@ if(isset($_POST['enviar'])){
     $height = $_POST['altura'];
     $weight = $_POST['peso'];
     $idealw = $_POST['pesoideal'];
+    $gender = $_POST['gender'];
 
-    require_once "../class/dbc.php";
-    require_once "../class/user.php";
     require_once "functions.php";
 
     if(emptyInputAuxForm($age, $height, $weight, $idealw) !== false){
@@ -20,8 +19,7 @@ if(isset($_POST['enviar'])){
         header("location: ../index.php?error=invalidform");
         exit();
     }
-    //Los errores de datos los manejamos con rejex   
-    createUserAux($age, $height, $weight, $idealw);
+    createUserAux($age, $height, $weight, $idealw, $gender);
 
 }else{
     header("location: ../index.php");

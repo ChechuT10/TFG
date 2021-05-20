@@ -6,7 +6,23 @@
 
     $msj = "";
     if (isset($_GET['search'])) {
-        if ($_GET['search'] != "") {
+        if ($_GET['search'] == 'Calorias') {
+            $aux2 = new Food();
+            $foods = $aux2->getFoodOrderByCalories();
+        }
+        else if ($_GET['search'] == 'Hidratos') {
+            $aux2 = new Food();
+            $foods = $aux2->getFoodOrderByHydrates();
+        }
+        else if ($_GET['search'] == 'Proteinas') {
+            $aux2 = new Food();
+            $foods = $aux2->getFoodOrderByProtein();
+        }
+        else if ($_GET['search'] == 'Grasas') {
+            $aux2 = new Food();
+            $foods = $aux2->getFoodOrderByFat();
+        }
+        else{
             $aux2 = new Food();
             $msj = $_GET['search'];
             $foods = $aux2->getFoodByName($msj);
@@ -15,11 +31,13 @@
 ?>
 <div class="content">
     <?php if ($foods) : ?>
+        <?php if ($msj): ?>
         <div class="food-search">
             <h3>Búsqueda nuestra base de datos de alimentos por nombre: </h3>
             <input type="text" value="<?php echo $msj ?>" readonly>
             <h3>Resultados coincidentes</h3>
         </div>
+        <?php endif ?>
         <div class="search-flex">
             <div class="resultado">
                 <?php foreach ($foods as $food) : ?>
@@ -29,18 +47,22 @@
                             <p>100g | <?php echo $food['calorias'] ?>Kcal | ... </p>
                         </div>
                         <div class="resultados">
-                            <p>Calorias: <?php echo $food['calorias'] ?></p>
-                            <p>Hidratos: <?php echo $food['hidratos'] ?></p>
-                            <p>Proteinas: <?php echo $food['proteinas'] ?></p>
-                            <p>Grasas: <?php echo $food['grasas'] ?></p>
+                            <div class="tit">
+                                <h4><?php echo $food['nombre'] ?>  (100g)</h4>
+                            </div>
+                            <div class="data-search">
+                                <p>Calorias : <?php echo $food['calorias'] ?></p>
+                                <p>Hidratos : <?php echo $food['hidratos'] ?></p>
+                                <p>Proteinas : <?php echo $food['proteinas'] ?></p>
+                                <p>Grasas : <?php echo $food['grasas'] ?></p>
+                            </div>
                         </div>
                     <form action="../include/addFood.php" method="POST">
                         <input type="hidden" name="idUser" value="<?php echo $_SESSION["userId"] ?>">
                         <input type="hidden" name="idFood" value="<?php echo $food['idalimentos'] ?>">
                         <input type="hidden" name="tipo" value="<?php echo $_GET['food'] ?>">
-                        <label>Introduce la cantidad:</label>
-                        <input type="number" name="cantidad">
-                        <br>
+                        <input type="hidden" name="url" value="<?php echo $msj ?>">
+                        <input type="number" name="cantidad" placeholder="Introduce la cantidad (gr)">
                         <button type="submit" name="enviar" class="botonEnviar">Añadir</button>
                     </form>
                     </div>

@@ -1,5 +1,5 @@
 /* fecha */
-form{
+.registro-diario form{
     display: flex;
     justify-content: center;
     margin-bottom: 30px;

@@ -3,24 +3,19 @@
 
 if(isset($_POST['enviar'])){
 
-    $idUser = $_POST['idUser'];
-    $idFood = $_POST['idFood'];
+    $order = $_POST['order'];
     $type = $_POST['tipo'];
-    $cantidad = $_POST['cantidad'];
 
     require_once "functions.php";
 
-    if($cantidad==null || $cantidad <= 0){
-        $cantidad = 100;
-    }
     if($type == 'desayuno'){
-        addBreakfast($idUser, $idFood, $cantidad);
+        filterBreakfast($order);
     }
     else if($type == 'comida'){
-        addLaunch($idUser, $idFood, $cantidad);
+        filterLaunch($order);
     }
     else if($type == 'cena'){
-        addDinner($idUser, $idFood, $cantidad);
+        filterDinner($order);
     }else{
         header("location: ../food/alimentos.php?msj=fail");
         exit();

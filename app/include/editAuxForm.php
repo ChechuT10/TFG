@@ -18,7 +18,6 @@ if(isset($_POST['enviar'])){
         header("location: ../account/perfilDieta.php?error=invalidform");
         exit();
     }
-    //Los errores de datos los manejamos con rejex   
     updateUserAux($age, $height, $weight, $idealw);
 
 }else{

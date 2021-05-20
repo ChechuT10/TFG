@@ -9,9 +9,6 @@ if(isset($_POST['enviar'])){
     $email = $_POST['email'];
     $pswd = $_POST['pswd'];
 
-
-    require_once "../class/dbc.php";
-    require_once "../class/user.php";
     require_once "functions.php";
 
     if(emptyInputSignup($name, $lastName, $userName, $email, $pswd) !== false){

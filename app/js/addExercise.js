@@ -12,10 +12,11 @@ let val;
 let bus = document.querySelector('#ejercicio')
 let pal = document.querySelector('#palabras')
 function damePalabras(raiz){
+    let min = raiz.charAt(0).toUpperCase() + raiz.slice(1);
     palabras=[]
     if (raiz!=""){
       for (var i=0;i<alimentos.length;i++){
-        if (alimentos[i].indexOf(raiz)==0){
+        if (alimentos[i].indexOf(min)==0){
           palabras.push(alimentos[i])
         }
       }
@@ -48,6 +49,6 @@ icon.addEventListener('click',function(){
         console.log('vacio')
     }else{
         val = val.charAt(0).toUpperCase() + val.slice(1)
-        location.replace('search.php?search='+val)
+        location.replace('searchEx.php?search='+val)
     }
 })

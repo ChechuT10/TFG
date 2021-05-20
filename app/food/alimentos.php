@@ -39,17 +39,16 @@
                         </div>
                     </div>
                     <?php if ($breakfast) : ?>
-                        <!-- <div class="alimentos"> -->
                             <?php
                             foreach ($breakfast as $a) {
                                 echo '<div class="alimentos">';
                                 $food = $aux->getFoodById($a['idAlimento']);
                                 echo '<p class="nombre">' . $food['nombre'] . '</p>';
                                 echo '<div class="datos">
-                                        <p>'.$food['calorias'].'</p>
-                                        <p>'.$food['hidratos'].'</p>
-                                        <p>'.$food['proteinas'].'</p>
-                                        <p>'.$food['grasas'].'</p>
+                                        <p>'.intval($food['calorias']*($a['cantidad']/100)).'</p>
+                                        <p>'.intval($food['hidratos']*($a['cantidad']/100)).'</p>
+                                        <p>'.intval($food['proteinas']*($a['cantidad']/100)).'</p>
+                                        <p>'.intval($food['grasas']*($a['cantidad']/100)).'</p>
                                         <div class="idalimento des">'.$food['idalimentos'].'</div>
                                         <img src="../images/trashicon.png">
                                      </div>
@@ -57,7 +56,6 @@
                                 array_push($alimentos, $food);
                             }
                             ?>
-                        <!-- </div> -->
                     <?php endif ?>
                     <a href="add.php?food=desayuno">
                         <p>Añadir alimento</p>
@@ -66,17 +64,16 @@
                 <div class="comida">
                     <h3>Comida</h3>
                     <?php if ($launch) : ?>
-                        <!-- <div class="alimentos"> -->
                             <?php
                             foreach ($launch as $a) {
                                 echo '<div class="alimentos">';
                                 $food = $aux->getFoodById($a['idAlimento']);
                                 echo '<p class="nombre">' . $food['nombre'] . '</p>';
                                 echo '<div class="datos">
-                                        <p>'.$food['calorias'].'</p>
-                                        <p>'.$food['hidratos'].'</p>
-                                        <p>'.$food['proteinas'].'</p>
-                                        <p>'.$food['grasas'].'</p>
+                                        <p>'.intval($food['calorias']*($a['cantidad']/100)).'</p>
+                                        <p>'.intval($food['hidratos']*($a['cantidad']/100)).'</p>
+                                        <p>'.intval($food['proteinas']*($a['cantidad']/100)).'</p>
+                                        <p>'.intval($food['grasas']*($a['cantidad']/100)).'</p>
                                         <div class="idalimento com">'.$food['idalimentos'].'</div>
                                         <img src="../images/trashicon.png">
                                      </div>
@@ -84,7 +81,6 @@
                                 array_push($alimentos, $food);
                             }
                             ?>
-                        <!-- </div> -->
                     <?php endif ?>
                     <a href="add.php?food=comida">
                         <p>Añadir alimento</p>
@@ -93,17 +89,16 @@
                 <div class="cena">
                     <h3>Cena</h3>
                     <?php if ($dinner) : ?>
-                        <!-- <div class="alimentos"> -->
                             <?php
                             foreach ($dinner as $a) {
                                 echo '<div class="alimentos">';
                                 $food = $aux->getFoodById($a['idAlimento']);
                                 echo '<p class="nombre">' . $food['nombre'] . '</p>';
                                 echo '<div class="datos">
-                                        <p>'.$food['calorias'].'</p>
-                                        <p>'.$food['hidratos'].'</p>
-                                        <p>'.$food['proteinas'].'</p>
-                                        <p>'.$food['grasas'].'</p>
+                                        <p>'.intval($food['calorias']*($a['cantidad']/100)).'</p>
+                                        <p>'.intval($food['hidratos']*($a['cantidad']/100)).'</p>
+                                        <p>'.intval($food['proteinas']*($a['cantidad']/100)).'</p>
+                                        <p>'.intval($food['grasas']*($a['cantidad']/100)).'</p>
                                         <div class="idalimento cena">'.$food['idalimentos'].'</div>
                                         <img src="../images/trashicon.png">
                                      </div>
@@ -111,12 +106,24 @@
                                 array_push($alimentos, $food);
                             }
                             ?>
-                        <!-- </div> -->
                     <?php endif ?>
                     <a href="add.php?food=cena">
                         <p>Añadir alimento</p>
                     </a>
                 </div>
+            </div>
+            <?php
+                $error = "";
+                if(isset($_GET['msj'])){
+                    if($_GET['msj']=="fail"){
+                        $error = 'No se ha podido añadir el alimento';
+                    }if($_GET['msj']=="err"){
+                        $error = 'No se ha podido borrar el alimento';
+                    }
+                }
+            ?>
+            <div class="msg">
+                <p><?php echo $error?></p>
             </div>
     </div>
 <?php require_once '../templates/footer.php' ?>

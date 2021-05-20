@@ -6,25 +6,8 @@ $(document).ready(function () {
     const backImage = $('.small-back-image')
     const pop = $('.fullscreen-container')
     const cicon = $(".calendar-icon")
-    // console.log(cicon)
-    // console.log(hideimages)
 
     if (lineas != null) {
-
-        // $(window).on('resize', function () {
-            // if ($(window).width() < 500) {
-            //     if (subheader) {
-            //         let aux = subheaderLi.clone()
-            //         nav.prepend(aux)
-            //         subheader.hide()
-            //     }
-            // } else {
-            //     if (subheader) {
-            //         subheader.show()
-            //     }
-            // }
-        // });
-
         lineas.on('click', function () {
             let ul = $('.nav-links');
             if (ul.hasClass('animate')) {

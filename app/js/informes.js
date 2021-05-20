@@ -138,4 +138,12 @@ window.addEventListener("load", function () {
       });
       myBarchart.draw();
     });
+
+    fetch("../include/getExerciseByUser.php", {})
+    .then(function (respuesta) {
+      return respuesta.json();
+    })
+    .then(function (resultado) {
+      console.log(resultado)
+    });
 });

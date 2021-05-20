@@ -12,8 +12,6 @@
             $ex = $aux2->getExerciseByName($msj);
         }
     }
-
-    echo $_SESSION["userId"];
 ?>
 <div class="content">
     <?php if ($ex) : ?>
@@ -34,13 +32,24 @@
                         <input type="hidden" name="idUser" value="<?php echo $_SESSION["userId"] ?>">
                         <input type="hidden" name="idExercise" value="<?php echo $e['idEjercicios'] ?>">
                         <input type="hidden" name="url" value="<?php echo $msj ?>">
-                        <div><h4><?php echo $e['nombre'];?></h4></div>
-                        <div><p><?php echo $e['calorias'];?></p></div>
-                        <div><input type="number" name="cantidad"></div>
+                        <div><h3 class="table-exercise-tit">Nombre</h3><h4><?php echo $e['nombre'];?></h4></div>
+                        <div><h3 class="table-exercise-tit">Calorias</h3><p><?php echo $e['calorias'];?></p></div>
+                        <div><h3 class="table-exercise-tit">Minutos</h3><input type="number" name="cantidad"></div>
                         <div><button type="submit" name="enviar" class="botonEnviar">Añadir</button></div>
                     </form>
                 <?php endforeach ?>
             </div>
+        </div>
+        <?php
+            $error = "";
+            if(isset($_GET['msj'])){
+                if($_GET['msj']=="err"){
+                    $error = 'El valor introducido no es válido';
+                }
+            }
+        ?>
+        <div class="msg">
+            <p><?php echo $error?></p>
         </div>
     <?php else : ?>
         <div class="msg">

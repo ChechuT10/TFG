@@ -13,15 +13,14 @@
                 </div>
             </div>            
             <div class="card back">
-                <div>
-                    <h2>Bienvenido</h2>
-                    <p>Por favor introduce los datos necesarios</p>
-                    <a>Iniciar sesion</a>
+                <div class="tit">
+                    <h2>¡Hola!</h2>
+                    <p>Crea una cuenta para comenzar a usar nuestros servicios</p>
+                    <a href="registro.php">Registro</a>
                 </div>
             </div>
         </div>
-    </div>
-            <?php
+        <?php
             $error = "";
             if(isset($_GET['error'])){
                 if($_GET['error']=="emptyinput"){
@@ -31,9 +30,10 @@
                     $error = '¡Usuario o contraseña inválidas!';
                 }
             }
-            ?>
-            <div class="msg">
-                <p><?php echo $error?></p>
-            </div>
+        ?>
+        <div class="msg">
+            <p><?php echo $error?></p>
+        </div>
+    </div>
 	<?php require_once '../templates/footer.php' ?>
 </html>

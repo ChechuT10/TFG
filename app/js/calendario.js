@@ -20,8 +20,15 @@ document.getElementById("fecha").addEventListener("change", function () {
 window.addEventListener("load", function () {
   var dia = window.location.search;
   if (dia != "") {
+    if(dia == "?msj=fail" || dia == "?msj=err" ){
+      var f = new Date();
+      var hoy = f.toISOString();
+      h = hoy.split("T");
+      document.getElementById("fecha").value = h[0];
+    }else{
     document.getElementById("fecha").value = dia.substr(6);
-  } else {
+    }
+  }else {
     var f = new Date();
     var hoy = f.toISOString();
     h = hoy.split("T");

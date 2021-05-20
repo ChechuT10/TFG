@@ -114,7 +114,8 @@ header .index{
 .content .info{
     grid-area:info;
     display: flex;
-    width: 60%;
+    flex-wrap: wrap;
+    width: 100%;
     justify-content: space-evenly;
 }
 
@@ -175,7 +176,12 @@ header .index{
     /* margin-bottom: 2em; */
 }
 
-.form div{
+.form .add-food{
+    display: flex;
+    flex-direction: column;
+}
+
+.form .add-exercise{
     display: flex;
     flex-direction: column;
 }
@@ -193,7 +199,7 @@ header .index{
 .content form input{
     font-family: 'Montserrat', sans-serif;
     border: none;
-    border-bottom: 1px solid #95CCBF;
+    border-bottom: 1px solid #D0E8E3;
     /* background-color: #F3F9F8; */
     display: block;
     padding: 0.8em 0.5em;
@@ -216,6 +222,71 @@ header .index{
     border-radius: 2em;
     cursor: pointer;
     font-weight: bold;
+}
+
+.del-food{
+    height: 55vh;
+    /* border: 1px solid black; */
+    overflow-x: hidden;
+    overflow-y: scroll;
+    display: none;
+}
+
+.del-ex{
+    height: 55vh;
+    /* border: 1px solid black; */
+    overflow-x: hidden;
+    overflow-y: scroll;
+    display: none;
+}
+
+.data{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    justify-content: space-between;
+    border-bottom: 1px solid #D0E8E3;
+}
+.data h4{
+    text-align: left;
+}
+
+.data p{
+    display: none;
+}
+
+.data img{
+    max-width: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.data img:hover{
+    background-color: #641220;
+}
+
+.data:first-child{
+    margin-top: 1em;
+}
+
+::-webkit-scrollbar-track
+{
+	border-radius: 0px;
+	background-color: #D0E8E3;
+}
+
+::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: #A1D2C6;
 }
 
 /* Ajustes para pantallas pequeñas */

@@ -2,6 +2,8 @@
     session_start();
     require_once "class/dbc.php";
     require_once "class/user.php";
+    require_once "class/food.php";
+    require_once "class/exercise.php";
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +37,7 @@
                         <li><a href="food/alimentos.php"><p>Alimentos</p><div></div></a></li>  
                         <li><a href="exercise/ejercicio.php"><p>Ejercicio</p><div></div></a></li>  
                         <li><a href=""><p>Informes</p><div></div></a></li> 
-                        <li><a href="account/ajustes.php"><p>Ajustes</p><div></div></a></li>
+                        <li><a href="account/perfil.php"><p>Ajustes</p><div></div></a></li>
                         <li><a href="include/logout.php"><p>Cerrar Sesion</p><div></div></a></li>
                         <li><a class="night"><img src="images/luna2.png"></a></li>
                     </ul>
@@ -50,41 +52,99 @@
                                 <div class="other-form">
                                 <h2>Solo falta un poco</h2>
                                 <form action="include/auxForm.php" method="POST">
-                                <input type="number" name="edad" placeholder="Introduce tu edad..."> 
-                                <input type="number" name="altura" placeholder="Altura actual...">  
-                                <input type="number" name="peso" placeholder="Peso actual...">  
-                                <input type="number" name="pesoideal" placeholder="Peso a lograr...">  
-                                <button type="submit" name="enviar">Enviar</button>
+                                <input type="number" name="edad" placeholder="Introduce tu edad"> 
+                                <input type="number" name="altura" placeholder="Altura actual(cm)">  
+                                <input type="number" name="peso" placeholder="Peso actual(Kg)">  
+                                <input type="number" name="pesoideal" placeholder="Peso a lograr(Kg)">
+                                <div>
+                                    <label>
+                                        <input type="radio" name="gender" value="H"> Hombre
+                                    </label>    
+                                    <label>
+                                        <input type="radio" name="gender" value="M"> Mujer
+                                    </label> 
+                                </div> 
+                                    <button type="submit" name="enviar">Enviar</button>
                             </form>
                         </div></div>';
                     }
+                    require_once "include/auxIndex.php";
             ?>
             <div class="content">
-
-            </div>
-                <footer>
-                    <div class="contacto">
-                            <div class="redes">
-                                <h3>Síguenos en</h3>
-                                <a href="https://twitter.com/"><img src="images/tw.png">Twitter</a>
-                                <a href="https://www.instagram.com/"><img src="images/insta.png">Instagram</a>
-                                <a href="https://www.facebook.com/"><img src="images/facebook.png">Facebook</a>
-                            </div>
-                            <div class="preguntas">
-                                <h3>Conócenos</h3>
-                                <a href="">¿Quiénes somos?</a>
-                                <a href="">Ayuda</a>
-                                <a href="">Preguntas Frecuentes</a>
-                            </div>
-                            <div class="legal">
-                                <h3>Legal</h3>
-                                <a href="">Condiciones de uso</a>
-                                <a href="">Politica de Privacidad</a>
-                                <a href="">Cookies</a>
-                            </div>
+                <h3 class = "index-titulo">Tu resumen diario</h3>
+                <div class="index-resumen">
+                    <div class="info-index">
+                        <div class="card">
+                            <img src="images/foodIcon.png">
+                            <p class = "tit">Alimentos</p>
+                            <?php if(isset($foodCount)): ?>
+                                <p class = "count"><?php echo $foodCount ?></p>
+                            <?php else:?>
+                                <p class = "count">0</p>
+                            <?php endif ?>
+                        </div>
+                        <div class="card">
+                        <img src="images/iconopesa.png">
+                            <p class = "tit">Ejercicios</p>
+                            <?php if(isset($actividad)): ?>
+                                <p class = "count"><?php echo count($actividad) ?></p>
+                            <?php else:?>
+                                <p class = "count">0</p>
+                            <?php endif ?>
+                        </div>
                     </div>
-                <p>Copyright &copy; MMN | Todos los derechos reservados</p>
-                </footer>
+                    <div class="resumen-data">
+                        <div class="cal-res">
+                            <p>Calorias restantes</p>
+                            <h1>0</h1>
+                        </div>
+                        <div class="cal-enl">
+                            <a href="food/alimentos.php">Añadir alimentos</a>
+                            <a href="exercise/ejercicio.php">Añadir ejercicios</a>
+                        </div>
+                        <div class="cal-math">
+                            <div class="cal-obj"><h4>0</h4><p>OBJETIVO</p></div>
+                            <div class="cal-al"><h4><?php echo $sumaAlimentos?></h4><p>ALIMENTO</p></div>
+                            <div><h4>-</h4></div>
+                            <div class="cal-ej"><h4><?php echo $sumaEjercicios?></h4><p>EJERCICIO</p></div>
+                            <div><h4>=</h4></div>
+                            <div class="cal-neto"><h4><?php echo $neto?></h4><p>NETO</p></div>
+                        </div>
+                        <div class="width-pro">
+                            <div class='progress'>
+                                <div class='progress-bar' data-width='58'>
+                                    <div class='progress-bar-text'>
+                                        <span class='data-percent'></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <div class="contacto">
+                    <div class="redes">
+                        <h3>Síguenos en</h3>
+                            <a href="https://twitter.com/"><img src="images/tw.png">Twitter</a>
+                            <a href="https://www.instagram.com/"><img src="images/insta.png">Instagram</a>
+                            <a href="https://www.facebook.com/"><img src="images/facebook.png">Facebook</a>
+                        </div>
+                    <div class="preguntas">
+                        <h3>Conócenos</h3>
+                        <a href="">¿Quiénes somos?</a>
+                        <a href="">Ayuda</a>
+                        <a href="">Preguntas Frecuentes</a>
+                    </div>
+                    <div class="legal">
+                        <h3>Legal</h3>
+                        <a href="">Condiciones de uso</a>
+                        <a href="">Politica de Privacidad</a>
+                        <a href="">Cookies</a>
+                    </div>
+                </div>
+                <p>Copyright &copy; NutriLife | Todos los derechos reservados</p>
+            </footer>
     <?php else: ?>
         <div class="back-image">
             <header>
@@ -98,7 +158,7 @@
                     <ul class="nav-links">
                         <li><a href="account/inicioSesion.php"><p>Inicio de sesion</p><div></div></a></li>
                         <li><a href="account/registro.php"><p>Registrarse</p><div></div></a></li>
-                        <li><a class="night"><img src="images/luna2.png"></a></li>;
+                        <li><a class="night"><img src="images/luna2.png"></a></li>
                     </ul>
                 </nav>
             </header>
@@ -145,10 +205,11 @@
                                 <a href="">Cookies</a>
                             </div>
                     </div>
-                <p>Copyright &copy; MMN | Todos los derechos reservados</p>
+                <p>Copyright &copy; NutriLife | Todos los derechos reservados</p>
                 </footer>
     <?php endif ?>
 </div> 
 </body>
 <script src="js/js.js"></script>
+<script src="js/barraIndex.js"></script>
 </html>

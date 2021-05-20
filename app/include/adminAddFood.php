@@ -12,17 +12,16 @@ if(isset($_POST['enviar'])){
     require_once "functions.php";
 
     if(emptyInputAdmin($name, $calorias, $hidratos, $proteinas, $grasas) !== false){
-        header("location: ../admin.php?error=emptyinput");
+        header("location: ../admin/admin.php?error=emptyinput");
         exit();
     }
     if(foodExists($name) != false || foodExists($name) != null){
-        header("location: ../account/registro.php?error=usernametaken");
+        header("location: ../admin/admin.php?error=usernametaken");
         exit();
     }
-    //Los errores de datos los manejamos con rejex   
     addFoodAdmin($name, $calorias, $hidratos, $proteinas, $grasas);
 
 }else{
-    header("location: ../account/admin.php");
+    header("location: ../admin/admin.php");
     exit();
 }

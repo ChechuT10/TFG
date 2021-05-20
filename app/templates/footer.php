@@ -19,7 +19,7 @@
                     <a href="">Cookies</a>
                 </div>
         </div>
-        <p>Copyright &copy; MMN | Todos los derechos reservados</p>
+        <p>Copyright &copy; NutriLife | Todos los derechos reservados</p>
     </footer>
 </div> 
 </body>
