@@ -49,4 +49,27 @@ if($dinner){
     }
 }
 
+
+$sumaEjercicios = 0;
+$sumaAlimentos = 0;
+
+foreach($ejercicios as $ej){
+    $sumaEjercicios += intval($ej['calorias']*($ej['minutos']));
+}
+foreach($alimentos as $a){
+    $sumaAlimentos += intval($a['calorias']*($a['cantidad']/100));
+}
+
+$neto = $sumaAlimentos-$sumaEjercicios;
+$auxneto = 0;
+
+if ($neto > 100) {
+    $auxneto = 100;
+}
+else if ($neto < 0) {
+    $auxneto = 0;
+}else{
+    $auxneto = $neto;
+}
+
 ?>

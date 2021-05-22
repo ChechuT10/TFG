@@ -36,7 +36,7 @@
                     <ul class="nav-links">
                         <li><a href="food/alimentos.php"><p>Alimentos</p><div></div></a></li>  
                         <li><a href="exercise/ejercicio.php"><p>Ejercicio</p><div></div></a></li>  
-                        <li><a href=""><p>Informes</p><div></div></a></li> 
+                        <li><a href="informes/informes.php"><p>Informes</p><div></div></a></li> 
                         <li><a href="account/perfil.php"><p>Ajustes</p><div></div></a></li>
                         <li><a href="include/logout.php"><p>Cerrar Sesion</p><div></div></a></li>
                         <li><a class="night"><img src="images/luna2.png"></a></li>
