@@ -219,6 +219,46 @@ require_once "class/exercise.php";
                     <div class="info">
                     </div>
                 </div>
+                <div class="div2">
+                <div id="div1">
+                    <h2>¿Por qué NutriLife?</h2>
+                    <ul>
+                        <li>100% Gratis</li>
+                        <li>Rapida, intuitiva y facil de usar</li>
+                        <li>Formar parte de una gran comunidad</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>¿Como funciona NutriLife?</h2>
+                    <span>La gente que registra la comida logra mayor perdida de peso<br> y mayor rapidez para lograr sus objetivos.</span>
+                </div>
+            </div>
+            <div>
+                <div class="div3">
+                    <br>
+                    <h2>¿Que herramientas podemos encontrar en NutriLife?</h2>
+                    <div class="div1">
+                        <img src="images/tick.png">
+                        <p>Un diario para hacer un seguimiento</p>
+                    </div>
+                    <div class="div1">
+                        <img src="images/tick.png">
+                        <p>Una opcion de cambiar el peso para adaptarlo al momento y adaptar las cantidades nutricionales</p>
+                    </div>
+                    <div class="div1">
+                        <img src="images/tick.png">
+                        <p>Información nutricional de toda la comida</p>
+                    </div>
+                    <div class="div1">
+                        <img src="images/tick.png">
+                        <p></p>
+                        <div class="div1">
+                        </div>
+                    </div>
+                    <div>
+                        <div></div>
+                    </div>
+                </div>
             </div>
             <div class="content">
 
