@@ -13,8 +13,6 @@
     $aux3 = new Exercise();
     $exercise = $aux3->getExerciseCount();
     $exercises = $aux3->getExercise();
-    // print_r($food);
-    // echo (count($food))
 ?>
 
 <!DOCTYPE html>
@@ -26,10 +24,7 @@
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="../css/admin.css"/>
     <script src="../js/jquery.js"></script>
-    <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <!-- <script src="js/jquery.js"></script> -->
-    <!-- <script src="js/jquerytest.js"></script>  -->
 </head>
 <body>
 <div class="container ">
@@ -56,8 +51,6 @@
                 <img src="../images/foodicon2.png">
                 <p>Eliminar<p>
             </div>
-        <!-- Si esta muy vacio podria añadir una lista de usuario o alimentos -->
-        <!-- https://windmill-dashboard.vercel.app/index.html -->
         </header>
         <div class="content">
             <a class="logout" href="../include/logout.php"><img src="../images/power.png"></a>
@@ -164,35 +157,51 @@ $(document).ready(function () {
     let de = $('.del-ex')
 
     ex.on("click",function(){
-        f.fadeOut(400,function(){
-            de.fadeOut(400)
-            df.fadeOut(400)
-            e.fadeIn(400)
-        }) 
+        if(de.is(':visible')){
+            de.fadeOut(400,function(){e.fadeIn(400)}) 
+        }
+        if(df.is(':visible')){
+            df.fadeOut(400,function(){e.fadeIn(400)}) 
+        }
+        if(e.is(':visible')){
+            f.fadeOut(400,function(){e.fadeIn(400)}) 
+        }
     })
 
     food.on("click",function(){
-        e.fadeOut(400,function(){
-            de.fadeOut(400)
-            df.fadeOut(400)
-            f.fadeIn(400)
-        }) 
+        if(de.is(':visible')){
+            de.fadeOut(400,function(){f.fadeIn(400)}) 
+        }
+        if(df.is(':visible')){
+            df.fadeOut(400,function(){f.fadeIn(400)}) 
+        }
+        if(f.is(':visible')){
+            e.fadeOut(400,function(){f.fadeIn(400)}) 
+        }
     })
 
     delfood.on("click",function(){
-        f.fadeOut(400,function(){
-            e.fadeOut(400)
-            de.fadeOut(400)
-            df.fadeIn(400)
-        }) 
+        if(de.is(':visible')){
+            de.fadeOut(400,function(){df.fadeIn(400)}) 
+        }
+        if(f.is(':visible')){
+            f.fadeOut(400,function(){df.fadeIn(400)}) 
+        }
+        if(e.is(':visible')){
+            e.fadeOut(400,function(){df.fadeIn(400)}) 
+        }
     })
 
     deled.on("click",function(){
-        f.fadeOut(400,function(){
-            e.fadeOut(400)
-            df.fadeOut(400)
-            de.fadeIn(400)
-        }) 
+        if(df.is(':visible')){
+            df.fadeOut(400,function(){de.fadeIn(400)}) 
+        }
+        if(f.is(':visible')){
+            f.fadeOut(400,function(){de.fadeIn(400)}) 
+        }
+        if(e.is(':visible')){
+            e.fadeOut(400,function(){de.fadeIn(400)}) 
+        }
     })
 
 })
