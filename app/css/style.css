@@ -1,4 +1,5 @@
-html,body{
+html,
+body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -7,8 +8,8 @@ html,body{
 
 /* Contenedor general */
 
-.back-image{
-    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/food2.jpg);
+.back-image {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/food2.jpg);
     background-size: cover;
     background-position: center;
     background-origin: content-box;
@@ -16,11 +17,11 @@ html,body{
     width: 100%;
     height: auto;
     color: inherit;
-    box-shadow: 0.1em 0.3em 0.3em rgba(0,0,0,0.5);
+    box-shadow: 0.1em 0.3em 0.3em rgba(0, 0, 0, 0.5);
 }
 
 
-.container{
+.container {
     width: 100%;
     display: flex;
     color: inherit;
@@ -32,7 +33,7 @@ html,body{
 
 /* Cabezera */
 
-header{
+header {
     /* padding: 0.2em 0; */
     width: 100%;
     display: grid;
@@ -41,68 +42,70 @@ header{
     grid-template-areas: '. tit tit user nav .';
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 0 0.4em rgba(0,0,0,0.2);
-    color:inherit;
+    box-shadow: 0 0 0.4em rgba(0, 0, 0, 0.2);
+    color: inherit;
     /* padding: 0 2em; */
 }
 
-.logo{
+.logo {
     grid-area: tit;
 }
-.logo img{
+
+.logo img {
     max-width: 150px;
 }
 
-header .msg{
+header .msg {
     grid-area: user;
     font-size: 0.7em;
 }
 
 /* Nav */
-nav{
+nav {
     /* border: 1px solid white; */
     height: 100%;
     grid-area: nav;
     width: auto;
     display: flex;
     align-content: center;
-    color:inherit;
+    color: inherit;
 }
 
-.lines{
+.lines {
     /* border: 1px solid white; */
     display: none;
 }
 
-header ul{
+header ul {
     /* border: 1px solid white; */
-    color:inherit;
+    color: inherit;
     height: 100%;
     display: flex;
     flex-direction: row;
     margin: 0;
     padding: 0;
 }
-header li{
+
+header li {
     height: 100%;
     list-style: none;
     padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
 }
 
-nav .sett{
+nav .sett {
     max-width: 25px;
 }
 
-nav a{
+nav a {
     height: 100%;
     width: 100%;
     padding: 0 0.8em;
     text-decoration: none;
-    color:#58AF9B;
+    color: #58AF9B;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -110,7 +113,7 @@ nav a{
     font-size: 0.9em;
 }
 
-a p+div{
+a p+div {
     width: 2%;
     position: relative;
     top: -5px;
@@ -118,22 +121,23 @@ a p+div{
     transition: width 0.7s, height 4s;
 }
 
-a .active{
+a .active {
     width: 80%;
     height: 2px;
 }
 
-nav a:hover div{
+nav a:hover div {
     width: 80%;
     height: 2px;
 }
 
 
 /* Boton modo noche */
-.night{
+.night {
     padding: 0;
 }
-.night img{
+
+.night img {
     max-width: 50px;
     padding: 0;
     background-color: inherit;
@@ -142,24 +146,25 @@ nav a:hover div{
 
 /* Modo noche y claro */
 
-.nightmode{
+.nightmode {
     background-color: #0f121f;
     color: darkgrey;
 }
-.lightmode{
-    background-color:white;
+
+.lightmode {
+    background-color: white;
     color: grey;
 }
 
 
 /* Estilo index.php */
 
-.small-back-image{
+.small-back-image {
     padding: 2em 0;
     display: flex;
 }
 
-.mensaje{
+.mensaje {
     margin: 0 10%;
     width: 80%;
     text-align: center;
@@ -168,24 +173,24 @@ nav a:hover div{
     justify-content: space-between;
 }
 
-.mensaje h1{
+.mensaje h1 {
     display: inline-block;
     margin: 0 0.2em;
     color: black;
     animation: pop;
-    animation-duration:2s;
+    animation-duration: 2s;
     animation-iteration-count: 1;
     animation-direction: normal;
-    animation-fill-mode: forwards;  
+    animation-fill-mode: forwards;
 }
 
-.mensaje p{
+.mensaje p {
     width: 80%;
     margin: 1em auto;
     color: white;
 }
 
-.mensaje a{
+.mensaje a {
     width: fit-content;
     margin: 0 auto;
     padding: 0.5em 1em;
@@ -195,24 +200,78 @@ nav a:hover div{
     border-radius: 2em;
 }
 
-.small-back-image .info{
+.small-back-image .info {
     margin: 0 auto;
     width: 80%;
 }
 
-#segundo{animation-delay:1s;}
-#tercero{animation-delay:2s;}
-#ultimo{animation-delay:3s;}
+#segundo {
+    animation-delay: 1s;
+}
+
+#tercero {
+    animation-delay: 2s;
+}
+
+#ultimo {
+    animation-delay: 3s;
+}
+
+.div2 {
+    background-color: #58AF9B;
+    font-style: italic;
+    color: white;
+    margin: 2%;
+    border-radius: 5px;
+    height: 200px;
+    box-shadow: 0.1em 0.3em 0.3em rgba(0, 0, 0, 0.5);
+}
+
+#div1 {
+    float: left;
+    margin-left: 13%;
+    margin-right: 13%;
+}
+
+.div3 {
+    background-color: #58AF9B;
+    font-style: italic;
+    color: white;
+    margin: 2%;
+    border-radius: 5px;
+    height: 500px;
+    box-shadow: 0.1em 0.3em 0.3em rgba(0, 0, 0, 0.5);
+}
+
+.div3>h2 {
+    text-align: center;
+}
+
+.div3>.div1 {
+    float: left;
+    margin-left: 5%;
+    margin-right: 13%;
+    width: 40%;
+    margin-top: 20px;
+}
+
+.div3>.div1 img {
+    width: 8%;
+    height: 35px;
+    float: left;
+    margin-right: 10px;
+}
+
 
 
 /* footer */
 
 
-  footer{
+footer {
     width: 100%;
     margin: 4em 0 0;
     height: auto;
-    padding:  0.8em 0;
+    padding: 0.8em 0;
     background-color: inherit;
     display: flex;
     flex-direction: column;
@@ -221,7 +280,7 @@ nav a:hover div{
     font-size: 0.8em;
 }
 
-.contacto{
+.contacto {
 
     width: 70%;
     display: flex;
@@ -231,11 +290,11 @@ nav a:hover div{
     align-items: center;
 }
 
-.contacto div{
+.contacto div {
     margin: 0.5em 3em;
 }
 
-.redes a{
+.redes a {
     color: inherit;
     text-decoration: none;
     display: flex;
@@ -243,14 +302,14 @@ nav a:hover div{
     margin: 0.2em 0;
 }
 
-.redes  img{
+.redes img {
     max-width: 30px;
     margin: 0 1em 0 0;
     min-width: 20px;
-            
+
 }
 
-.preguntas a{
+.preguntas a {
     margin: 1em 0;
     color: inherit;
     text-decoration: none;
@@ -258,7 +317,7 @@ nav a:hover div{
     width: 100%;
 }
 
-.legal a{
+.legal a {
     margin: 1em 0;
     color: inherit;
     text-decoration: none;
@@ -266,7 +325,7 @@ nav a:hover div{
     width: 100%;
 }
 
-footer p{
+footer p {
     text-align: center;
     width: 80%;
     font-size: 0.8em;
@@ -286,32 +345,32 @@ footer p{
     right: 0;
     background: rgba(20, 20, 20, 0.5);
     /* z-index: 9999; */
-  }
+}
 
-.other-form{
+.other-form {
     width: 35%;
     margin: 20vh auto;
     height: fit-content;
     text-align: center;
     padding: 1em 0 0;
-    background: rgb(88,175,155);
-    background: linear-gradient(90deg, rgba(88,175,155,1) 0%, rgba(60,187,149,1) 100%);
+    background: rgb(88, 175, 155);
+    background: linear-gradient(90deg, rgba(88, 175, 155, 1) 0%, rgba(60, 187, 149, 1) 100%);
     border-radius: 5px;
     box-shadow: 5px 0px 20px 10px rgba(0, 0, 0, 0.15);
 }
 
-.other-form h2{
-    color:white;
+.other-form h2 {
+    color: white;
     padding: 0 1em;
 }
 
-.other-form form{
+.other-form form {
     width: 100%;
     margin: 0 auto;
     padding: 1em 0;
 }
 
-.other-form form input{
+.other-form form input {
     border: none;
     width: 70%;
     padding: 0.8em 1em;
@@ -324,7 +383,7 @@ footer p{
     color: white;
 }
 
-.other-form form button{
+.other-form form button {
     font-family: 'Montserrat', sans-serif;
     margin: 2em auto;
     width: auto;
@@ -342,35 +401,38 @@ footer p{
 
 /* Clases genericas */
 
-.redirect{
+.redirect {
     text-align: center;
     font-size: 0.9em;
 }
-.redirect a{
+
+.redirect a {
     text-decoration: none;
     color: inherit;
     font-weight: bold;
 }
-.msg{
+
+.msg {
     text-align: center;
     color: inherit;
     font-weight: bold;
 }
 
-.tit{
+.tit {
     text-align: center;
 }
 
-.mgtop{
+.mgtop {
     margin: 2em 0 0 0;
     padding: 0;
 }
 
-section{
+section {
     display: flex;
     flex-wrap: wrap;
 }
-.content{
+
+.content {
     /* width: 100%;
     margin-left: 17%;
     margin-right: 17%;
@@ -380,14 +442,14 @@ section{
     color: inherit;
 }
 
-.nochanges{
+.nochanges {
     margin: 0;
     width: 100%;
 }
 
 
 /* calendario para cambair de dias */
-#fecha{
+#fecha {
     width: 200px;
     font-size: 20px;
     border-color: #f0f8ff00;
@@ -395,9 +457,10 @@ section{
     border-radius: 10px;
     text-align: center;
 }
-#fecha:focus-visible{
+
+#fecha:focus-visible {
     /* border-color:#72c76a; */
-   /* outline: #72c76a; */
+    /* outline: #72c76a; */
     outline: none;
     box-shadow: 3px 4px 4px rgb(1 1 0 / 70%);
 }
@@ -406,41 +469,43 @@ section{
 
 /* Ajuste para pantallas medianas */
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 800px) {
 
-    .other-form{
+    .other-form {
         width: 50%;
-    }    
+    }
 
-    .back-image{
+    .back-image {
         background-image: none;
         box-shadow: none;
     }
-    .small-back-image{
-        background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/food2.jpg);
+
+    .small-back-image {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/food2.jpg);
         background-size: cover;
         background-position: center;
         background-origin: content-box;
         background-repeat: none;
         width: 100%;
         color: white;
-        box-shadow: 0.3em 0.3em 0.6em rgba(1,1,1,1);
+        box-shadow: 0.3em 0.3em 0.6em rgba(1, 1, 1, 1);
     }
 }
 
 
 /* Ajustes para pantallas pequeñas */
-@media screen and (max-width: 600px){
+@media screen and (max-width: 600px) {
 
-    header{
+    header {
         padding: 0.6em 0;
     }
-    .main-forms{
+
+    .main-forms {
         height: fit-content;
         padding: 1em 0;
     }
 
-    .other-form{
+    .other-form {
         width: 75%;
     }
 
@@ -448,14 +513,16 @@ section{
         display: block;
     }
 
-    .main-forms{
+    .main-forms {
         flex-direction: column;
         justify-content: center;
     }
-    .card{
+
+    .card {
         display: none;
     }
-    header ul{
+
+    header ul {
         position: fixed;
         flex-direction: column;
         width: 100%;
@@ -465,30 +532,32 @@ section{
         margin: 0;
         padding: 0;
     }
-    header li{
+
+    header li {
         width: 100%;
         height: 50px;
     }
 
-    a .active{
+    a .active {
         width: 20%;
         height: 2px;
     }
-    
-    nav a:hover div{
+
+    nav a:hover div {
         width: 20%;
         height: 2px;
     }
-    
-    
-    .lines{
+
+
+    .lines {
         width: auto;
         /* border: 1px solid white; */
         display: block;
         align-self: center;
         cursor: pointer;
-    } 
-    .lines div{
+    }
+
+    .lines div {
         width: 25px;
         height: 2px;
         background: grey;
@@ -496,87 +565,100 @@ section{
         margin: 5px auto;
     }
 
-    .night{
+    .night {
         padding: 0.2em 0;
     }
 
-    .register form{
+    .register form {
         width: 90%;
     }
 
-    table{
+    table {
         width: 80%;
     }
 
-    .wrapper{
+    .wrapper {
         width: 70%;
-      }
+    }
 
     /* clases para las animaciones */
 
-    .animate{
+    .animate {
         animation: mostrar 0.5s linear forwards;
     }
-    .animateout{
+
+    .animateout {
         animation: ocultar 0.5s linear forwards;
     }
 
     .toggle .line1 {
         animation: line1 0.3s linear forwards;
-    
+
     }
-    
+
     .toggle .line2 {
         opacity: 0;
     }
-    
+
     .toggle .line3 {
         animation: line3 0.3s linear forwards;
     }
 
-    .ocultar{
+    .ocultar {
         display: none;
-      }
+    }
 }
 
 
 /* Animaciones */
 
-@keyframes line1{
-    from{
+@keyframes line1 {
+    from {
         transform: 0;
-    }to{
+    }
+
+    to {
         transform: rotate(-45deg) translate(-5px, 5px);
     }
 }
-@keyframes line3{
-    from{
+
+@keyframes line3 {
+    from {
         transform: 0;
-    }to{
+    }
+
+    to {
         transform: rotate(45deg) translate(-5px, -5px);
     }
 }
 
-@keyframes mostrar{
-    from{
+@keyframes mostrar {
+    from {
         transform: translateX(0);
-    }to{
+    }
+
+    to {
         transform: translateX(100%);
     }
 }
-@keyframes ocultar{
-    from{
+
+@keyframes ocultar {
+    from {
         transform: translateX(100%);
-    }to{
+    }
+
+    to {
         transform: translateX(0);
     }
 }
 
 
-@keyframes pop{
-    from{
+@keyframes pop {
+    from {
         color: black;
-    }to{
+    }
+
+    to {
         color: white;
     }
 }
