@@ -60,8 +60,22 @@ foreach($alimentos as $a){
     $sumaAlimentos += intval($a['calorias']*($a['cantidad']/100));
 }
 
-$neto = $sumaAlimentos-$sumaEjercicios;
+$aux3 = new User();
+$useraux = $aux3->getAuxForm($_SESSION['userId']);
 $auxneto = 0;
+$restantes = 0; 
+$restantesaux = 0;
+
+if(isset($useraux)){
+    $userGender = $useraux['genero'];
+    if($userGender=='H'){
+        $restantes = 2000;
+    }else{
+        $restantes = 1800;
+    }
+}
+$restantesaux = $restantes-($sumaAlimentos-$sumaEjercicios);
+$neto = intval((($sumaAlimentos-$sumaEjercicios)*100)/$restantes);
 
 if ($neto > 100) {
     $auxneto = 100;
@@ -71,5 +85,8 @@ else if ($neto < 0) {
 }else{
     $auxneto = $neto;
 }
+
+$porcentajeAlimentos = intval(($sumaAlimentos*100)/$restantes);
+$porcentajeEjercicios = intval(($sumaEjercicios*100)/$restantes);
 
 ?>

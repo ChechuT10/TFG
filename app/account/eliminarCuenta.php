@@ -12,8 +12,7 @@ include('../templates/header.php');
                         que no podré recuperar mi información y que esta acción no se puede deshacer.
                         <Br><br>
                         Entiendo que perderé para siempre el acceso a todos los datos asociados con mi perfil, 
-                        incluidas las entradas de alimentos, las rutinas, las entradas de pasos, las entradas de peso
-                        , las notas, las publicaciones en el canal de noticias y las fotos.
+                        incluidas las entradas de alimentos, las rutinas, las gráficas, las entradas de peso, etc.
                     </p>
                     <p>¿Estas seguro que deseas borrar tu cuenta?</p>
                     <div class="delete-confirmation">

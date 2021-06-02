@@ -31,10 +31,6 @@
     <?php if(isset($_SESSION['userId'])): ?>
         <header>
             <a href="" class="index"><img src="../images/logo_white_large.png"></a>
-            <div class="section">
-                <img src="../images/houseIcon.png">
-                <p>Inicio<p>
-            </div>
             <div class="section sfood addfood">
                 <img src="../images/foodicon2.png">
                 <p>Añadir<p>

@@ -7,9 +7,11 @@
     flex-wrap: wrap;
     margin: 0.5em 0 1em 0;
 }
+
 .registro-diario h4{
     margin: 0 2em 0 0;
 }
+
 .registro-diario h4 form{
     margin: 0;
     padding: 0;
@@ -18,7 +20,6 @@
 .add a{
     text-decoration: none;
     color: #3cbb95;
-    font-size: 0.9em;
     width: fit-content;
 }
 
@@ -34,15 +35,19 @@
     flex-wrap: wrap;
 }
 
+.add h3{
+    font-size: 1.4em;
+}
+
 .desayuno .tit div{
     display: flex;
-    font-size: 0.8em;
+    font-size: 0.9em;
     /* margin: 0 2em; */
 }
 
 .tit div p{
     margin:  auto 0.1em;
-    padding: 0.4em 0.4em;
+    padding: 0.3em 0.5em;
     background-color: #3cbb95;
     border-radius: 2px;
     color: white;
@@ -60,23 +65,48 @@
     padding: 0;
     margin: 5px 0;
 } 
+
 .alimentos .nombre{
     margin: 0;
-    font-size: 0.8em;
+    font-size: 0.9em;
 }
 
 .alimentos .datos{
-    width: fit-content;
+    width: 350px;
     display: flex;
-    justify-content: space-evenly;
-    margin: 0;
+    align-items: center;
+    margin: 10px 0;
     padding: 0;
+    position: relative;
 }
 
 .alimentos .datos p{
-    margin: auto 2.2em;
-    font-size: 0.8em;
+    /* margin: auto 2.2em; */
+    width: 40px;
+    text-align: center;
+    margin: 0;
+    font-size: 0.9em;
     padding:  0;
+}
+
+.alimentos .pcalorias{
+    position: absolute;
+    left: 35px;
+}
+
+.alimentos .phidratos{
+    position: absolute;
+    left: 110px;
+}
+
+.alimentos .pproteinas{
+    position: absolute;
+    left: 195px;
+}
+
+.alimentos .pgrasas{
+    position: absolute;
+    left: 270px;
 }
 
 .datos .idalimento{
@@ -84,8 +114,10 @@
 }
 
 .datos img{
-    max-width: 20px;
+    max-width: 25px;
     cursor: pointer;
+    position: absolute;
+    left: 330px;
 }
 
 .alimentos .bottom{
@@ -127,6 +159,14 @@
 
 .resultados{
     display: none;
+}
+
+.preview{
+    cursor: pointer;
+}
+
+.preview:hover{
+    padding-left: 0.6em;
 }
 
 .preview h4{
@@ -190,10 +230,15 @@
     color: inherit;
     outline: none !important;
     border-bottom: 1px solid #B8DDD4;
-    width: 50%;
+    width: 190px;
+    /* width: 50%; */
 }
 
-
+.copy-food form p{
+    color: #58AF9B;
+    cursor: pointer;
+    display: none;
+}
 
 .botonEnviar{
     font-family: 'Montserrat', sans-serif;
@@ -201,17 +246,18 @@
     height: fit-content;
     background-color: #58AF9B;
     color: white;
-    padding: 0.6em 1em;
+    padding: 0.6em 0.9em;
     border: none;
     border-radius: 2em;
     cursor: pointer;
     font-weight: bold;
     box-shadow: 0.1em 0.3em 0.3em rgba(0,0,0,0.2);
 }
+
 .botonEnviar:hover{
     color: #3cbb95;
     background-color: #ffffff;
-  }
+}
 
 
 
@@ -237,7 +283,8 @@
     width: 30%;
     /* background: #DFDFDF; */
     border-radius: 5px;
-  }
+}
+
 .wrapper .search-input{
     background: #DFDFDF;
     width: 100%;
@@ -258,7 +305,7 @@
     padding-left: 10px;
     font-size: 0.9em;
     box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
-  }
+}
 
 .wrapper ul{
     margin: 0 auto;
@@ -267,6 +314,7 @@
     flex-direction: column;
     width: 100%;
 } 
+
 .wrapper li{
     margin: 0;
     list-style: none;
@@ -280,6 +328,7 @@
 .wrapper li:hover{
     background: #efefef;
 }
+
 .search-input .icon{
     position: absolute;
     right: 0;
@@ -336,4 +385,31 @@
         width: 100%;
     }
 
+
+    .alimentos .pcalorias{
+        left: 15px;
+    }
+    
+    .alimentos .phidratos{
+        left: 95px;
+    }
+    
+    .alimentos .pproteinas{
+        left: 175px;
+    }
+    
+    .alimentos .pgrasas{
+        left: 250px;
+    }
+
+    .datos img{
+        left: 295px;
+    }
+
+    .copy-food form p{
+        display: block;
+    }
+    .copy-food{
+        display: none;
+    }
 }

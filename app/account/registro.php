@@ -16,12 +16,12 @@
                     <input type="text" name="apellidos" placeholder="Apellidos...">
                     <p>Puede contener letras y un espacio</p>
                     <input type="text" name="usuario" placeholder="Nombre de Usuario...">
-                    <p>Entre 5 y 12 caracteres</p>
+                    <p>Entre 3 y 12 caracteres</p>
                     <input type="email" name="email" placeholder="Email...">
                     <p>Comprueba que es correcto</p>
                     <input type="password" name="pswd" placeholder="Contraseña...">         
                     <p>Entre 8 y 20 caracteres</p>  
-                    <button type="submit" name="enviar">Crear cuenta</button>
+                    <button type="submit" class="enviar">Crear cuenta</button>
                 </form>
                 <div class="msg">
                     <p>Para crear una cuenta <a href="">Pincha aquí</a></p>
@@ -42,7 +42,7 @@
                 }
             }
         ?>
-        <div class="msg">
+        <div class="msg regex">
             <p><?php echo $error?></p>
         </div>
     </div>    

@@ -9,7 +9,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>NutriLife</title>
     <link rel="stylesheet" type="text/css" href="../css/settings.css" />
     <link rel="stylesheet" type="text/css" href="../css/alimentos.css" />
     <link rel="stylesheet" type="text/css" href="../css/ejercicio.css" />
@@ -23,7 +23,7 @@ session_start();
 
     <!-- jqury -->
     <script src="../js/jquery.js"></script>
-    <script src="../js/jquerytest.js"></script>
+    <script src="../js/nav.js"></script>
 </head>
 
 <body>
@@ -80,16 +80,16 @@ session_start();
                         }
                     } else {
                         if ($curPageName == 'inicioSesion.php') {
-                            echo '<li><a href="inicioSesion.php"><p>Inicio de sesion</p><div class="active"></div></a></li>
-                                      <li><a href="registro.php"><p>Registrarse</p><div></div></a></li>
+                            echo '<li><a href="../account/inicioSesion.php"><p>Inicio de sesion</p><div class="active"></div></a></li>
+                                      <li><a href="../account/registro.php"><p>Registrarse</p><div></div></a></li>
                                       <li><a class="night"><img src="../images/luna2.png"></a></li>';
                         } else if ($curPageName == 'registro.php') {
-                            echo '<li><a href="inicioSesion.php"><p>Inicio de sesion</p><div></div></a></li>
-                                      <li><a href="registro.php"><p>Registrarse</p><div class="active"></div></a></li>
+                            echo '<li><a href="../account/inicioSesion.php"><p>Inicio de sesion</p><div></div></a></li>
+                                      <li><a href="../account/registro.php"><p>Registrarse</p><div class="active"></div></a></li>
                                       <li><a class="night"><img src="../images/luna2.png"></a></li>';
                         } else {
-                            echo '<li><a href="inicioSesion.php"><p>Inicio de sesion</p><div></div></a></li>
-                                      <li><a href="registro.php"><p>Registrarse</p><div></div></a></li>
+                            echo '<li><a href="../account/inicioSesion.php"><p>Inicio de sesion</p><div></div></a></li>
+                                      <li><a href="../account/registro.php"><p>Registrarse</p><div></div></a></li>
                                       <li><a class="night"><img src="../images/luna2.png"></a></li>';
                         }
                     }

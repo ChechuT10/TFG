@@ -45,10 +45,10 @@
                                 $food = $aux->getFoodById($a['idAlimento']);
                                 echo '<p class="nombre">' . $food['nombre'] . '</p>';
                                 echo '<div class="datos">
-                                        <p>'.intval($food['calorias']*($a['cantidad']/100)).'</p>
-                                        <p>'.intval($food['hidratos']*($a['cantidad']/100)).'</p>
-                                        <p>'.intval($food['proteinas']*($a['cantidad']/100)).'</p>
-                                        <p>'.intval($food['grasas']*($a['cantidad']/100)).'</p>
+                                        <p class="pcalorias">'.intval($food['calorias']*($a['cantidad']/100)).'</p>
+                                        <p class="phidratos">'.intval($food['hidratos']*($a['cantidad']/100)).'</p>
+                                        <p class="pproteinas">'.intval($food['proteinas']*($a['cantidad']/100)).'</p>
+                                        <p class="pgrasas">'.intval($food['grasas']*($a['cantidad']/100)).'</p>
                                         <div class="idalimento des">'.$food['idalimentos'].'</div>
                                         <img src="../images/trashicon.png">
                                      </div>
@@ -70,10 +70,10 @@
                                 $food = $aux->getFoodById($a['idAlimento']);
                                 echo '<p class="nombre">' . $food['nombre'] . '</p>';
                                 echo '<div class="datos">
-                                        <p>'.intval($food['calorias']*($a['cantidad']/100)).'</p>
-                                        <p>'.intval($food['hidratos']*($a['cantidad']/100)).'</p>
-                                        <p>'.intval($food['proteinas']*($a['cantidad']/100)).'</p>
-                                        <p>'.intval($food['grasas']*($a['cantidad']/100)).'</p>
+                                        <p class="pcalorias">'.intval($food['calorias']*($a['cantidad']/100)).'</p>
+                                        <p class="phidratos">'.intval($food['hidratos']*($a['cantidad']/100)).'</p>
+                                        <p class="pproteinas">'.intval($food['proteinas']*($a['cantidad']/100)).'</p>
+                                        <p class="pgrasas">'.intval($food['grasas']*($a['cantidad']/100)).'</p>
                                         <div class="idalimento com">'.$food['idalimentos'].'</div>
                                         <img src="../images/trashicon.png">
                                      </div>
@@ -95,10 +95,10 @@
                                 $food = $aux->getFoodById($a['idAlimento']);
                                 echo '<p class="nombre">' . $food['nombre'] . '</p>';
                                 echo '<div class="datos">
-                                        <p>'.intval($food['calorias']*($a['cantidad']/100)).'</p>
-                                        <p>'.intval($food['hidratos']*($a['cantidad']/100)).'</p>
-                                        <p>'.intval($food['proteinas']*($a['cantidad']/100)).'</p>
-                                        <p>'.intval($food['grasas']*($a['cantidad']/100)).'</p>
+                                        <p class="pcalorias">'.intval($food['calorias']*($a['cantidad']/100)).'</p>
+                                        <p class="phidratos">'.intval($food['hidratos']*($a['cantidad']/100)).'</p>
+                                        <p class="pproteinas">'.intval($food['proteinas']*($a['cantidad']/100)).'</p>
+                                        <p class="pgrasas">'.intval($food['grasas']*($a['cantidad']/100)).'</p>
                                         <div class="idalimento cena">'.$food['idalimentos'].'</div>
                                         <img src="../images/trashicon.png">
                                      </div>

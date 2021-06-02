@@ -13,12 +13,12 @@ require_once "class/exercise.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>NutriLife</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <script src="js/jquery.js"></script>
-    <script src="js/jquerytest.js"></script>
+    <script src="js/nav.js"></script>
 </head>
 
 <body class="lightmode">
@@ -113,7 +113,11 @@ require_once "class/exercise.php";
                     <div class="resumen-data">
                         <div class="cal-res">
                             <p>Calorias restantes</p>
-                            <h1>0</h1>
+                            <?php if(isset($userGender) && $userGender == 'H'): ?>
+                                <h1>2000</h1>
+                            <?php else: ?>
+                                <h1>1800</h1>
+                            <?php endif ?>
                         </div>
                         <div class="cal-enl">
                             <a href="food/alimentos.php">Añadir alimentos</a>
@@ -121,7 +125,11 @@ require_once "class/exercise.php";
                         </div>
                         <div class="cal-math">
                             <div class="cal-obj">
-                                <h4>0</h4>
+                                <?php if(isset($userGender) && $userGender == 'H'): ?>
+                                    <h4>2000</h4>
+                                <?php else: ?>
+                                    <h4>1800</h4>
+                                <?php endif ?>
                                 <p>OBJETIVO</p>
                             </div>
                             <div class="cal-al">
@@ -164,16 +172,16 @@ require_once "class/exercise.php";
                         <a href="https://www.facebook.com/"><img src="images/facebook.png">Facebook</a>
                     </div>
                     <div class="preguntas">
-                        <h3>Conócenos</h3>
-                        <a href="">¿Quiénes somos?</a>
-                        <a href="">Ayuda</a>
-                        <a href="">Preguntas Frecuentes</a>
+                        <h3>NutriLife</h3>
+                        <a href="legal/quienesSomos.php">¿Quiénes somos?</a>
+                        <a href="mailto:NutriLife@gmail.com">Contáctanos</a>
+                        <a href="legal/preguntasFrecuentes.php">Preguntas Frecuentes</a>
                     </div>
                     <div class="legal">
                         <h3>Legal</h3>
-                        <a href="">Condiciones de uso</a>
-                        <a href="">Politica de Privacidad</a>
-                        <a href="">Cookies</a>
+                        <a href="legal/AvisoLegal.php">Condiciones de uso</a>
+                        <a href="legal/politicaPrivacidad.php">Politica de Privacidad</a>
+                        <a href="legal/cookies.php">Cookies</a>
                     </div>
                 </div>
                 <p>Copyright &copy; NutriLife | Todos los derechos reservados</p>
@@ -214,54 +222,95 @@ require_once "class/exercise.php";
                             en tí para mejorar tu salud y te aydara a perder, ganar o mantener tu
                             forma fisica.
                         </p>
-                        <a href="">Comencemos</a>
+                        <a href="account/registro.php">Comencemos</a>
                     </div>
-                    <div class="info">
-                    </div>
-                </div>
-                <div class="div2">
-                <div id="div1">
-                    <h2>¿Por qué NutriLife?</h2>
-                    <ul>
-                        <li>100% Gratis</li>
-                        <li>Rapida, intuitiva y facil de usar</li>
-                        <li>Formar parte de una gran comunidad</li>
-                    </ul>
-                </div>
-                <div>
-                    <h2>¿Como funciona NutriLife?</h2>
-                    <span>La gente que registra la comida logra mayor perdida de peso<br> y mayor rapidez para lograr sus objetivos.</span>
-                </div>
-            </div>
-            <div>
-                <div class="div3">
-                    <br>
-                    <h2>¿Que herramientas podemos encontrar en NutriLife?</h2>
-                    <div class="div1">
-                        <img src="images/tick.png">
-                        <p>Un diario para hacer un seguimiento</p>
-                    </div>
-                    <div class="div1">
-                        <img src="images/tick.png">
-                        <p>Una opcion de cambiar el peso para adaptarlo al momento y adaptar las cantidades nutricionales</p>
-                    </div>
-                    <div class="div1">
-                        <img src="images/tick.png">
-                        <p>Información nutricional de toda la comida</p>
-                    </div>
-                    <div class="div1">
-                        <img src="images/tick.png">
-                        <p></p>
-                        <div class="div1">
-                        </div>
-                    </div>
-                    <div>
-                        <div></div>
+                    <div class="info-index">
+                        <img src ="images/bol.png">
                     </div>
                 </div>
             </div>
             <div class="content">
-
+                <div class="show-more">
+                    <img src="images/grunge-arrow.png">
+                </div>
+                <div class="show-content">
+                    <div class="div2">
+                        <div>
+                            <h2>¿Por qué NutriLife?</h2>
+                            <ul>
+                                <li>100% Gratis</li>
+                                <li>Rapida, intuitiva y facil de usar</li>
+                                <li>Formar parte de una gran comunidad</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h2>¿Como funciona NutriLife?</h2>
+                            <span>La gente que registra la comida logra mayor perdida de peso y mayor rapidez para lograr sus objetivos.</span>
+                        </div>
+                    </div>
+                    <div class="div3">
+                        <h2>¿Que herramientas podemos encontrar en NutriLife?</h2>
+                        <div class="list-container">
+                            <div class="list-left">
+                                <div class="lista-index">
+                                    <img src="images/tick.png">
+                                    <p>Información nutricional de toda la comida</p>
+                                </div>
+                                <div class="lista-index">
+                                    <img src="images/tick.png">
+                                    <p>Una opcion de cambiar el peso para adaptarlo al momento y adaptar las cantidades nutricionales</p>
+                                </div>
+                                <div class="lista-index">
+                                    <img src="images/tick.png">
+                                    <p>Registro de alimentos y ejercicios</p>
+                                </div>
+                            </div>
+                            <div class="list-right">
+                                <div class="lista-index">
+                                    <img src="images/tick.png">
+                                    <p>Un diario para hacer un seguimiento</p>
+                                </div>
+                                <div class="lista-index">
+                                    <img src="images/tick.png">
+                                    <p>Proceso de registro simplificado e intuitivo</p>
+                                </div>
+                                <div class="lista-index">
+                                    <img src="images/tick.png">
+                                    <p>Gráficas personalizadas diarias</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="index-herramientas">
+                        <div class="funcion">
+                            <h3>Registro de tus alimentos</h3>
+                            <p>
+                                Añade los alimentos que ingieras para consultar la informacion nutricional y llevar un control de 
+                                lo que comes cada día. Aprende qué alimentos son más o menos
+                                calóricos en función de tu objetivo y usa esta información para hacer tu compra más saludable.
+                            </p>
+                            <img class="imagen" src="images/food3.jpg">
+                        </div>
+                        <div class="funcion reverse">
+                            <h3>Registro de tus ejercicios</h3>
+                            <p>
+                                También contamos con un regitro de actividades con el que puedes 
+                                hacer un seguimiento de las calorias que consumas cada vez que realizas ejercicio.
+                            </p>
+                            <img class="imagen" src="images/ejercicio.jpg">
+                        </div>
+                        <div class="funcion">
+                            <h3>Consulta tus gráficas</h3>
+                            <p>
+                                En NutriLife sabemos que cuanto más claro y sencillo mejor. Es por eso 
+                                que contamos con gráficas personalizadas con todos los datos que 
+                                necesitas saber de una forma mas visual y sencilla.
+                            </p>
+                            <img class="imagen" src="images/bar.png">
+                        </div>
+                    </div>
+                    <a href="account/registro.php" class="redirigir-index">Comenzar a usar NutriLife</a>
+                </div>
             </div>
             <footer>
                 <div class="contacto">
@@ -272,16 +321,16 @@ require_once "class/exercise.php";
                         <a href="https://www.facebook.com/"><img src="images/facebook.png">Facebook</a>
                     </div>
                     <div class="preguntas">
-                        <h3>Conócenos</h3>
-                        <a href="">¿Quiénes somos?</a>
-                        <a href="">Ayuda</a>
-                        <a href="">Preguntas Frecuentes</a>
+                        <h3>NutriLife</h3>
+                        <a href="legal/quienesSomos.php">¿Quiénes somos?</a>
+                        <a href="mailto:NutriLife@gmail.com">Contáctanos</a>
+                        <a href="legal/preguntasFrecuentes.php">Preguntas Frecuentes</a>
                     </div>
                     <div class="legal">
                         <h3>Legal</h3>
-                        <a href="">Condiciones de uso</a>
-                        <a href="">Politica de Privacidad</a>
-                        <a href="">Cookies</a>
+                        <a href="legal/AvisoLegal.php">Condiciones de uso</a>
+                        <a href="legal/politicaPrivacidad.php">Politica de Privacidad</a>
+                        <a href="legal/cookies.php">Cookies</a>
                     </div>
                 </div>
                 <p>Copyright &copy; NutriLife | Todos los derechos reservados</p>
@@ -289,7 +338,6 @@ require_once "class/exercise.php";
         <?php endif ?>
     </div>
 </body>
-<script src="js/js.js"></script>
+<script src="js/nightmode.js"></script>
 <script src="js/barraIndex.js"></script>
-
 </html>

@@ -15,6 +15,7 @@
 .canva, .datos-informe{
     width: 45%;
 }
+
 #myCanvas{
   width: 100%;
   margin: 0 auto;
@@ -40,155 +41,157 @@
     margin: 0px 4%;
 }
 
-/* tablas */
 .datos-informe{
     display: flex;
     flex-direction: column;
     align-content: center;
-    margin-top: 12px;
-}
-.datos-informe table{
-    border-collapse: collapse;
-    border-radius: 10px;
-
-    width: 100%;
-    min-width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 15%;
-    text-align: center;
-    font-size: 22px;
 }
 
-.datos-informe table,
-.datos-informe th,
-.datos-informe td {
-    border: 2px solid #44ba98;
-    padding: 10px;
-    
+.calculos-informes{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /* border: 1px solid black; */
 }
 
-.table2{
-    display: flex;
-    justify-content: space-between;
+.calculos-informes .progressDiv{
+  margin: 0;
 }
-
-.table2 table{
-    width: 45%;
-    min-width: 40%;
-    margin: unset;
-    margin-bottom: 15%;
-}
-
-
-.table2 + table {
-    margin-bottom: 0;
-}
-
-
-
 /* Grafica circular */
 
-
 .progressDiv {
-    width: 84%;
+    /* width: 84%; */
     background: inherit;
-    height: 325px;
+    height: fit-content;
     margin: 0 auto;
-    }
+    /* border: 1px solid black; */
+}
+
+.progressDiv p{
+  text-align: center;
+  font-size: 1.2em;
+  margin: 0.3em 0 0 0;
+}
     
-    /* Pie Chart */
-    .progress-pie-chart {
-      width:200px;
-      height: 200px;
-      border-radius: 50%;
-      background-color: inherit;
-      position: relative;
-    }
-    .progress-pie-chart.gt-50 {
-      background-color: #81CE97;
-    }
-    .progress-pie-chart.gt-0 {
-        background-color: #D0E8E3;
-      }
-    .ppc-progress {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      left: calc(50% - 100px);
-      top: calc(50% - 100px);
-      width: 200px;
-      height: 200px;
-      clip: rect(0, 200px, 200px, 100px);
-    }
-    .ppc-progress .ppc-progress-fill {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      left: calc(50% - 100px);
-      top: calc(50% - 100px);
-      width: 200px;
-      height: 200px;
-      clip: rect(0, 100px, 200px, 0);
-      background: #81CE97;
-      transform: rotate(deg);
-    }
-    .gt-50 .ppc-progress {
-      clip: rect(0, 100px, 200px, 0);
-    }
-    .gt-50 .ppc-progress .ppc-progress-fill {
-      clip: rect(0, 200px, 200px, 100px);
-      background: #D0E8E3;
-    }
+/* Pie Chart */
+.progress-pie-chart {
+  width:150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: inherit;
+  position: relative;
+}
+
+.progress-pie-chart.gt-50 {
+  background-color: #81CE97;
+}
+
+.progress-pie-chart.gt-0 {
+  background-color: #D0E8E3;
+}
+
+.ppc-progress {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  left: calc(50% - 75px);
+  top: calc(50% - 75px);
+  width: 150px;
+  height: 150px;
+  clip: rect(0, 150px, 150px, 75px);
+}
+
+.ppc-progress .ppc-progress-fill {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  left: calc(50% - 75px);
+  top: calc(50% - 75px);
+  width: 150px;
+  height: 150px;
+  clip: rect(0, 75px, 150px, 0);
+  background: #81CE97;
+  transform: rotate(deg);
+}
+
+.gt-50 .ppc-progress {
+  clip: rect(0, 75px, 150px, 0);
+}
+
+.gt-50 .ppc-progress .ppc-progress-fill {
+  clip: rect(0, 150px, 150px, 75px);
+  background: #D0E8E3;
+}
     
-    .ppc-percents {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      left: calc(50% - 173.91304px/2);
-      top: calc(50% - 173.91304px/2);
-      width: 173.91304px;
-      height: 173.91304px;
-      background: white;
-      text-align: center;
-      display: table;
-    }
-    .ppc-percents span {
-      display: block;
-      font-size: 2.6em;
-      font-weight: bold;
-      color: #81CE97;
-    }
+.ppc-percents {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  left: calc(50% - 115.9420267px/2);
+  top: calc(50% - 115.9420267px/2);
+  width: 115.9420267px;
+  height: 115.9420267px;
+  background: white;
+  text-align: center;
+  display: table;
+}
+
+.ppc-percents span {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #81CE97;
+}
+
+.ppc-percents span p{
+  margin: 0;
+}
     
-    .pcc-percents-wrapper {
-      display: table-cell;
-      vertical-align: middle;
-    }
-    
-    .progress-pie-chart {
-      margin: 50px auto 0;
-    }
+.pcc-percents-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
 
 /* romper en formato movil */
 @media screen and (max-width: 770px) {
 
-    .flex,
-    .table2,
-    .canva .lege ul {
+  .flex,
+  .table2,
+  .canva .lege ul {
         flex-direction: column;
-    }
-    .canva {
-        width: 100%;
-        margin-bottom: 50px;
-    }
-    .datos-informe {
-        width: 100%;
-    }
+  }
 
-    .datos-informe table {
-        margin-bottom: 20px;
-    }
-    .table2 table{
-        width: 100%;
-    }
+  .canva {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  .datos-informe {
+    width: 100%;
+  }
+
+  .datos-informe table {
+    margin-bottom: 20px;
+  }
+
+  .table2 table{
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 770px) {
+
+  .calculos-informes{
+    flex-direction: column;
+  }
+
+  .calculos-informes .progressDiv{
+    margin: 0.5em auto;
+  }
+
+  .progressDiv{
+    margin: 0.5em auto;
+  }
+
 }

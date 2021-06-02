@@ -25,7 +25,7 @@ function damePalabras(raiz){
 }
 
 if(bus!=null && pal!=null){
-    bus.addEventListener('keyup',function(){
+    bus.addEventListener('keyup',function(e){
         var cont = this.value;
         val = cont
         pal.textContent = "";
@@ -40,6 +40,16 @@ if(bus!=null && pal!=null){
                 val = el
             })
         })
+        if (e.keyCode === 13) {
+            if(bus.value.length==0){
+                console.log('vacio')
+            }else{
+                let a = window.location.search;
+                let aux = a.replace('?','&');
+                val = val.charAt(0).toUpperCase() + val.slice(1)
+                location.replace('search.php?search='+val+aux)
+            }
+        }
     })
 }
 let icon = document.querySelector('.icon')

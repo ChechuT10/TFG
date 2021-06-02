@@ -7,10 +7,10 @@
                 <a href="https://www.facebook.com/"><img src="../images/facebook.png">Facebook</a>
             </div>
             <div class="preguntas">
-                <h3>Conócenos</h3>
-                <a href="">¿Quiénes somos?</a>
-                <a href="">Ayuda</a>
-                <a href="">Preguntas Frecuentes</a>
+                <h3>NutriLife</h3>
+                <a href="../legal/quienesSomos.php">¿Quiénes somos?</a>
+                <a href="mailto:NutriLife@gmail.com">Contáctanos</a>
+                <a href="../legal/preguntasFrecuentes.php">Preguntas Frecuentes</a>
             </div>
             <div class="legal">
                 <h3>Legal</h3>
@@ -23,4 +23,4 @@
     </footer>
     </div>
     </body>
-    <script src="../js/js.js"></script>
+    <script src="../js/nightmode.js"></script>

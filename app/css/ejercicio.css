@@ -10,15 +10,16 @@
 } 
 .ejercicios .nombre{
   margin: 0;
-  font-size: 0.8em;
+  font-size: 0.9em;
 }
 
 .ejercicios .datos{
-  width: fit-content;
+  width: 280px;
   display: flex;
-  justify-content: space-evenly;
-  margin: 0;
+  align-items: center;
+  margin: 10px 0;
   padding: 0;
+  position: relative;
 }
 
 .datos .idejercicio{
@@ -26,10 +27,34 @@
 }
 
 .ejercicios .datos p{
-  margin: auto 2.1em;
-    font-size: 0.8em;
-    padding:  0;
+  /* margin: auto 2.1em; */
+  width: 40px;
+  text-align: center;
+  margin: 0;
+  font-size: 0.9em;
+  padding:  0;
 }
+
+.ejercicios .pcalorias{
+  position: absolute;
+  left: 30px;
+}
+
+.ejercicios .pminutos{
+  position: absolute;
+  left: 105px;
+}
+
+.ejercicios .ptotal{
+  position: absolute;
+  left: 190px;
+}
+
+.ejercicios .datos img{
+  max-width: 25px;
+  left: 255px;
+}
+
 
 .ejercicios .bottom{
   order: 1;
@@ -52,7 +77,7 @@
   /* border: 1px solid black; */
   display: none;
   margin: 0;
-  width: 25%;
+  width: 280px;
 }
 
 /* Search.php */
@@ -94,35 +119,39 @@
 }
 
 @media screen and (max-width: 850px){
+
   .table-exercise >*>*{
     padding: 0 0.5em;
   }
+
 }
 
 /* Ajustes para pantallas pequeñas */
 @media screen and (max-width: 600px){
+
   .table-exercise{
     display: flex;
     flex-direction: column;
     font-size: 0.9em;
     padding: 1em;
   }
+
   .table-exercise >*{
     display: flex;
     flex-direction: column;
     margin: 0 0 2em 0;
     border-bottom: 1px solid #B8DDD4;
     padding-bottom: 2em;
-}
+  }
 
-.table-exercise >*>*{
-  display: flex; 
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 0.4em;
-  text-align: center;
-  /* margin: 0 2em; */
-}
+  .table-exercise >*>*{
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0.4em;
+    text-align: center;
+    /* margin: 0 2em; */
+  }
 
   .table-exercise-header{
     display: none;
@@ -130,5 +159,25 @@
 
   .table-exercise-tit{
     display: inline-block;
+  }
+
+  .ejercicios .pcalorias{
+    position: absolute;
+    left: 15px;
+  }
+  
+  .ejercicios .pminutos{
+    position: absolute;
+    left: 90px;
+  }
+  
+  .ejercicios .ptotal{
+    position: absolute;
+    left: 170px;
+  }
+  
+  .ejercicios .datos img{
+    max-width: 25px;
+    left: 240px;
   }
 }

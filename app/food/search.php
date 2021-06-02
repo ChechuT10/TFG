@@ -44,7 +44,7 @@
                     <div class="food">
                         <div class="preview">
                             <h4><?php echo $food['nombre'] ?></h4>
-                            <p>100g | <?php echo $food['calorias'] ?>Kcal | ... </p>
+                            <p>100g | <?php echo $food['calorias'] ?> Kcal | ... </p>
                         </div>
                         <div class="resultados">
                             <div class="tit">
@@ -64,6 +64,7 @@
                         <input type="hidden" name="url" value="<?php echo $msj ?>">
                         <input type="number" name="cantidad" placeholder="Introduce la cantidad (gr)">
                         <button type="submit" name="enviar" class="botonEnviar">Añadir</button>
+                        <p class="copy-cancel">Cancelar</p>
                     </form>
                     </div>
                 <?php endforeach ?>
@@ -92,5 +93,21 @@
             div.appendChild(cloneform)
         })
     })
+</script>
+<script>
+    let fhide = $('.resultado')
+
+    if($( window ).width() <= 600){
+        fhide.on("click",function(){
+            $(fhide).hide(function(){
+                $('.copy-food').show();
+                let chide = $('.copy-food .copy-cancel')
+                chide.on("click",function(){
+                $('.copy-food').hide();
+                fhide.show(400);
+                })
+            });
+        })
+    }
 </script>
 </html>

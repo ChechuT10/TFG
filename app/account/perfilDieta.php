@@ -18,24 +18,22 @@ require_once '../class/user.php';
                 <div class = "update-diet">
                     <p>Puedes observar tus datos o si lo prefieres puedes actualizarlos</p>
                     <form action="../include/editAuxForm.php" method="POST">
-                        <label for="fname">Edad: </label>
+                        <label for="fname">Edad</label>
                         <div>
                             <input type="text" name = "edad">
                             <label for="fname" class="unit">años</label>
                         </div>
-                        <label for="fname">Altura: </label>
+                        <label for="fname">Altura</label>
                         <div>
                             <input type="text" name = "altura">
                             <label for="fname" class="unit">cm</label>
                         </div>
-                        <label for="fname">Peso Inicial: </label>
+                        <label for="fname">Peso Actual</label>
                         <div>
                             <input type="text" name = "peso">
                             <label for="fname" class="unit">Kg</label>
                         </div>
-                        <!-- <label for="fname">Peso Actual: </label>
-                        <input type="text" name = "pesoActual"> -->
-                        <label for="fname">Peso Ideal: </label>
+                        <label for="fname">Peso Ideal</label>
                         <div>
                             <input type="text" name = "pesoideal">
                             <label for="fname" class="unit">Kg</label>

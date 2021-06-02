@@ -4,7 +4,6 @@
     require_once '../class/user.php';
     require_once '../class/food.php';
     require_once '../class/exercise.php';
-    require_once '../include/foodExercise.php';
 
     if(isset($_GET['date'])){
         $_SESSION['date'] = $_GET['date'];
@@ -19,6 +18,7 @@
 
     $aux = new User();
     $user = $aux->getAuxForm($_SESSION['userId']);
+    require_once '../include/foodExercise.php';
 ?>
 
 <div class="content">
@@ -34,58 +34,63 @@
             <legend class="lege" for="myCanvas"></legend>
         </div>
         <div class="datos-informe">
-            <table>
-                <tr>
-                    <th>Kcal Diarias</th>
-                </tr>
-                <tr>
-                    <td>2000</td>
-                </tr>
-            </table>
-            <div class="table2">
-                <table>
-                    <tr>
-                        <th>Kcal Consumidas</th>
-                    </tr>
-                    <tr>
-                        <td><?php echo $sumaAlimentos?></td>
-                    </tr>
-                </table>
-                <table>
-                    <tr>
-                        <th>Kcal Quemadas</th>
-                    </tr>
-                    <tr>
-                        <td><?php echo $sumaEjercicios?></td>
-                    </tr>
-                </table>
-            </div>
-            <table>
-                <tr>
-                    <th>Kcal Restantes</th>
-                </tr>
-                <tr>
-                    <td><?php echo $auxneto?></td>
-                </tr>
-            </table>
             <div class="progressDiv">
+                <div class="progress-pie-chart" data-percent="100"><!--Pie Chart -->
+                    <div class="ppc-progress">
+                        <div class="ppc-progress-fill"></div>
+                    </div>
+                    <div class="ppc-percents">
+                        <div class="pcc-percents-wrapper">
+                            <span><p><?php echo $restantes?></p><p>Kcal</p></span>
+                        </div>
+                    </div>
+                </div><!--End Chart -->
+                <p>Objetivo</p>
+            </div>
+            <div class = "calculos-informes">
+                <div class="progressDiv">
+                    <div class="progress-pie-chart" data-percent="<?php echo $porcentajeAlimentos?>"><!--Pie Chart -->
+                        <div class="ppc-progress">
+                            <div class="ppc-progress-fill"></div>
+                        </div>
+                        <div class="ppc-percents">
+                            <div class="pcc-percents-wrapper">
+                                <span><p><?php echo $sumaAlimentos?></p><p>Kcal</p></span>
+                            </div>
+                        </div>
+                    </div><!--End Chart -->
+                    <p>Alimentos</p>
+                </div>
+                <div class="progressDiv">
+                    <div class="progress-pie-chart" data-percent="<?php echo $porcentajeEjercicios?>"><!--Pie Chart -->
+                        <div class="ppc-progress">
+                            <div class="ppc-progress-fill"></div>
+                        </div>
+                        <div class="ppc-percents">
+                            <div class="pcc-percents-wrapper">
+                                <span><p><?php echo $sumaEjercicios?></p><p>Kcal</p></span>
+                            </div>
+                        </div>
+                    </div><!--End Chart -->
+                    <p>Ejercicios</p>
+                </div>
+            </div>
+            <div class="progressDiv activo">
                 <div class="progress-pie-chart" data-percent="<?php echo $auxneto?>"><!--Pie Chart -->
                     <div class="ppc-progress">
                         <div class="ppc-progress-fill"></div>
                     </div>
                     <div class="ppc-percents">
-                    <div class="pcc-percents-wrapper">
-                        <span>%</span>
-                    </div>
+                        <div class="pcc-percents-wrapper">
+                            <span><p><?php echo $auxneto?>%</p></span>
+                        </div>
                     </div>
                 </div><!--End Chart -->
-        </div>
+                <p>Completado</p>
+            </div>
         </div>
     </div>
-    <?php if($user['genero'] == 'H'):?>
-    <?php else: ?>
-    <?php endif ?>
-    </div>
+</div>
 
 <?php require_once '../templates/footer.php' ?>
 
@@ -93,20 +98,21 @@
 <script src="../js/calendario.js"></script>
 <script>
 $(function(){
-    var $ppc = $('.progress-pie-chart'),
-        percent = parseInt($ppc.data('percent')),
-        deg = 360*percent/100;
-    if (percent > 50) {
-        $ppc.addClass('gt-50');
-    }else{
-        $ppc.addClass('gt-0');
-    }
-    if(deg == 0){
-        $('.ppc-progress-fill').css({ transition: "transform 1s",transform:  "rotate(" + 1 + "deg)" });
-    }else{
-        $('.ppc-progress-fill').css({ transition: "transform 1s",transform:  "rotate(" + deg + "deg)" });
-    }
-    $('.ppc-percents span').html(percent+'%');
+    $('.progressDiv ').each(function (i) {
+        var $ppc = $(this).find('.progress-pie-chart'),
+            percent = parseInt($ppc.data('percent')),
+            deg = 360*percent/100;
+        if (percent > 50) {
+            $ppc.addClass('gt-50');
+        }else{
+            $ppc.addClass('gt-0');
+        }
+        if(deg == 0){
+            $(this).find('.ppc-progress-fill').css({ transition: "transform 1s",transform:  "rotate(" + 1 + "deg)" });
+        }else{
+            $(this).find('.ppc-progress-fill').css({ transition: "transform 1s",transform:  "rotate(" + deg + "deg)" });
+        }
+    });
 });
    </script>
 </html>

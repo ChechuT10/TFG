@@ -21,6 +21,9 @@ input + p{
     border-color: #EC1D18;
   }
   
+  .register .msg p{
+    color: grey;
+  }
   /* Estilo del formulario */
   
   .main-forms{

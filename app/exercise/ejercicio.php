@@ -43,9 +43,9 @@
                         $ex = $aux->getExerciseById($e['idEjercicio']);
                         echo '<p class="nombre">' . $ex['nombre'] . '</p>';
                         echo '<div class="datos">
-                                <p>'.$ex['calorias'].'</p>
-                                <p>'.$e['minutos'].'</p>
-                                <p>'.intval($ex['calorias']*($e['minutos'])).'</p>
+                                <p class="pcalorias">'.$ex['calorias'].'</p>
+                                <p class="pminutos">'.$e['minutos'].'</p>
+                                <p class="ptotal">'.intval($ex['calorias']*($e['minutos'])).'</p>
                                 <div class="idejercicio">'.$e['idActividad'].'</div>
                                 <img src="../images/trashicon.png">
                                 </div>

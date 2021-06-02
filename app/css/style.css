@@ -37,7 +37,7 @@ header{
     display: grid;
     grid-gap: 10px;
     grid-template-columns: repeat(auto-fill, 1fr);
-    grid-template-areas: '. tit tit user nav .';
+    grid-template-areas: '.  tit tit user nav  .';
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 0 0.4em rgba(0,0,0,0.2);
@@ -49,7 +49,7 @@ header{
 }
 
 .logo img {
-    max-width: 150px;
+    max-width: 170px;
 }
 
 header .msg {
@@ -92,10 +92,6 @@ header li {
     flex-direction: column;
     align-items: center;
 
-}
-
-nav .sett {
-    max-width: 25px;
 }
 
 nav a {
@@ -158,13 +154,14 @@ nav a:hover div {
 /* Estilo index.php */
 
 .small-back-image {
-    padding: 2em 0;
+    padding: 1em 0 2em;
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .mensaje {
-    margin: 0 10%;
-    width: 80%;
+    flex-basis: 40%;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -183,7 +180,7 @@ nav a:hover div {
 }
 
 .mensaje p {
-    width: 80%;
+    width: 70%;
     margin: 1em auto;
     color: white;
 }
@@ -198,11 +195,6 @@ nav a:hover div {
     border-radius: 2em;
 }
 
-.small-back-image .info {
-    margin: 0 auto;
-    width: 80%;
-}
-
 #segundo {
     animation-delay: 1s;
 }
@@ -215,53 +207,163 @@ nav a:hover div {
     animation-delay: 3s;
 }
 
-.div2 {
-    background-color: #58AF9B;
-    font-style: italic;
-    color: white;
-    margin: 2%;
-    border-radius: 5px;
-    height: 200px;
-    box-shadow: 0.1em 0.3em 0.3em rgba(0, 0, 0, 0.5);
+.info-index{
+    flex-basis: 30%;
+    opacity: 0.7;
+    text-align: left;
 }
 
-#div1 {
-    float: left;
-    margin-left: 13%;
-    margin-right: 13%;
+.info-index img{
+    max-width: 340px;
+}
+.show-more {
+    display: flex;
+    justify-content: center;
+}
+.show-more img{
+    max-width: 160px;
+    border-radius: 50%;
+    padding-top: 0.5em;
+    cursor: pointer;
+}
+
+.div2 {
+    width: 80%;
+    margin: 2em auto 3em;
+    font-style: italic;
+    display: flex;
+    justify-content: space-between;
+    color: inherit;
+}
+
+.div2 div{
+    flex-basis: 45%;
 }
 
 .div3 {
-    background-color: #58AF9B;
+    width: 80%;
+    margin: 3em auto 0;
     font-style: italic;
-    color: white;
-    margin: 2%;
-    border-radius: 5px;
-    height: 500px;
-    box-shadow: 0.1em 0.3em 0.3em rgba(0, 0, 0, 0.5);
+    color: inherit;
 }
 
-.div3>h2 {
-    text-align: center;
+.list-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 2em;
 }
 
-.div3>.div1 {
-    float: left;
+.list-left{
+    flex-basis: 45%;
+}
+.list-right{
     margin-left: 5%;
-    margin-right: 13%;
-    width: 40%;
-    margin-top: 20px;
+    flex-basis: 45%;
 }
 
-.div3>.div1 img {
-    width: 8%;
-    height: 35px;
-    float: left;
+.lista-index{
+    display: flex;
+    align-items: center;
+}
+
+.lista-index img {
+    max-width: 40px;
     margin-right: 10px;
 }
 
+.lista-index p {
+    margin-top: 25px;
+}
 
+.index-herramientas{
+    width: 80%;
+    margin: 2em auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
 
+.index-herramientas .funcion{
+    margin: 2em 0.5em;
+    padding: 0.5em;
+    width: 100%;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, 1fr);
+    grid-template-rows: repeat(auto-fill,1fr);
+    grid-template-areas: 
+        'tit tit nimg nimg'
+        'txt txt nimg nimg'
+        'txt txt nimg nimg';
+    align-content: space-around;
+    align-items: center;     
+    font-style: italic;
+}
+
+.index-herramientas .reverse{
+    grid-template-areas: 
+        'nimg nimg tit tit'
+        'nimg nimg txt txt'
+        'nimg nimg txt txt'; 
+}
+
+.funcion h3{
+    grid-area: tit;
+    width: 80%;
+    font-size: 1.5em;
+    margin: 0;
+    /* border: 1px solid black; */
+}
+
+.reverse h3{
+    width: 90%;
+    text-align: right;
+    margin-left: 10%;
+    /* border: 1px solid black; */
+}
+
+.funcion p{
+    grid-area: txt;
+    width: 90%;
+    margin: 0;
+    font-size: 1.1em;
+    /* border: 1px solid black; */
+}
+
+.reverse p{
+    /* padding-left: 1em; */
+    margin-left: 10%;
+    text-align: right;
+}
+
+.funcion .imagen{
+    border-radius: 5px;
+    box-shadow: 0.2em 0em 0.8em rgba(0,0,0,0.3);
+    grid-area: nimg;
+    width: 100%;
+    max-width: 350px;
+    min-width: 200px;
+}
+
+.redirigir-index{
+    width: 50%;
+    font-family: 'Montserrat', sans-serif;
+    margin: 5em auto 0;
+    text-align: center;
+    display: block;
+    background-color: #58AF9B;
+    color: white;
+    padding: 0.7em 1em;
+    border: none;
+    border-radius: 2em;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0.1em 0.3em 0.3em rgba(0,0,0,0.2);
+    text-decoration: none;
+}
 /* footer */
 
 
@@ -486,6 +588,7 @@ footer p {
 .progress-bar-text {
     position: absolute;
     top: 25px;
+    right: 10px;
     width: 100%;
     text-align: center;
     line-height: 30px;
@@ -622,12 +725,16 @@ section {
     width: 100%;
 }
 
+.legal-preguntas{
+    width: 60%;
+    margin: 2em auto 0;
+}
 
 /* calendario para cambair de dias */
 #fecha {
     width: 200px;
     font-size: 20px;
-    border-color: #f0f8ff00;
+    border:2px solid grey;
     background: #b3b3b3;
     border-radius: 10px;
     text-align: center;
@@ -659,12 +766,23 @@ section {
         padding: 1em;
     }
 
+    .progress {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .cal-math{
+        font-size: 0.9em;
+    }
+
     .content .info-index{
         width: 100%;
     }
+
     .card{
         display: none;
     }
+    
     .register .msg {
         display: block;
     }
@@ -695,6 +813,10 @@ section {
         width: 100%;
         color: white;
         box-shadow: 0.3em 0.3em 0.6em rgba(1, 1, 1, 1);
+    }
+
+    .index-herramientas .funcion{
+        margin: 1em 0;
     }
 }
 
@@ -782,6 +904,57 @@ section {
 
     .width-pro{
         width: 100%;
+    }
+
+    .mensaje{
+        flex-basis: 60%;
+        margin: 1em 0;
+    }
+
+    .info-index{
+        display: none;
+    }
+
+    .div2{
+        flex-wrap: wrap;
+    }
+
+    .div2 div{
+        flex-basis: 100%;
+    }    
+
+    .list-container{
+        flex-direction: column;
+    }
+
+    .list-right{
+        margin-left: 0%;
+    }
+    
+    .lista-index{
+        display: flex;
+        align-items: center;
+        /* width: 40%; */
+    }
+
+    .index-herramientas .funcion{
+        grid-template-areas: 
+            'nimg nimg nimg nimg'
+            'tit tit tit tit'
+            'txt txt txt txt';
+    }
+    
+    #fecha{
+        margin-top: 10px;
+    }
+
+    .reverse h3{
+        text-align: left;
+        margin: 0;
+    }
+    .reverse p{
+        text-align: left;
+        margin: 0;
     }
     /* clases para las animaciones */
 
