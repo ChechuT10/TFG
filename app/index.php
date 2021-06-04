@@ -60,7 +60,6 @@ require_once "class/exercise.php";
                     </ul>
                 </nav>
             </header>
-            <!-- Hacerlo con una variable de user s/n y cuando el usuario rellene estos datos que se marque como completa -->
             <?php
             $aux = new User();
             $user = $aux->getUserById($_SESSION['userId']);

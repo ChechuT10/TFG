@@ -21,10 +21,10 @@
                     <p>Comprueba que es correcto</p>
                     <input type="password" name="pswd" placeholder="Contraseña...">         
                     <p>Entre 8 y 20 caracteres</p>  
-                    <button type="submit" class="enviar">Crear cuenta</button>
+                    <button type="submit" name="enviar" class="enviar">Crear cuenta</button>
                 </form>
                 <div class="msg">
-                    <p>Para crear una cuenta <a href="">Pincha aquí</a></p>
+                    <p>Para crear una cuenta <a href="inicioSesion.php">Pincha aquí</a></p>
                 </div>
             </div>
         </div>         

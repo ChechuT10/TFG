@@ -12,6 +12,13 @@ function array_push_assoc($array, $key, $value){
     return $array;
 }
 
+$aux3 = new User();
+$useraux = $aux3->getAuxForm($_SESSION['userId']);
+
+if(isset($useraux)){
+    $userGender = $useraux['genero'];
+}
+
 $aux = new Exercise();
 $actividad = $aux->getExercises($_SESSION['userId'], $_SESSION['date']);
 $ejercicios = [];
