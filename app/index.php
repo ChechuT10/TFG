@@ -19,6 +19,8 @@ require_once "class/exercise.php";
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <script src="js/jquery.js"></script>
     <script src="js/nav.js"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="../images/favicon.png">
 </head>
 
 <body class="lightmode">
@@ -112,9 +114,9 @@ require_once "class/exercise.php";
                     <div class="resumen-data">
                         <div class="cal-res">
                             <p>Calorias restantes</p>
-                            <?php if(isset($userGender) && $userGender == 'H'): ?>
+                            <?php if (isset($userGender) && $userGender == 'H') : ?>
                                 <h1>2000</h1>
-                            <?php else: ?>
+                            <?php else : ?>
                                 <h1>1800</h1>
                             <?php endif ?>
                         </div>
@@ -124,9 +126,9 @@ require_once "class/exercise.php";
                         </div>
                         <div class="cal-math">
                             <div class="cal-obj">
-                                <?php if(isset($userGender) && $userGender == 'H'): ?>
+                                <?php if (isset($userGender) && $userGender == 'H') : ?>
                                     <h4>2000</h4>
-                                <?php else: ?>
+                                <?php else : ?>
                                     <h4>1800</h4>
                                 <?php endif ?>
                                 <p>OBJETIVO</p>
@@ -224,7 +226,7 @@ require_once "class/exercise.php";
                         <a href="account/registro.php">Comencemos</a>
                     </div>
                     <div class="info-index">
-                        <img src ="images/bol.png">
+                        <img src="images/bol.png">
                     </div>
                 </div>
             </div>
@@ -284,7 +286,7 @@ require_once "class/exercise.php";
                         <div class="funcion">
                             <h3>Registro de tus alimentos</h3>
                             <p>
-                                Añade los alimentos que ingieras para consultar la informacion nutricional y llevar un control de 
+                                Añade los alimentos que ingieras para consultar la informacion nutricional y llevar un control de
                                 lo que comes cada día. Aprende qué alimentos son más o menos
                                 calóricos en función de tu objetivo y usa esta información para hacer tu compra más saludable.
                             </p>
@@ -293,7 +295,7 @@ require_once "class/exercise.php";
                         <div class="funcion reverse">
                             <h3>Registro de tus ejercicios</h3>
                             <p>
-                                También contamos con un regitro de actividades con el que puedes 
+                                También contamos con un regitro de actividades con el que puedes
                                 hacer un seguimiento de las calorias que consumas cada vez que realizas ejercicio.
                             </p>
                             <img class="imagen" src="images/ejercicio.jpg">
@@ -301,8 +303,8 @@ require_once "class/exercise.php";
                         <div class="funcion">
                             <h3>Consulta tus gráficas</h3>
                             <p>
-                                En NutriLife sabemos que cuanto más claro y sencillo mejor. Es por eso 
-                                que contamos con gráficas personalizadas con todos los datos que 
+                                En NutriLife sabemos que cuanto más claro y sencillo mejor. Es por eso
+                                que contamos con gráficas personalizadas con todos los datos que
                                 necesitas saber de una forma mas visual y sencilla.
                             </p>
                             <img class="imagen" src="images/bar.png">
@@ -339,4 +341,5 @@ require_once "class/exercise.php";
 </body>
 <script src="js/nightmode.js"></script>
 <script src="js/barraIndex.js"></script>
+
 </html>
