@@ -10,17 +10,20 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NutriLife</title>
+    <!-- css -->
     <link rel="stylesheet" type="text/css" href="../css/settings.css" />
     <link rel="stylesheet" type="text/css" href="../css/alimentos.css" />
     <link rel="stylesheet" type="text/css" href="../css/ejercicio.css" />
     <link rel="stylesheet" type="text/css" href="../css/forms.css" />
     <link rel="stylesheet" href="../css/informes.css">
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-
+    <!-- favicon -->
+    <link rel="shortcut icon" href="../images/favicon.png">
     <!-- jqury -->
     <script src="../js/jquery.js"></script>
     <script src="../js/nav.js"></script>
@@ -29,7 +32,7 @@ session_start();
 <body>
     <div class="container lightmode">
         <header>
-        <a href="../index.php" class="logo"><img src="../images/logo_small.png"></a>
+            <a href="../index.php" class="logo"><img src="../images/logo_small.png"></a>
             <?php
             if (isset($_SESSION['userUid'])) {
                 echo '<div class="msg">';
@@ -63,14 +66,14 @@ session_start();
                                   <li><a href="../account/perfil.php"><p>Ajustes</p><div></div></a></li>
                                   <li><a href="../include/logout.php"><p>Cerrar Sesion</p><div></div></a></li>
                                   <li><a class="night"><img src="../images/luna2.png"></a></li>';
-                        }  else if ($curPageName == 'informes.php') {
+                        } else if ($curPageName == 'informes.php') {
                             echo '<li><a href="../food/alimentos.php"><p>Alimentos</p><div></div></a></li>  
                                   <li><a href="../exercise/ejercicio.php"><p>Ejercicio</p><div></div></a></li>  
                                   <li><a href="../informes/informes.php"><p>Informes</p><div div class="active"></div></a></li> 
                                   <li><a href="../account/perfil.php"><p>Ajustes</p><div></div></a></li>
                                   <li><a href="../include/logout.php"><p>Cerrar Sesion</p><div></div></a></li>
                                   <li><a class="night"><img src="../images/luna2.png"></a></li>';
-                        }else {
+                        } else {
                             echo '<li><a href="../food/alimentos.php"><p>Alimentos</p><div></div></a></li>  
                                   <li><a href="../exercise/ejercicio.php"><p>Ejercicio</p><div></div></a></li>  
                                   <li><a href="../informes/informes.php"><p>Informes</p><div></div></a></li> 
