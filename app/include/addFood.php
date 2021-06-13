@@ -10,8 +10,9 @@ if(isset($_POST['enviar'])){
 
     require_once "functions.php";
 
-    if($cantidad==null || $cantidad <= 0){
-        $cantidad = 100;
+    if($cantidad==null || $cantidad <= 0 || $cantidad > 5000){
+        header("location: ../food/alimentos.php?msj=invalidData");
+        exit();
     }
     if($type == 'desayuno'){
         addBreakfast($idUser, $idFood, $cantidad);

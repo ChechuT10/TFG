@@ -76,7 +76,7 @@
                 </div>
             </div>
             <div class="progressDiv activo">
-                <div class="progress-pie-chart" data-percent="<?php echo $auxneto?>"><!--Pie Chart -->
+                <div class="progress-pie-chart" data-percent="<?php echo $auxneto?>">
                     <div class="ppc-progress">
                         <div class="ppc-progress-fill"></div>
                     </div>
@@ -85,7 +85,7 @@
                             <span><p><?php echo $auxneto?>%</p></span>
                         </div>
                     </div>
-                </div><!--End Chart -->
+                </div>
                 <p>Completado</p>
             </div>
         </div>
@@ -103,7 +103,19 @@ $(function(){
             percent = parseInt($ppc.data('percent')),
             deg = 360*percent/100;
         if (percent > 50) {
-            $ppc.addClass('gt-50');
+            if (percent > 100) {
+                if (percent > 200) {
+                    $ppc.addClass('gt-200');
+                    $(this).find('.pcc-percents-wrapper p').css({color:'#e5383b'});
+                }else{
+                    $ppc.addClass('gt-100');
+                    $(this).find('.pcc-percents-wrapper p').css({color:'#fcb75d'});
+                }
+                deg =360
+            }
+            else{
+                $ppc.addClass('gt-50');
+            }
         }else{
             $ppc.addClass('gt-0');
         }

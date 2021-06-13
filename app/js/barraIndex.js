@@ -4,7 +4,6 @@ $('.progress-bar').each(function () {
     let datawidth = $('.cal-neto h4').text()
     $('.cal-res h1').text(total-datawidth)
     datawidth = Math.round((100*datawidth)/total);
-    console.log($(window).width())
 
     if($(window).width()<1200){
         if (datawidth > 100) {
