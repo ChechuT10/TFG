@@ -27,7 +27,7 @@ class User extends Db{
     }
 
     public function createUsersAux($age, $height, $weight, $idealw, $gender, $auxId){
-        $sql = "INSERT INTO userAux (edad,altura,peso,pesoIdeal,genero,idUser) VALUES (?, ?, ?, ?, ?, ?);";
+        $sql = "INSERT INTO useraux (edad,altura,peso,pesoIdeal,genero,idUser) VALUES (?, ?, ?, ?, ?, ?);";
 
          $query = $this->connect()->prepare($sql);
 
@@ -66,7 +66,7 @@ class User extends Db{
     }
 
     public function updateAuxForm($age, $height, $weight, $idealw, $auxId){
-        $sql = "UPDATE userAux SET edad = ?, altura = ?, peso = ?, pesoIdeal = ?  WHERE idUser = ?;";
+        $sql = "UPDATE useraux SET edad = ?, altura = ?, peso = ?, pesoIdeal = ?  WHERE idUser = ?;";
         $query = $this->connect()->prepare($sql);
         if ($query->execute([$age, $height, $weight, $idealw, $auxId])) {
                 return true;

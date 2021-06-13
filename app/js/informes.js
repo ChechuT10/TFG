@@ -42,6 +42,17 @@ var Barchart = function (options) {
     for (var categ in this.options.data) {
       maxValue = Math.max(maxValue, this.options.data[categ]);
     }
+
+    if(maxValue <= 200){
+      this.options.gridScale = 10;
+    }
+    if(maxValue > 200 && maxValue < 1000){
+      this.options.gridScale = 100;
+    }
+    if(maxValue > 20000){
+      this.options.gridScale = 10000;
+    }
+
     var canvasActualHeight = this.canvas.height - this.options.padding * 2;
     var canvasActualWidth = this.canvas.width - this.options.padding * 2;
 
@@ -120,16 +131,15 @@ window.addEventListener("load", function () {
     })
     .then(function (resultado) {
       for (const key in resultado) {
-        console.log(resultado[key]);
-        datos.Proteina = datos.Proteina + parseInt(resultado[key].proteinas);
-        datos.Hidratos = datos.Hidratos + parseInt(resultado[key].hidratos);
-        datos.Grasas = datos.Grasas + parseInt(resultado[key].grasas);
+        datos.Proteina = datos.Proteina + (parseInt(resultado[key].proteinas)*parseInt(resultado[key].cantidad));
+        datos.Hidratos = datos.Hidratos + (parseInt(resultado[key].hidratos)*parseInt(resultado[key].cantidad));
+        datos.Grasas = datos.Grasas + (parseInt(resultado[key].grasas)*parseInt(resultado[key].cantidad));
       }
 
       var myBarchart = new Barchart({
         canvas: myCanvas,
         padding: 40,
-        gridScale: 10,
+        gridScale: 1000,
         // color de la barra horizontal
         gridColor: "#118AB2",
         data: datos,
@@ -137,13 +147,5 @@ window.addEventListener("load", function () {
         colors: ["#EF476F", "#FFD166", "#06D6A0"],
       });
       myBarchart.draw();
-    });
-
-    fetch("../include/getExerciseByUser.php", {})
-    .then(function (respuesta) {
-      return respuesta.json();
-    })
-    .then(function (resultado) {
-      console.log(resultado)
     });
 });

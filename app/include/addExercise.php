@@ -10,7 +10,7 @@ if(isset($_POST['enviar'])){
 
     require_once "functions.php";
 
-    if($cantidad == null){
+    if($cantidad == null || $cantidad <= 0 || $cantidad > 1440){
         header('location: ../exercise/searchEx.php?search='.$aux.'&msj=err');
         exit();
     }

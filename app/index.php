@@ -213,7 +213,7 @@ require_once "class/exercise.php";
                 <div class="small-back-image">
                     <div class="mensaje">
                         <div>
-                            <h1 id="primero">Binevenido</h2>
+                            <h1 id="primero">Bienvenido</h2>
                                 <h1 id="segundo">a</h2>
                                     <h1 id="tercero">NutriLife</h2>
                         </div>

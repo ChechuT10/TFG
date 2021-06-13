@@ -77,10 +77,7 @@ if(isset($useraux)){
 $restantesaux = $restantes-($sumaAlimentos-$sumaEjercicios);
 $neto = intval((($sumaAlimentos-$sumaEjercicios)*100)/$restantes);
 
-if ($neto > 100) {
-    $auxneto = 100;
-}
-else if ($neto < 0) {
+if ($neto < 0) {
     $auxneto = 0;
 }else{
     $auxneto = $neto;

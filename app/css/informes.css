@@ -90,6 +90,14 @@
   background-color: #D0E8E3;
 }
 
+.progress-pie-chart.gt-100 {
+  background-color: #fcb75d;
+}
+
+.progress-pie-chart.gt-200 {
+  background-color: #e5383b;
+}
+
 .ppc-progress {
   content: "";
   position: absolute;

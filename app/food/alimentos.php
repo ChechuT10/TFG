@@ -117,8 +117,12 @@
                 if(isset($_GET['msj'])){
                     if($_GET['msj']=="fail"){
                         $error = 'No se ha podido añadir el alimento';
-                    }if($_GET['msj']=="err"){
+                    }
+                    if($_GET['msj']=="err"){
                         $error = 'No se ha podido borrar el alimento';
+                    }
+                    if($_GET['msj']=="invalidData"){
+                        $error = 'El valor introducido no es válido';
                     }
                 }
             ?>
