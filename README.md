@@ -1,4 +1,7 @@
-# TFG
+Este proyecto es el trabajo de fin de grado de JESUS TIRADO, JORGE TRAPERO, CARLOS TIPAN, Es una aplicacion para poder controlar tu alimentacion y tener una vida sana
+
+
+# NutriLife
 Actualmente nuestro estilo de vida es tan acelerado que ni nos paramos a 
 mirar qué estamos comiendo, cada vez recurrimos más a las comidas pre 
 hechas o rápidas conllevando a una alimentación que en un futuro nos 
